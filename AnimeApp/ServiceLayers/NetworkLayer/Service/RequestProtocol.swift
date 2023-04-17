@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Parameters
 typealias Parameters = [String: Any]
 
-//MARK: - HTTPHeaders
+// MARK: - HTTPHeaders
 typealias HTTPHeaders = [String: String]
 
 // MARK: - HTTPBody

@@ -1,0 +1,19 @@
+included:
+  - AnimeApp
+excluded:
+  - AnimeApp/Application
+line_length:
+  warning: 180
+  error: 280
+identifier_name:
+  max_length:
+    warning: 45
+    error: 60
+  min_length:
+    warning: 2
+disabled_rules:
+  - trailing_whitespace
+  - private_over_fileprivate
+opt_in_rules:
+- force_unwrapping
+

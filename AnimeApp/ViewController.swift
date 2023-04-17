@@ -28,8 +28,4 @@ class ViewController: UIViewController {
             print(data?.count)
         }
     }
-    
-
-
 }
-
