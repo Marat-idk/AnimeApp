@@ -11,10 +11,10 @@ import UIKit
 extension UIColor {
     convenience init(hexString: String, alpha: Double = 1.0) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
-        var int = UInt32()
-        Scanner(string: hex).scanHexInt32(&int)
+        var int = UInt64()
+        Scanner(string: hex).scanHexInt64(&int)
 
-        let red, green, blue: UInt32
+        let red, green, blue: UInt64
         switch hex.count {
         case 3: // RGB (12-bit)
             (red, green, blue) = ((int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
@@ -36,4 +36,3 @@ extension UIColor {
                   alpha: 1.0)
     }
 }
-
