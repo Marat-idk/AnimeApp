@@ -53,6 +53,7 @@ final class GradientView: UIView {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         gradientLayer.frame = bounds
     }
 }
