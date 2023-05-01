@@ -98,3 +98,45 @@ extension MaterialTextField: UITextFieldDelegate {
         didEndEditing?(self)
     }
 }
+
+// MARK: - default MaterialTextFields
+extension MaterialTextField {
+    
+    static func defaultLaginTextField() -> MaterialTextField {
+        let tf = MaterialTextField()
+        tf.attributedPlaceholder = NSAttributedString(
+            string: "Email or username",
+            attributes: [
+                NSAttributedString.Key.foregroundColor: UIColor.black,
+                NSAttributedString.Key.font: UIFont.ubuntuRegular(size: 16) ?? .systemFont(ofSize: 16)
+            ]
+        )
+        tf.tintColor = .black
+        tf.clearButtonMode = .whileEditing
+        tf.autocorrectionType = .no
+        tf.autocapitalizationType = .none
+        tf.returnKeyType = .next
+        tf.underlined(color: .black)
+        return tf
+    }
+    
+    static func defaultPasswordTextField() -> MaterialTextField {
+        let tf = MaterialTextField()
+        tf.attributedPlaceholder = NSAttributedString(
+            string: "Password",
+            attributes: [
+                NSAttributedString.Key.foregroundColor: UIColor.black,
+                NSAttributedString.Key.font: UIFont.ubuntuRegular(size: 16) ?? .systemFont(ofSize: 16)
+            ]
+        )
+        
+        tf.tintColor = .black
+        tf.isSecureTextEntry = true
+        tf.autocorrectionType = .no
+        tf.autocapitalizationType = .none
+        tf.returnKeyType = .done
+        tf.underlined(color: .black)
+        
+        return tf
+    }
+}
