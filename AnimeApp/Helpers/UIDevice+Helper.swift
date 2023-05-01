@@ -1,0 +1,18 @@
+//
+//  UIDevice+Helper.swift
+//  AnimeApp
+//
+//  Created by Marat on 30.04.2023.
+//
+
+import UIKit
+
+extension UIDevice {
+    static var isIpad: Bool {
+        return UIDevice.current.userInterfaceIdiom == .pad
+    }
+    
+    static var isIphone5Family: Bool {
+        return !isIpad && UIScreen.main.bounds.width == 320.0
+    }
+}
