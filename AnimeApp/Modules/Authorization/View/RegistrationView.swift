@@ -8,6 +8,7 @@
 import UIKit
 
 protocol RegistrationViewDelegate: AnyObject {
+    func register(email: String, username: String, password: String, completion: @escaping (Bool) -> Void)
     func haveAccountButtonTapped()
 }
 
@@ -26,8 +27,15 @@ final class RegistrationView: UIView {
         return view
     }()
     
-    private lazy var loginTextField: MaterialTextField = {
+    private lazy var emailTextField: MaterialTextField = {
         let tf = MaterialTextField.defaultLaginTextField()
+        tf.attributedPlaceholder = NSAttributedString(
+            string: "Email",
+            attributes: [
+                NSAttributedString.Key.foregroundColor: UIColor.black,
+                NSAttributedString.Key.font: UIFont.ubuntuRegular(size: 16) ?? .systemFont(ofSize: 16)
+            ]
+        )
         tf.tag = 0
         
         tf.didBeginEditing = { field in
@@ -49,8 +57,15 @@ final class RegistrationView: UIView {
         return tf
     }()
     
-    private lazy var passwordTextField: MaterialTextField = {
-        let tf = MaterialTextField.defaultPasswordTextField()
+    private lazy var usernameTextField: MaterialTextField = {
+        let tf = MaterialTextField.defaultLaginTextField()
+        tf.attributedPlaceholder = NSAttributedString(
+            string: "Username",
+            attributes: [
+                NSAttributedString.Key.foregroundColor: UIColor.black,
+                NSAttributedString.Key.font: UIFont.ubuntuRegular(size: 16) ?? .systemFont(ofSize: 16)
+            ]
+        )
         tf.tag = 1
         tf.returnKeyType = .next
         
@@ -65,10 +80,10 @@ final class RegistrationView: UIView {
         return tf
     }()
     
-    private lazy var repeatPasswordTextField: MaterialTextField = {
+    private lazy var passwordTextField: MaterialTextField = {
         let tf = MaterialTextField.defaultPasswordTextField()
         tf.attributedPlaceholder = NSAttributedString(
-            string: "Repeat password",
+            string: "Password",
             attributes: [
                 NSAttributedString.Key.foregroundColor: UIColor.black,
                 NSAttributedString.Key.font: UIFont.ubuntuRegular(size: 16) ?? .systemFont(ofSize: 16)
@@ -112,6 +127,15 @@ final class RegistrationView: UIView {
         return btn
     }()
     
+    private let activitiIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.style = .medium
+        indicator.color = .white
+        indicator.isHidden = true
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+    
     private lazy var stackView: UIStackView = {
         let buttonView = UIView()
         buttonView.addSubview(haveAccountButton)
@@ -120,9 +144,9 @@ final class RegistrationView: UIView {
             $0.centerX.top.bottom.equalToSuperview()
             $0.width.equalTo(160)
         }
-        let stack = UIStackView(arrangedSubviews: [loginTextField,
+        let stack = UIStackView(arrangedSubviews: [emailTextField,
+                                                   usernameTextField,
                                                    passwordTextField,
-                                                   repeatPasswordTextField,
                                                    buttonView,
                                                    continueButton
                                                   ])
@@ -155,6 +179,7 @@ final class RegistrationView: UIView {
     private func setupViews() {
         addSubview(containerView)
         containerView.addSubview(stackView)
+        continueButton.addSubview(activitiIndicator)
     }
     
     private func setupConstraints() {
@@ -167,6 +192,10 @@ final class RegistrationView: UIView {
             make.leading.equalToSuperview().offset(48)
             make.trailing.equalToSuperview().offset(-48)
             make.bottom.lessThanOrEqualToSuperview().offset(-30)
+        }
+        
+        activitiIndicator.snp.makeConstraints { make in
+            make.center.equalToSuperview()
         }
     }
     
@@ -185,11 +214,19 @@ final class RegistrationView: UIView {
     }
     
     private func checkInput() {
-        let hasEmptyFields = (loginTextField.text?.isEmpty ?? true) ||
-                             (passwordTextField.text?.isEmpty ?? true) ||
-                             (repeatPasswordTextField.text?.isEmpty ?? true)
+        let hasEmptyFields = (emailTextField.text?.isEmpty ?? true) ||
+                             (usernameTextField.text?.isEmpty ?? true) ||
+                             (passwordTextField.text?.isEmpty ?? true)
         enableButton(enable: !hasEmptyFields)
         
+    }
+    
+    private func userInteractionEnabled(_ flag: Bool) {
+        emailTextField.isEnabled = flag
+        usernameTextField.isEnabled = flag
+        passwordTextField.isEnabled = flag
+        haveAccountButton.isEnabled = flag
+        continueButton.isEnabled = flag
     }
     
     @objc private func haveAccountButtonTapped(_ sender: UIButton) {
@@ -199,7 +236,24 @@ final class RegistrationView: UIView {
     }
     
     @objc private func continueButtonTapped(_ sender: UIButton) {
+        guard let email = emailTextField.text,
+              let username = usernameTextField.text,
+              let password = passwordTextField.text else { return }
+        
         print("continueButtonTapped")
+        
+        continueButton.setTitle("", for: .normal)
+        activitiIndicator.isHidden = false
+        activitiIndicator.startAnimating()
+        
+        userInteractionEnabled(false)
+        
+        delegate?.register(email: email, username: username, password: password) { [weak self] isSuccessed in
+            guard let self = self else { return }
+            self.userInteractionEnabled(isSuccessed)
+            self.activitiIndicator.stopAnimating()
+            self.continueButton.setTitle("Continue", for: .normal)
+        }
     }
 }
 

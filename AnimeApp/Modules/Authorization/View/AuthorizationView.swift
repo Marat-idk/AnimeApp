@@ -9,7 +9,8 @@ import UIKit
 
 // MARK: - AuthorizationViewDelegate
 protocol AuthorizationViewDelegate: AnyObject {
-    func signInButtonTapped(with login: String, and password: String, completion: @escaping (Bool) -> Void)
+    func authorize(with login: String, and password: String, completion: @escaping (Bool) -> Void)
+    func restorePassword()
 }
 
 // MARK: - AuthorizationView
@@ -212,6 +213,7 @@ final class AuthorizationView: UIView {
 
     @objc private func forgotPasswordButtonTapped(_ sender: UIButton) {
         print("forgotPasswordButtonTapped")
+        delegate?.restorePassword()
     }
     
     @objc private func continueButtonTapped(_ sender: UIButton) {
@@ -226,7 +228,7 @@ final class AuthorizationView: UIView {
         
         userInteractionEnabled(false)
         
-        delegate?.signInButtonTapped(with: login, and: password) { [weak self] isSuccessed in
+        delegate?.authorize(with: login, and: password) { [weak self] isSuccessed in
             guard let self = self else { return }
             self.userInteractionEnabled(isSuccessed)
             self.activitiIndicator.stopAnimating()
