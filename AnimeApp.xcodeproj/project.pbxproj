@@ -26,9 +26,21 @@
 		D230220E29EC90990091DE37 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D230220D29EC90990091DE37 /* NetworkManager.swift */; };
 		D230221029EC916B0091DE37 /* NetworkManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D230220F29EC916B0091DE37 /* NetworkManagerImpl.swift */; };
 		D230221329ECA6580091DE37 /* AuthorizationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D230221229ECA6580091DE37 /* AuthorizationRequest.swift */; };
+		D23AA46B29FDB07000B877CF /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA46A29FDB07000B877CF /* RegistrationView.swift */; };
+		D23AA46E29FE834700B877CF /* UIDevice+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA46D29FE834700B877CF /* UIDevice+Helper.swift */; };
+		D23AA47029FF275E00B877CF /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA46F29FF275E00B877CF /* String+Helper.swift */; };
+		D23AA47329FFE56100B877CF /* AuthorizationValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA47229FFE56100B877CF /* AuthorizationValidators.swift */; };
+		D23AA47529FFEB3500B877CF /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA47429FFEB3500B877CF /* Authorization.swift */; };
+		D23AA4772A00A3F800B877CF /* RegistrationValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA4762A00A3F700B877CF /* RegistrationValidators.swift */; };
+		D23AA4792A00A7F700B877CF /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA4782A00A7F700B877CF /* Registration.swift */; };
+		D23AA47B2A08326700B877CF /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA47A2A08326700B877CF /* TestViewController.swift */; };
+		D23AA47D2A0832E300B877CF /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA47C2A0832E300B877CF /* TestCollectionViewCell.swift */; };
+		D23AA47F2A090ED800B877CF /* TestCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA47E2A090ED800B877CF /* TestCollectionViewFlowLayout.swift */; };
 		D2626DD429F5F787008E9521 /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2626DD329F5F787008E9521 /* MaterialTextField.swift */; };
 		D2626DD629F5FD50008E9521 /* UITextField+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2626DD529F5FD50008E9521 /* UITextField+Helper.swift */; };
 		D2626DD829F5FE9C008E9521 /* UIResponder+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2626DD729F5FE9C008E9521 /* UIResponder+Helper.swift */; };
+		D2626DDA29F603E5008E9521 /* UIView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2626DD929F603E5008E9521 /* UIView+Helper.swift */; };
+		D2626DDC29F61A8D008E9521 /* UIViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2626DDB29F61A8D008E9521 /* UIViewController+Helper.swift */; };
 		D2ECBB1D29EDFB59006D1FF1 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ECBB1C29EDFB59006D1FF1 /* UserService.swift */; };
 		D2ECBB1F29EFA9C3006D1FF1 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ECBB1E29EFA9C3006D1FF1 /* APIError.swift */; };
 		D2ECBB2229F07EDD006D1FF1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ECBB2129F07EDD006D1FF1 /* User.swift */; };
@@ -97,9 +109,22 @@
 		D230220D29EC90990091DE37 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D230220F29EC916B0091DE37 /* NetworkManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerImpl.swift; sourceTree = "<group>"; };
 		D230221229ECA6580091DE37 /* AuthorizationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRequest.swift; sourceTree = "<group>"; };
+		D23AA46A29FDB07000B877CF /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		D23AA46C29FDC1D200B877CF /* AnimeApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AnimeApp.entitlements; sourceTree = "<group>"; };
+		D23AA46D29FE834700B877CF /* UIDevice+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Helper.swift"; sourceTree = "<group>"; };
+		D23AA46F29FF275E00B877CF /* String+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helper.swift"; sourceTree = "<group>"; };
+		D23AA47229FFE56100B877CF /* AuthorizationValidators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationValidators.swift; sourceTree = "<group>"; };
+		D23AA47429FFEB3500B877CF /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
+		D23AA4762A00A3F700B877CF /* RegistrationValidators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationValidators.swift; sourceTree = "<group>"; };
+		D23AA4782A00A7F700B877CF /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
+		D23AA47A2A08326700B877CF /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		D23AA47C2A0832E300B877CF /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
+		D23AA47E2A090ED800B877CF /* TestCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		D2626DD329F5F787008E9521 /* MaterialTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
 		D2626DD529F5FD50008E9521 /* UITextField+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Helper.swift"; sourceTree = "<group>"; };
 		D2626DD729F5FE9C008E9521 /* UIResponder+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Helper.swift"; sourceTree = "<group>"; };
+		D2626DD929F603E5008E9521 /* UIView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helper.swift"; sourceTree = "<group>"; };
+		D2626DDB29F61A8D008E9521 /* UIViewController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Helper.swift"; sourceTree = "<group>"; };
 		D2ECBB1C29EDFB59006D1FF1 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D2ECBB1E29EFA9C3006D1FF1 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		D2ECBB2129F07EDD006D1FF1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -193,6 +218,7 @@
 		D23021C929EC853E0091DE37 /* AnimeApp */ = {
 			isa = PBXGroup;
 			children = (
+				D23AA46C29FDC1D200B877CF /* AnimeApp.entitlements */,
 				D2ECBB4F29F5D8E1006D1FF1 /* Views */,
 				D2ECBB3029F5BC8E006D1FF1 /* Fonts */,
 				D2ECBB2D29F5BAED006D1FF1 /* Helpers */,
@@ -300,11 +326,22 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		D23AA47129FF28C800B877CF /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				D23AA47229FFE56100B877CF /* AuthorizationValidators.swift */,
+				D23AA4762A00A3F700B877CF /* RegistrationValidators.swift */,
+			);
+			path = Validators;
+			sourceTree = "<group>";
+		};
 		D2ECBB2029F07DB5006D1FF1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				D2ECBB2129F07EDD006D1FF1 /* User.swift */,
 				D2ECBB2329F0820C006D1FF1 /* Session.swift */,
+				D23AA47429FFEB3500B877CF /* Authorization.swift */,
+				D23AA4782A00A7F700B877CF /* Registration.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -313,6 +350,9 @@
 			isa = PBXGroup;
 			children = (
 				D2ECBB2629F5B0B7006D1FF1 /* Authorization */,
+				D23AA47A2A08326700B877CF /* TestViewController.swift */,
+				D23AA47E2A090ED800B877CF /* TestCollectionViewFlowLayout.swift */,
+				D23AA47C2A0832E300B877CF /* TestCollectionViewCell.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -320,6 +360,7 @@
 		D2ECBB2629F5B0B7006D1FF1 /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
+				D23AA47129FF28C800B877CF /* Validators */,
 				D2ECBB2729F5B0DD006D1FF1 /* View */,
 				D2ECBB2829F5B0E5006D1FF1 /* Presenter */,
 			);
@@ -331,6 +372,7 @@
 			children = (
 				D2ECBB2929F5B124006D1FF1 /* AuthorizationViewController.swift */,
 				D2ECBB4729F5D14F006D1FF1 /* AuthorizationView.swift */,
+				D23AA46A29FDB07000B877CF /* RegistrationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -350,6 +392,10 @@
 				D2ECBB4B29F5D45B006D1FF1 /* UIColor+Helper.swift */,
 				D2626DD529F5FD50008E9521 /* UITextField+Helper.swift */,
 				D2626DD729F5FE9C008E9521 /* UIResponder+Helper.swift */,
+				D2626DD929F603E5008E9521 /* UIView+Helper.swift */,
+				D2626DDB29F61A8D008E9521 /* UIViewController+Helper.swift */,
+				D23AA46D29FE834700B877CF /* UIDevice+Helper.swift */,
+				D23AA46F29FF275E00B877CF /* String+Helper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -642,18 +688,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D23AA47B2A08326700B877CF /* TestViewController.swift in Sources */,
 				D2ECBB2C29F5B154006D1FF1 /* AuthorizationPresenter.swift in Sources */,
+				D23AA47F2A090ED800B877CF /* TestCollectionViewFlowLayout.swift in Sources */,
 				D230220529EC8D360091DE37 /* ParameterEncoding.swift in Sources */,
+				D23AA4772A00A3F800B877CF /* RegistrationValidators.swift in Sources */,
 				D2ECBB5129F5D90A006D1FF1 /* GradientView.swift in Sources */,
+				D23AA46B29FDB07000B877CF /* RegistrationView.swift in Sources */,
+				D23AA47029FF275E00B877CF /* String+Helper.swift in Sources */,
 				D230220A29EC8E2C0091DE37 /* NetworkError.swift in Sources */,
 				D230220E29EC90990091DE37 /* NetworkManager.swift in Sources */,
 				D2626DD629F5FD50008E9521 /* UITextField+Helper.swift in Sources */,
 				D23021CF29EC853E0091DE37 /* ViewController.swift in Sources */,
 				D230221029EC916B0091DE37 /* NetworkManagerImpl.swift in Sources */,
+				D23AA46E29FE834700B877CF /* UIDevice+Helper.swift in Sources */,
+				D2626DDA29F603E5008E9521 /* UIView+Helper.swift in Sources */,
 				D23021CB29EC853E0091DE37 /* AppDelegate.swift in Sources */,
 				D2ECBB1D29EDFB59006D1FF1 /* UserService.swift in Sources */,
 				D23021CD29EC853E0091DE37 /* SceneDelegate.swift in Sources */,
+				D23AA47529FFEB3500B877CF /* Authorization.swift in Sources */,
 				D2ECBB2A29F5B124006D1FF1 /* AuthorizationViewController.swift in Sources */,
+				D2626DDC29F61A8D008E9521 /* UIViewController+Helper.swift in Sources */,
 				D2626DD829F5FE9C008E9521 /* UIResponder+Helper.swift in Sources */,
 				D2626DD429F5F787008E9521 /* MaterialTextField.swift in Sources */,
 				D2ECBB2229F07EDD006D1FF1 /* User.swift in Sources */,
@@ -663,6 +718,9 @@
 				D230220729EC8DAE0091DE37 /* URLParameterEncoder.swift in Sources */,
 				D2ECBB2F29F5BB2B006D1FF1 /* UIFont+Names.swift in Sources */,
 				D2ECBB2429F0820C006D1FF1 /* Session.swift in Sources */,
+				D23AA4792A00A7F700B877CF /* Registration.swift in Sources */,
+				D23AA47D2A0832E300B877CF /* TestCollectionViewCell.swift in Sources */,
+				D23AA47329FFE56100B877CF /* AuthorizationValidators.swift in Sources */,
 				D230220129EC892B0091DE37 /* HTTPMethod.swift in Sources */,
 				D23021FF29EC88A80091DE37 /* RequestProtocol.swift in Sources */,
 				D2ECBB4829F5D14F006D1FF1 /* AuthorizationView.swift in Sources */,
@@ -840,6 +898,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AnimeApp/AnimeApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F5L4362QVT;
@@ -871,6 +930,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AnimeApp/AnimeApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F5L4362QVT;
