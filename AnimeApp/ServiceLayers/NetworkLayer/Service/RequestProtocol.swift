@@ -46,7 +46,7 @@ extension RequestProtocol {
             }
         }
         if
-            let data = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed),
+            let data = try? JSONSerialization.data(withJSONObject: body ?? [:], options: .fragmentsAllowed),
             let dict = try? JSONSerialization.jsonObject(with: data, options: .allowFragments),
             let prettyData = try? JSONSerialization.data(withJSONObject: dict, options: [.fragmentsAllowed]),
             let text = String(data: prettyData, encoding: .ascii) {
