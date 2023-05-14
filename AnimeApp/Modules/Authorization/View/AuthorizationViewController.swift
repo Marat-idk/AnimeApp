@@ -213,7 +213,7 @@ extension AuthorizationViewController {
         UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveLinear) {
             self.authorizationView.snp.makeConstraints { make in
                 make.leading.trailing.equalToSuperview()
-                self.authorizationBottomConstraint = make.bottom.equalToSuperview().constraint
+                self.authorizationBottomConstraint = make.bottom.equalToSuperview().offset(0).constraint
                 make.height.equalTo(334)
             }
             self.view.layoutIfNeeded()
@@ -238,6 +238,7 @@ extension AuthorizationViewController {
         UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveLinear) {
             self.registrationView.snp.makeConstraints { make in
                 make.leading.trailing.equalToSuperview()
+                self.registrationBottomConstraint?.deactivate()
                 self.registrationBottomConstraint = make.bottom.equalToSuperview().constraint
                 make.height.equalTo(UIDevice.isIphone5Family ? 331 : 431)
             }
