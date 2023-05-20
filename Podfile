@@ -13,6 +13,9 @@ target 'AnimeApp' do
     # UI
     pod 'SnapKit'
 
+    # network
+    pod 'netfox'
+
   target 'AnimeAppTests' do
     inherit! :search_paths
     # Pods for testing

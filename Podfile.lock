@@ -1,20 +1,24 @@
 PODS:
+  - netfox (1.21.0)
   - ObjectMapper (4.2.0)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
+  - netfox
   - ObjectMapper
   - SnapKit
 
 SPEC REPOS:
   trunk:
+    - netfox
     - ObjectMapper
     - SnapKit
 
 SPEC CHECKSUMS:
+  netfox: 9d5cc727fe7576c4c7688a2504618a156b7d44b7
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 20e01cad1af26075737f9d237ea09c06f415fcbc
+PODFILE CHECKSUM: 14ee63123f6a91da472ecbeb03279aec3cc0fcf5
 
 COCOAPODS: 1.12.0

@@ -36,6 +36,20 @@
 		D23AA47B2A08326700B877CF /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA47A2A08326700B877CF /* TestViewController.swift */; };
 		D23AA47D2A0832E300B877CF /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA47C2A0832E300B877CF /* TestCollectionViewCell.swift */; };
 		D23AA47F2A090ED800B877CF /* TestCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA47E2A090ED800B877CF /* TestCollectionViewFlowLayout.swift */; };
+		D23AA4812A0A643F00B877CF /* AnimeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA4802A0A643E00B877CF /* AnimeRequest.swift */; };
+		D23AA4832A0A6B2B00B877CF /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA4822A0A6B2B00B877CF /* Genre.swift */; };
+		D23AA4852A0AB97600B877CF /* AnimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA4842A0AB97600B877CF /* AnimeService.swift */; };
+		D23AA4CC2A114C7400B877CF /* PersonalMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA4CB2A114C7400B877CF /* PersonalMenuViewController.swift */; };
+		D23AA4CE2A114CE200B877CF /* PersonalMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA4CD2A114CE100B877CF /* PersonalMenuPresenter.swift */; };
+		D23AA4D02A114EC300B877CF /* PersonalMenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA4CF2A114EC300B877CF /* PersonalMenuSection.swift */; };
+		D23AA4D42A116ACA00B877CF /* MenuHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA4D32A116ACA00B877CF /* MenuHeaderCollectionReusableView.swift */; };
+		D23AA4D62A11720100B877CF /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA4D52A11720100B877CF /* UIView+Frame.swift */; };
+		D23AA4D92A1184EE00B877CF /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D23AA4D82A1184EE00B877CF /* Montserrat-Regular.ttf */; };
+		D23AA4DB2A1184F800B877CF /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D23AA4DA2A1184F800B877CF /* Montserrat-SemiBold.ttf */; };
+		D23AA4DD2A1188C600B877CF /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA4DC2A1188C600B877CF /* MenuCollectionViewCell.swift */; };
+		D23AA4DF2A1189A400B877CF /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D23AA4DE2A1189A400B877CF /* Montserrat-Medium.ttf */; };
+		D23AA4E12A118C0C00B877CF /* MenuFooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA4E02A118C0B00B877CF /* MenuFooterCollectionReusableView.swift */; };
+		D23AA4E32A19095900B877CF /* MenuLogoutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23AA4E22A19095800B877CF /* MenuLogoutCollectionViewCell.swift */; };
 		D2626DD429F5F787008E9521 /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2626DD329F5F787008E9521 /* MaterialTextField.swift */; };
 		D2626DD629F5FD50008E9521 /* UITextField+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2626DD529F5FD50008E9521 /* UITextField+Helper.swift */; };
 		D2626DD829F5FE9C008E9521 /* UIResponder+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2626DD729F5FE9C008E9521 /* UIResponder+Helper.swift */; };
@@ -120,6 +134,20 @@
 		D23AA47A2A08326700B877CF /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		D23AA47C2A0832E300B877CF /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		D23AA47E2A090ED800B877CF /* TestCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		D23AA4802A0A643E00B877CF /* AnimeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeRequest.swift; sourceTree = "<group>"; };
+		D23AA4822A0A6B2B00B877CF /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		D23AA4842A0AB97600B877CF /* AnimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeService.swift; sourceTree = "<group>"; };
+		D23AA4CB2A114C7400B877CF /* PersonalMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMenuViewController.swift; sourceTree = "<group>"; };
+		D23AA4CD2A114CE100B877CF /* PersonalMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMenuPresenter.swift; sourceTree = "<group>"; };
+		D23AA4CF2A114EC300B877CF /* PersonalMenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMenuSection.swift; sourceTree = "<group>"; };
+		D23AA4D32A116ACA00B877CF /* MenuHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		D23AA4D52A11720100B877CF /* UIView+Frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
+		D23AA4D82A1184EE00B877CF /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		D23AA4DA2A1184F800B877CF /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		D23AA4DC2A1188C600B877CF /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		D23AA4DE2A1189A400B877CF /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		D23AA4E02A118C0B00B877CF /* MenuFooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFooterCollectionReusableView.swift; sourceTree = "<group>"; };
+		D23AA4E22A19095800B877CF /* MenuLogoutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuLogoutCollectionViewCell.swift; sourceTree = "<group>"; };
 		D2626DD329F5F787008E9521 /* MaterialTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
 		D2626DD529F5FD50008E9521 /* UITextField+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Helper.swift"; sourceTree = "<group>"; };
 		D2626DD729F5FE9C008E9521 /* UIResponder+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Helper.swift"; sourceTree = "<group>"; };
@@ -272,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				D23021FD29EC88390091DE37 /* NetworkLayer */,
+				D23AA4842A0AB97600B877CF /* AnimeService.swift */,
 				D2ECBB1C29EDFB59006D1FF1 /* UserService.swift */,
 			);
 			path = ServiceLayers;
@@ -322,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				D230221229ECA6580091DE37 /* AuthorizationRequest.swift */,
+				D23AA4802A0A643E00B877CF /* AnimeRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -335,6 +365,46 @@
 			path = Validators;
 			sourceTree = "<group>";
 		};
+		D23AA4862A0AF70D00B877CF /* PersonalMenu */ = {
+			isa = PBXGroup;
+			children = (
+				D23AA4C92A114C1A00B877CF /* View */,
+				D23AA4CA2A114C2100B877CF /* Presenter */,
+				D23AA4CF2A114EC300B877CF /* PersonalMenuSection.swift */,
+			);
+			path = PersonalMenu;
+			sourceTree = "<group>";
+		};
+		D23AA4C92A114C1A00B877CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D23AA4CB2A114C7400B877CF /* PersonalMenuViewController.swift */,
+				D23AA4D32A116ACA00B877CF /* MenuHeaderCollectionReusableView.swift */,
+				D23AA4DC2A1188C600B877CF /* MenuCollectionViewCell.swift */,
+				D23AA4E02A118C0B00B877CF /* MenuFooterCollectionReusableView.swift */,
+				D23AA4E22A19095800B877CF /* MenuLogoutCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D23AA4CA2A114C2100B877CF /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D23AA4CD2A114CE100B877CF /* PersonalMenuPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D23AA4D72A1184C400B877CF /* Montserrat */ = {
+			isa = PBXGroup;
+			children = (
+				D23AA4DA2A1184F800B877CF /* Montserrat-SemiBold.ttf */,
+				D23AA4D82A1184EE00B877CF /* Montserrat-Regular.ttf */,
+				D23AA4DE2A1189A400B877CF /* Montserrat-Medium.ttf */,
+			);
+			path = Montserrat;
+			sourceTree = "<group>";
+		};
 		D2ECBB2029F07DB5006D1FF1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +412,7 @@
 				D2ECBB2329F0820C006D1FF1 /* Session.swift */,
 				D23AA47429FFEB3500B877CF /* Authorization.swift */,
 				D23AA4782A00A7F700B877CF /* Registration.swift */,
+				D23AA4822A0A6B2B00B877CF /* Genre.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -349,6 +420,7 @@
 		D2ECBB2529F5B0AA006D1FF1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				D23AA4862A0AF70D00B877CF /* PersonalMenu */,
 				D2ECBB2629F5B0B7006D1FF1 /* Authorization */,
 				D23AA47A2A08326700B877CF /* TestViewController.swift */,
 				D23AA47E2A090ED800B877CF /* TestCollectionViewFlowLayout.swift */,
@@ -393,6 +465,7 @@
 				D2626DD529F5FD50008E9521 /* UITextField+Helper.swift */,
 				D2626DD729F5FE9C008E9521 /* UIResponder+Helper.swift */,
 				D2626DD929F603E5008E9521 /* UIView+Helper.swift */,
+				D23AA4D52A11720100B877CF /* UIView+Frame.swift */,
 				D2626DDB29F61A8D008E9521 /* UIViewController+Helper.swift */,
 				D23AA46D29FE834700B877CF /* UIDevice+Helper.swift */,
 				D23AA46F29FF275E00B877CF /* String+Helper.swift */,
@@ -403,6 +476,7 @@
 		D2ECBB3029F5BC8E006D1FF1 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				D23AA4D72A1184C400B877CF /* Montserrat */,
 				D2ECBB3229F5BC9F006D1FF1 /* Ubuntu */,
 			);
 			path = Fonts;
@@ -536,9 +610,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D23AA4DB2A1184F800B877CF /* Montserrat-SemiBold.ttf in Resources */,
 				D2ECBB4029F5C15B006D1FF1 /* Ubuntu-Regular.ttf in Resources */,
 				D23021D729EC85430091DE37 /* LaunchScreen.storyboard in Resources */,
+				D23AA4DF2A1189A400B877CF /* Montserrat-Medium.ttf in Resources */,
 				D23021D429EC85430091DE37 /* Assets.xcassets in Resources */,
+				D23AA4D92A1184EE00B877CF /* Montserrat-Regular.ttf in Resources */,
 				D2ECBB3529F5BCC5006D1FF1 /* Ubuntu-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -693,7 +770,9 @@
 				D23AA47F2A090ED800B877CF /* TestCollectionViewFlowLayout.swift in Sources */,
 				D230220529EC8D360091DE37 /* ParameterEncoding.swift in Sources */,
 				D23AA4772A00A3F800B877CF /* RegistrationValidators.swift in Sources */,
+				D23AA4852A0AB97600B877CF /* AnimeService.swift in Sources */,
 				D2ECBB5129F5D90A006D1FF1 /* GradientView.swift in Sources */,
+				D23AA4DD2A1188C600B877CF /* MenuCollectionViewCell.swift in Sources */,
 				D23AA46B29FDB07000B877CF /* RegistrationView.swift in Sources */,
 				D23AA47029FF275E00B877CF /* String+Helper.swift in Sources */,
 				D230220A29EC8E2C0091DE37 /* NetworkError.swift in Sources */,
@@ -701,17 +780,22 @@
 				D2626DD629F5FD50008E9521 /* UITextField+Helper.swift in Sources */,
 				D23021CF29EC853E0091DE37 /* ViewController.swift in Sources */,
 				D230221029EC916B0091DE37 /* NetworkManagerImpl.swift in Sources */,
+				D23AA4E32A19095900B877CF /* MenuLogoutCollectionViewCell.swift in Sources */,
 				D23AA46E29FE834700B877CF /* UIDevice+Helper.swift in Sources */,
 				D2626DDA29F603E5008E9521 /* UIView+Helper.swift in Sources */,
+				D23AA4CC2A114C7400B877CF /* PersonalMenuViewController.swift in Sources */,
 				D23021CB29EC853E0091DE37 /* AppDelegate.swift in Sources */,
 				D2ECBB1D29EDFB59006D1FF1 /* UserService.swift in Sources */,
 				D23021CD29EC853E0091DE37 /* SceneDelegate.swift in Sources */,
+				D23AA4832A0A6B2B00B877CF /* Genre.swift in Sources */,
 				D23AA47529FFEB3500B877CF /* Authorization.swift in Sources */,
 				D2ECBB2A29F5B124006D1FF1 /* AuthorizationViewController.swift in Sources */,
+				D23AA4812A0A643F00B877CF /* AnimeRequest.swift in Sources */,
 				D2626DDC29F61A8D008E9521 /* UIViewController+Helper.swift in Sources */,
 				D2626DD829F5FE9C008E9521 /* UIResponder+Helper.swift in Sources */,
 				D2626DD429F5F787008E9521 /* MaterialTextField.swift in Sources */,
 				D2ECBB2229F07EDD006D1FF1 /* User.swift in Sources */,
+				D23AA4D42A116ACA00B877CF /* MenuHeaderCollectionReusableView.swift in Sources */,
 				D2ECBB4C29F5D45B006D1FF1 /* UIColor+Helper.swift in Sources */,
 				D230221329ECA6580091DE37 /* AuthorizationRequest.swift in Sources */,
 				D230220C29EC90350091DE37 /* JSONParameterEncoder.swift in Sources */,
@@ -723,8 +807,12 @@
 				D23AA47329FFE56100B877CF /* AuthorizationValidators.swift in Sources */,
 				D230220129EC892B0091DE37 /* HTTPMethod.swift in Sources */,
 				D23021FF29EC88A80091DE37 /* RequestProtocol.swift in Sources */,
+				D23AA4E12A118C0C00B877CF /* MenuFooterCollectionReusableView.swift in Sources */,
 				D2ECBB4829F5D14F006D1FF1 /* AuthorizationView.swift in Sources */,
+				D23AA4D62A11720100B877CF /* UIView+Frame.swift in Sources */,
 				D2ECBB1F29EFA9C3006D1FF1 /* APIError.swift in Sources */,
+				D23AA4D02A114EC300B877CF /* PersonalMenuSection.swift in Sources */,
+				D23AA4CE2A114CE200B877CF /* PersonalMenuPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
