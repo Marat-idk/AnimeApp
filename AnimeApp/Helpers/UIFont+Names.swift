@@ -15,4 +15,16 @@ extension UIFont {
     static func ubuntuMedium(size: CGFloat) -> UIFont? {
         return UIFont(name: "Ubuntu-Medium", size: size)
     }
+    
+    static func montserratRegular(size: CGFloat) -> UIFont? {
+        return UIFont(name: "Montserrat-Regular", size: size)
+    }
+    
+    static func montserratMedium(size: CGFloat) -> UIFont? {
+        return UIFont(name: "Montserrat-Medium", size: size)
+    }
+    
+    static func montserratSemiBold(size: CGFloat) -> UIFont? {
+        return UIFont(name: "Montserrat-SemiBold", size: size)
+    }
 }

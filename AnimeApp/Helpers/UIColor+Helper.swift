@@ -7,6 +7,21 @@
 
 import UIKit
 
+// MARK: - Custom colors
+extension UIColor {
+    static var brandDarkBlue: UIColor {
+        return UIColor(hexString: "#1F1D2B")
+    }
+    
+    static var brandBlue: UIColor {
+        return UIColor(hexString: "#252836")
+    }
+    
+    static var brandLightBlue: UIColor {
+        return UIColor(hexString: "#12CDD9")
+    }
+}
+
 // MARK: - Helpers
 extension UIColor {
     convenience init(hexString: String, alpha: Double = 1.0) {
