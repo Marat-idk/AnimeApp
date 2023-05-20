@@ -136,6 +136,7 @@ extension MaterialTextField {
         tf.autocapitalizationType = .none
         tf.returnKeyType = .done
         tf.underlined(color: .black)
+//        tf.enablePasswordToggle()
         
         return tf
     }
