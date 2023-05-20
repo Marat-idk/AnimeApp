@@ -3,8 +3,8 @@ included:
 excluded:
   - AnimeApp/Application
 line_length:
-  warning: 180
-  error: 280
+  warning: 250
+  error: 350
 identifier_name:
   max_length:
     warning: 45
