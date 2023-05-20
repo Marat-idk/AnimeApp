@@ -6,6 +6,9 @@
 	<array>
 		<string>Ubuntu-Regular.ttf</string>
 		<string>Ubuntu-Medium.ttf</string>
+		<string>Montserrat-Regular.ttf</string>
+		<string>Montserrat-Medium.ttf</string>
+		<string>Montserrat-SemiBold.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
