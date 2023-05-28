@@ -20,20 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        
-//        window?.rootViewController = ViewController()
-        
-//        let view = AuthorizationViewController()
-//        let presenter = AuthorizationPresenter(view: view)
-//        view.presenter = presenter
-//
-//        window?.rootViewController = view
-        
-        let view = PersonalMenuViewController()
-        let presenter = PersonalMenuPresenter(view: view)
-        view.presenter = presenter
 
-        window?.rootViewController = view
+        window?.rootViewController = ModuleBuilder.createMainTabBarModule()
         
         window?.makeKeyAndVisible()
     }
