@@ -47,4 +47,17 @@ final class MenuLogoutCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        
+        let targetSize = CGSize(width: layoutAttributes.frame.width, height: layoutAttributes.frame.height)
+        
+        layoutAttributes.frame.size = contentView.systemLayoutSizeFitting(
+            targetSize,
+            withHorizontalFittingPriority: .required,
+            verticalFittingPriority: .required
+        )
+        
+        return layoutAttributes
+    }
+    
 }

@@ -14,9 +14,18 @@ final class MenuCollectionViewCell: UICollectionViewCell {
     
     private var isLast: Bool? {
         didSet {
-            if isLast == true {
+            
+            guard let isLast = isLast else {
+                return
+            }
+            
+            if isLast {
                 containerView.layer.cornerRadius = 16
                 containerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+                containerView.layer.borderColor = UIColor.brandBlue.cgColor
+                containerView.layer.borderWidth = 1
+            } else {
+                containerView.layer.cornerRadius = 0
                 containerView.layer.borderColor = UIColor.brandBlue.cgColor
                 containerView.layer.borderWidth = 1
             }
@@ -85,6 +94,7 @@ final class MenuCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        isLast = nil
         iconImageView.image = nil
         titleLabel.text = nil
     }
@@ -104,6 +114,19 @@ final class MenuCollectionViewCell: UICollectionViewCell {
             layer.addSublayer(leftLayer)
             layer.addSublayer(rightLayer)
         }
+    }
+    
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        
+        let targetSize = CGSize(width: layoutAttributes.frame.width, height: layoutAttributes.frame.height)
+        
+        layoutAttributes.frame.size = contentView.systemLayoutSizeFitting(
+            targetSize,
+            withHorizontalFittingPriority: .required,
+            verticalFittingPriority: .required
+        )
+        
+        return layoutAttributes
     }
     
     private func setupViews() {

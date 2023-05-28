@@ -17,14 +17,17 @@ final class PersonalMenuViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 0
-        
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.backgroundColor = .brandDarkBlue
-        collection.contentInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+        collection.contentInset = UIEdgeInsets(top: 0, left: 24, bottom: 16, right: 24)
         collection.register(MenuHeaderCollectionReusableView.self,
                             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                             withReuseIdentifier: MenuHeaderCollectionReusableView.identifier)
         
+        
+        collection.register(MenuProfileCollectionViewCell.self,
+                            forCellWithReuseIdentifier: MenuProfileCollectionViewCell.identifier)
         collection.register(MenuCollectionViewCell.self,
                             forCellWithReuseIdentifier: MenuCollectionViewCell.identifier)
         collection.register(MenuLogoutCollectionViewCell.self,
@@ -68,6 +71,8 @@ extension PersonalMenuViewController: UICollectionViewDataSource {
         guard let section = PersonalMenuSection(rawValue: section) else { return 0 }
 
         switch section {
+        case .profileEdit:
+            return ProfileEditOptions.allCases.count
         case .account:
             return AccountOptions.allCases.count
         case .general:
@@ -109,7 +114,12 @@ extension PersonalMenuViewController: UICollectionViewDataSource {
                                                       for: indexPath)
         
         print(section.description)
+        // TODO: - should be refactored
         switch section {
+        case .profileEdit:
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuProfileCollectionViewCell.identifier,
+                                                      for: indexPath)
+            (cell as? MenuProfileCollectionViewCell)?.isPremium = true
         case .account:
             (cell as? MenuCollectionViewCell)?.setData(AccountOptions.allCases[indexPath.row])
         case .general:
@@ -134,8 +144,11 @@ extension PersonalMenuViewController: UICollectionViewDelegate {
 extension PersonalMenuViewController: UICollectionViewDelegateFlowLayout {
     // header size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        guard let section = PersonalMenuSection(rawValue: section) else { return .zero }
+        
         switch section {
-        case 0...2:
+        case .account, .general, .more:
             return CGSize(width: UIScreen.main.bounds.width - 48, height: 50)
         default:
             return .zero
@@ -146,14 +159,16 @@ extension PersonalMenuViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: UIScreen.main.bounds.width - 48, height: 60)
     }
     
-//    // section inset
+    // section inset
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        guard let section = PersonalMenuSection(rawValue: section) else { return .zero }
+
         switch section {
-        case 0...2:
-            return UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
+        case .profileEdit, .account, .general, .more:
+            return UIEdgeInsets(top: 0, left: 0, bottom: 24, right: 0)
         default:
             return UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
         }
-        
     }
 }

@@ -27,6 +27,7 @@ extension PersonalMenuCellType {
 
 // MARK: - PersonalMenuSection
 enum PersonalMenuSection: Int, CaseIterable, CustomStringConvertible {
+    case profileEdit
     case account
     case general
     case more
@@ -34,6 +35,8 @@ enum PersonalMenuSection: Int, CaseIterable, CustomStringConvertible {
     
     var description: String {
         switch self {
+        case .profileEdit:
+            return ""
         case .account:
             return "Account"
         case .general:
@@ -43,6 +46,15 @@ enum PersonalMenuSection: Int, CaseIterable, CustomStringConvertible {
         case .logout:
             return ""
         }
+    }
+}
+
+// MARK: - ProfileEditOptions
+enum ProfileEditOptions: Int, PersonalMenuCellType {
+    case profileEdit
+    
+    var description: String {
+        return ""
     }
 }
 
