@@ -20,6 +20,14 @@ extension UIColor {
     static var brandLightBlue: UIColor {
         return UIColor(hexString: "#12CDD9")
     }
+    
+    static var brandOrange: UIColor {
+        return UIColor(hexString: "#F29D33")
+    }
+    
+    static var brandDarkOrange: UIColor {
+        return UIColor(hexString: "#FF8700")
+    }
 }
 
 // MARK: - Helpers
