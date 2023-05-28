@@ -1,5 +1,5 @@
 //
-//  ModuleBuilder.swift
+//  ModuleFactory.swift
 //  AnimeApp
 //
 //  Created by Marat on 21.05.2023.
@@ -7,15 +7,21 @@
 
 import UIKit
 
-// MARK: - ModuleBuilderProtocol
-protocol ModuleBuilderProtocol {
+// MARK: - ModuleFactoryProtocol
+protocol ModuleFactoryProtocol {
     static func createMainTabBarModule() -> UIViewController
     static func createAuthorizationModule() -> UIViewController
-    static func createPesonalMenuModule() -> UIViewController
+    static func createPesonalMenuModule(navigationDelegate: PersonalMenuNavigationDelegate?) -> UIViewController
+}
+
+extension ModuleFactoryProtocol {
+    static func createPesonalMenuModule() -> UIViewController {
+        return createPesonalMenuModule(navigationDelegate: nil)
+    }
 }
 
 // MARK: - ModuleBuilder
-struct ModuleBuilder: ModuleBuilderProtocol {
+struct ModuleFactory: ModuleFactoryProtocol {
     
     static func createMainTabBarModule() -> UIViewController {
         return MainTabBarController()
@@ -28,9 +34,9 @@ struct ModuleBuilder: ModuleBuilderProtocol {
         return view
     }
     
-    static func createPesonalMenuModule() -> UIViewController {
+    static func createPesonalMenuModule(navigationDelegate: PersonalMenuNavigationDelegate?) -> UIViewController {
         let view = PersonalMenuViewController()
-        let presenter = PersonalMenuPresenter(view: view)
+        let presenter = PersonalMenuPresenter(view: view, navigationDelegate: navigationDelegate)
         view.presenter = presenter
         return view
     }
