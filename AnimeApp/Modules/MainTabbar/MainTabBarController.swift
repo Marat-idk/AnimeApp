@@ -22,12 +22,12 @@ final class MainTabBarController: UITabBarController {
     private func generateTabBar() {
         viewControllers = [
             generateVC(
-                viewController: ModuleBuilder.createAuthorizationModule(),
+                viewController: ModuleFactory.createAuthorizationModule(),
                 title: "Profile",
                 image: UIImage(named: "ic-profile")
             ),
             generateVC(
-                viewController: ModuleBuilder.createPesonalMenuModule(),
+                viewController: ModuleFactory.createPesonalMenuModule(),
                 title: "Menu",
                 image: UIImage(named: "ic-profile")?.template
             )
