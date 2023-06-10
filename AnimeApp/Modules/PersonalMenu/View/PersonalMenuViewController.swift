@@ -25,7 +25,6 @@ final class PersonalMenuViewController: UIViewController {
                             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                             withReuseIdentifier: MenuHeaderCollectionReusableView.identifier)
         
-        
         collection.register(MenuProfileCollectionViewCell.self,
                             forCellWithReuseIdentifier: MenuProfileCollectionViewCell.identifier)
         collection.register(MenuCollectionViewCell.self,
@@ -40,9 +39,11 @@ final class PersonalMenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .brandBlue
+        view.backgroundColor = .brandDarkBlue
         setupViews()
         setupConstraints()
+        
+//        navigationItem.title = "aga"
     }
     
     private func setupViews() {
@@ -137,7 +138,7 @@ extension PersonalMenuViewController: UICollectionViewDataSource {
 
 extension PersonalMenuViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("section = \(indexPath.section), item = \(indexPath.item)")
+        presenter.menuItemDidSelect(at: indexPath)
     }
 }
 

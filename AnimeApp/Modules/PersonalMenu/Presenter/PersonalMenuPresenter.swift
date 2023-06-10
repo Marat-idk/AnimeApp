@@ -13,46 +13,41 @@ protocol PersonalMenuViewProtocol: AnyObject {
 }
 
 // MARK: - PersonalMenuPresenterProtocol
-protocol PersonalMenuPresenterProtocol: AnyObject{
-    init(view: PersonalMenuViewProtocol)
+protocol PersonalMenuPresenterProtocol: AnyObject {
+    init(view: PersonalMenuViewProtocol, navigationDelegate: PersonalMenuNavigationDelegate?)
+    func menuItemDidSelect(at indexPath: IndexPath)
+}
+
+// MARK: - PersonalMenuNavigationDelegate
+protocol PersonalMenuNavigationDelegate: AnyObject {
+    func onSelectedItem<T: PersonalMenuCellType>(_ item: T)
 }
 
 // MARK: - PersonalMenuPresenter
 final class PersonalMenuPresenter: PersonalMenuPresenterProtocol {
     
     weak var view: PersonalMenuViewProtocol?
+    weak var navigationDelegate: PersonalMenuNavigationDelegate?
     
-    init(view: PersonalMenuViewProtocol) {
+    init(view: PersonalMenuViewProtocol, navigationDelegate: PersonalMenuNavigationDelegate? = nil) {
         self.view = view
-        buildMenu()
+        self.navigationDelegate = navigationDelegate
     }
     
-    private func buildMenu() {
-//        let member = PersonalMenuModel(sectionType: .account(type: ber),
-//                                       isSelectable: true,
-//                                       hasSeparator: true)
-//        
-//        let changePassword = PersonalMenuModel(sectionType: .account(type: .changePassword),
-//                                               isSelectable: true,
-//                                               hasSeparator: true)
-//        
-//        let notification = PersonalMenuModel(sectionType: .general(type: .notification),
-//                                             isSelectable: true,
-//                                             hasSeparator: true)
-//        
-//        let language = PersonalMenuModel(sectionType: .general(type: .language),
-//                                         isSelectable: true,
-//                                         hasSeparator: true)
-//        
-//        let country = PersonalMenuModel(sectionType: .general(type: .country),
-//                                        isSelectable: true,
-//                                        hasSeparator: true)
-//        
-//        let clearCache = PersonalMenuModel(sectionType: .general(type: .clearCache),
-//                                         isSelectable: true,
-//                                         hasSeparator: true)
-//
-//        menuData = [member, changePassword, notification, language, country, clearCache]
+    func menuItemDidSelect(at indexPath: IndexPath) {
+        guard let section = PersonalMenuSection(rawValue: indexPath.section) else { return }
+        
+        switch section {
+        case .profileEdit:
+            navigationDelegate?.onSelectedItem(ProfileEditOptions.allCases[indexPath.item])
+        case .account:
+            navigationDelegate?.onSelectedItem(AccountOptions.allCases[indexPath.item])
+        case .general:
+            navigationDelegate?.onSelectedItem(GeneralOptions.allCases[indexPath.item])
+        case .more:
+            navigationDelegate?.onSelectedItem(MoreOptions.allCases[indexPath.item])
+        case .logout:
+            navigationDelegate?.onSelectedItem(LogoutOptions.allCases[indexPath.item])
+        }
     }
-    
 }

@@ -177,12 +177,12 @@ final class MenuProfileCollectionViewCell: UICollectionViewCell {
     // эти танцы нужны из-за того, что высота ячейки динамическая и сыпались разные варнинги
     // лайаута (из-за них в некоторых местах задания лайаута прописано priority(.medium/high))
     override func layoutSubviews() {
-        super.layoutSubviews()
+        super.layoutSubviews() 
         setupConstraints()
         imageView.layoutIfNeeded()
         imageView.layer.cornerRadius = imageView.bounds.height / 2
         premiumContainerView.layoutIfNeeded()
-        premiumContainerView.drawDubleCircle(below: premiumLabel.layer)
+        premiumContainerView.drawDoubleCircle(below: premiumLabel.layer)
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
@@ -192,7 +192,7 @@ final class MenuProfileCollectionViewCell: UICollectionViewCell {
         layoutAttributes.frame.size = contentView.systemLayoutSizeFitting(
             targetSize,
             withHorizontalFittingPriority: .required,
-            verticalFittingPriority: .defaultLow
+            verticalFittingPriority: .fittingSizeLevel
         )
         return layoutAttributes
     }
@@ -263,7 +263,7 @@ final class MenuProfileCollectionViewCell: UICollectionViewCell {
 }
 
 fileprivate extension UIView {
-    func drawDubleCircle(below: CALayer) {
+    func drawDoubleCircle(below: CALayer) {
         let radius = 113.5
         let center = CGPoint(x: bounds.maxX - 30.0, y: bounds.minY + 10.0)
         let bigCirclePath = UIBezierPath(arcCenter: center,
