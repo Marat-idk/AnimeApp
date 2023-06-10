@@ -11,6 +11,7 @@ import UIKit
 protocol ModuleFactoryProtocol {
     static func createMainTabBarModule() -> UIViewController
     static func createAuthorizationModule() -> UIViewController
+    // MARK: - personal menu
     static func createPesonalMenuModule(navigationDelegate: PersonalMenuNavigationDelegate?) -> UIViewController
 }
 
@@ -38,6 +39,11 @@ struct ModuleFactory: ModuleFactoryProtocol {
         let view = PersonalMenuViewController()
         let presenter = PersonalMenuPresenter(view: view, navigationDelegate: navigationDelegate)
         view.presenter = presenter
+        return view
+    }
+    
+    static func createPrivacyPolicyModule() -> UIViewController {
+        let view = PrivacyPolicyViewController()
         return view
     }
 }

@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol FlowCoordinator {
+    associatedtype T
+    var completionHandler: ((T) -> Void)? { get set }
+}
+
 typealias CoordinatorHandler = () -> Void
 
 // MARK: - CoordinatorProtocol
