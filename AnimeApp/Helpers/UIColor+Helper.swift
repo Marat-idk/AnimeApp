@@ -9,25 +9,17 @@ import UIKit
 
 // MARK: - Custom colors
 extension UIColor {
-    static var brandDarkBlue: UIColor {
-        return UIColor(hexString: "#1F1D2B")
-    }
+    static let brandDarkBlue = UIColor(hexString: "#1F1D2B")
+
+    static let brandBlue = UIColor(hexString: "#252836")
     
-    static var brandBlue: UIColor {
-        return UIColor(hexString: "#252836")
-    }
+    static let brandLightBlue = UIColor(hexString: "#12CDD9")
     
-    static var brandLightBlue: UIColor {
-        return UIColor(hexString: "#12CDD9")
-    }
+    static let brandOrange = UIColor(hexString: "#F29D33")
     
-    static var brandOrange: UIColor {
-        return UIColor(hexString: "#F29D33")
-    }
+    static let brandDarkOrange = UIColor(hexString: "#FF8700")
     
-    static var brandDarkOrange: UIColor {
-        return UIColor(hexString: "#FF8700")
-    }
+    static let brandGrey = UIColor(hexString: "#92929D")
 }
 
 // MARK: - Helpers
