@@ -88,6 +88,7 @@
 		D2ED90D72A2CA62D0057FEC4 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED90D62A2CA62D0057FEC4 /* NotificationViewController.swift */; };
 		D2ED90DB2A2D3AF50057FEC4 /* NotificationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED90DA2A2D3AF50057FEC4 /* NotificationStackView.swift */; };
 		D2ED90DD2A2D3D780057FEC4 /* NotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED90DC2A2D3D780057FEC4 /* NotificationType.swift */; };
+		E5DC35622A35FA64002470B3 /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC35612A35FA64002470B3 /* CustomSwitch.swift */; };
 		E7B97FAE5216B47C355042F4 /* Pods_AnimeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CD00E30B6444FA4BBDDCEE /* Pods_AnimeAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -193,6 +194,7 @@
 		D2ED90DC2A2D3D780057FEC4 /* NotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationType.swift; sourceTree = "<group>"; };
 		D6DAA2BCD3FE64CDCFFC809C /* Pods-AnimeApp-AnimeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeApp-AnimeAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-AnimeApp-AnimeAppUITests/Pods-AnimeApp-AnimeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E13D97B2C43C41399E76F5D1 /* Pods-AnimeApp-AnimeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeApp-AnimeAppUITests.release.xcconfig"; path = "Target Support Files/Pods-AnimeApp-AnimeAppUITests/Pods-AnimeApp-AnimeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E5DC35612A35FA64002470B3 /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
 		F1CD00E30B6444FA4BBDDCEE /* Pods_AnimeAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimeAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -565,6 +567,7 @@
 			children = (
 				D2ECBB5029F5D90A006D1FF1 /* GradientView.swift */,
 				D2626DD329F5F787008E9521 /* MaterialTextField.swift */,
+				E5DC35612A35FA64002470B3 /* CustomSwitch.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -829,7 +832,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint; then\n    swiftlint —-fix && swiftlint\nelse\n  echo \"error: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		FF7CBC03F4921873B9348D97 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -914,6 +917,7 @@
 				D23AA47D2A0832E300B877CF /* TestCollectionViewCell.swift in Sources */,
 				D23AA47329FFE56100B877CF /* AuthorizationValidators.swift in Sources */,
 				D230220129EC892B0091DE37 /* HTTPMethod.swift in Sources */,
+				E5DC35622A35FA64002470B3 /* CustomSwitch.swift in Sources */,
 				D23021FF29EC88A80091DE37 /* RequestProtocol.swift in Sources */,
 				D23AA4E12A118C0C00B877CF /* MenuFooterCollectionReusableView.swift in Sources */,
 				D2ECBB4829F5D14F006D1FF1 /* AuthorizationView.swift in Sources */,
