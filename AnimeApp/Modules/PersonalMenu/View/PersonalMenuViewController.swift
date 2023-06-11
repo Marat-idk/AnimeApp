@@ -48,6 +48,10 @@ final class PersonalMenuViewController: UIViewController {
     
     private func setupViews() {
         view.addSubview(collectionView)
+        
+//        let myCustomSwitch = CustomSwitch(frame: CGRect(x: 50, y: 50, width: 50, height: 30))
+//        self.view.addSubview(myCustomSwitch)
+//        myCustomSwitch.center = view.center
     }
     
     private func setupConstraints() {
@@ -102,11 +106,6 @@ extension PersonalMenuViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuCollectionViewCell.identifier, for: indexPath) as? MenuCollectionViewCell,
-//              let section = PersonalMenuSection(rawValue: indexPath.section) else {
-//                  return UICollectionViewCell()
-//              }
-        
         guard let section = PersonalMenuSection(rawValue: indexPath.section) else {
             return UICollectionViewCell()
         }
@@ -115,23 +114,42 @@ extension PersonalMenuViewController: UICollectionViewDataSource {
                                                       for: indexPath)
         
         print(section.description)
-        // TODO: - should be refactored
         switch section {
         case .profileEdit:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuProfileCollectionViewCell.identifier,
-                                                      for: indexPath)
-            (cell as? MenuProfileCollectionViewCell)?.isPremium = true
+            return getMenuProfileCollectionViewCell(collectionView, for: indexPath)
         case .account:
-            (cell as? MenuCollectionViewCell)?.setData(AccountOptions.allCases[indexPath.row])
+            return getMenuCollectionViewCell(collectionView, for: indexPath, AccountOptions.allCases[indexPath.row])
         case .general:
-            (cell as? MenuCollectionViewCell)?.setData(GeneralOptions.allCases[indexPath.row])
+            return getMenuCollectionViewCell(collectionView, for: indexPath, GeneralOptions.allCases[indexPath.row])
         case .more:
-            (cell as? MenuCollectionViewCell)?.setData(MoreOptions.allCases[indexPath.row])
+            return getMenuCollectionViewCell(collectionView, for: indexPath, MoreOptions.allCases[indexPath.row])
         case .logout:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuLogoutCollectionViewCell.identifier,
-                                                      for: indexPath)
+            return getMenuLogoutCollectionViewCell(collectionView, for: indexPath)
         }
 
+        return cell
+    }
+    
+    private func getMenuProfileCollectionViewCell(_ collectionView: UICollectionView, for indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuProfileCollectionViewCell.identifier, for: indexPath) as? MenuProfileCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        cell.isPremium = true
+        return cell
+    }
+    
+    private func getMenuCollectionViewCell<T: PersonalMenuCellType>(_ collectionView: UICollectionView, for indexPath: IndexPath, _ cellType: T) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuCollectionViewCell.identifier, for: indexPath) as? MenuCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        cell.setData(cellType)
+        return cell
+    }
+    
+    private func getMenuLogoutCollectionViewCell(_ collectionView: UICollectionView, for indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuLogoutCollectionViewCell.identifier, for: indexPath) as? MenuLogoutCollectionViewCell else {
+            return UICollectionViewCell()
+        }
         return cell
     }
 }
