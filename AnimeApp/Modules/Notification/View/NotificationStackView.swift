@@ -30,27 +30,21 @@ final class NotificationStackView: UIView {
         return lbl
     }()
     
-    private lazy var notificationSwitch: UISwitch = {
-        let sw = UISwitch()
-        sw.onTintColor = .brandLightBlue
+    private lazy var notificationSwitch: CustomSwitch = {
+        let sw = CustomSwitch()
         sw.isHidden = !type.hasSwitch
-        let scaleX = 48.0 / 51.0
-        let scaleY = 24.0 / 31.0
-        sw.transform = CGAffineTransform(scaleX: scaleX, y: scaleY)
-        //        sw.sizeThatFits(CGSize(width: sw.bounds.width * scaleX, height: sw.bounds.height * scaleY))
-        //        print(sw.bounds.width * scaleX)
-        //        print(sw.bounds.height * scaleY)
-        
-        if let thumb = sw.subviews[0].subviews[1].subviews[2] as? UIImageView {
-            print(thumb.bounds.width)
-            print(thumb.bounds.height)
-            thumb.transform = CGAffineTransform(scaleX: scaleY + 0.2, y: scaleX + 0.2)
-        }
-        
+        sw.onTintColor = .brandLightBlue
+        sw.thumbSize = CGSize(width: 20, height: 20)
+        sw.padding = 2.0
+        sw.addTarget(self, action: #selector(notificationSwitchTapped(_:)), for: .valueChanged)
         return sw
     }()
     
     private lazy var stackView: UIStackView = {
+        notificationSwitch.snp.makeConstraints { make in
+            make.width.equalTo(48)
+            make.height.equalTo(24)
+        }
         let stack = UIStackView(arrangedSubviews: [titleLabel, notificationSwitch])
         stack.axis = .horizontal
         stack.distribution = .equalCentering
@@ -85,6 +79,10 @@ final class NotificationStackView: UIView {
         stackView.snp.makeConstraints { make in
             make.edges.equalToSuperview().priority(.high)
         }
+    }
+    
+    @objc private func notificationSwitchTapped(_ sender: UISwitch) {
+        print("notificationSwitchTapped isOn \(notificationSwitch.isOn)")
     }
     
 }
