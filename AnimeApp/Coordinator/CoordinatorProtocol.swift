@@ -17,6 +17,15 @@ typealias CoordinatorHandler = () -> Void
 protocol CoordinatorProtocol: AnyObject {
     var navigationController: UINavigationController { get }
     var flowCompletionHandler: CoordinatorHandler? { get }
+    var childCoordinators: [CoordinatorProtocol] { get set }
     
     func start()
+    func finish()
+}
+
+extension CoordinatorProtocol {
+    func finish() {
+        childCoordinators.removeAll()
+        flowCompletionHandler?()
+    }
 }

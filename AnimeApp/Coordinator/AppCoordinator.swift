@@ -11,7 +11,7 @@ class AppCoordinator: CoordinatorProtocol {
     let navigationController: UINavigationController
     var flowCompletionHandler: CoordinatorHandler?
     
-    private var childCoordinators: [CoordinatorProtocol] = []
+    var childCoordinators: [CoordinatorProtocol] = []
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController

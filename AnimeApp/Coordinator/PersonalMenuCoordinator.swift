@@ -7,8 +7,12 @@
 
 import UIKit
 
+// MARK: - PersonalMenuCoordinator
 class PersonalMenuCoordinator: CoordinatorProtocol {
     private let moduleFactory: ModuleFactoryProtocol
+    private var language: String = "English"
+    
+    var childCoordinators: [CoordinatorProtocol] = []
     let navigationController: UINavigationController
     var flowCompletionHandler: CoordinatorHandler?
     
@@ -48,15 +52,15 @@ class PersonalMenuCoordinator: CoordinatorProtocol {
     }
     
     private func showLanguage() {
-        let view = moduleFactory.createLanguageModule()
-        
-        if var view = view as? FlowCoordinator {
-            view.completionHandler = { [weak self] flag in
-                print("pop showLanguage")
-                self?.navigationController.popViewController(animated: flag)
-            }
+        let languageCoordinator = CoordinatorFactory.createLanguageCoordinator(with: navigationController)
+        languageCoordinator.delegate = self
+        languageCoordinator.flowCompletionHandler = { [weak self] in
+            self?.childCoordinators.removeLast()
+            print(self?.navigationController.viewControllers.count)
         }
-        navigationController.pushViewController(view, animated: true)
+        languageCoordinator.start()
+        childCoordinators.append(languageCoordinator)
+        print(childCoordinators)
     }
     
     private func showPrivacyPolicy() {
@@ -120,6 +124,7 @@ class PersonalMenuCoordinator: CoordinatorProtocol {
     }
 }
 
+// MARK: - PersonalMenuNavigationDelegate
 extension PersonalMenuCoordinator: PersonalMenuNavigationDelegate {
     func onSelectedItem<T: PersonalMenuCellType>(_ item: T) {
         
@@ -139,5 +144,13 @@ extension PersonalMenuCoordinator: PersonalMenuNavigationDelegate {
         }
         
 //        print(navigationController.viewControllers.count)
+    }
+}
+
+// MARK: - LanguageUpdatingDelegate
+extension PersonalMenuCoordinator: LanguageUpdatingDelegate {
+    func update(with language: String) {
+        self.language = language
+        print(language)
     }
 }
