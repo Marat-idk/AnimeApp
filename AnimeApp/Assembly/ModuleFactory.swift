@@ -14,7 +14,7 @@ protocol ModuleFactoryProtocol {
     // MARK: - personal menu
     func createPesonalMenuModule(navigationDelegate: PersonalMenuNavigationDelegate?) -> UIViewController
     func createNotificationModule() -> UIViewController
-    func createLanguageModule() -> UIViewController
+    func createLanguageModule(languageDelegate: LanguageUpdatingDelegate?) -> UIViewController
     func createPrivacyPolicyModule() -> UIViewController
 }
 
@@ -50,8 +50,10 @@ struct ModuleFactory: ModuleFactoryProtocol {
         return view
     }
     
-    func createLanguageModule() -> UIViewController {
+    func createLanguageModule(languageDelegate: LanguageUpdatingDelegate?) -> UIViewController {
         let view = LanguageViewController()
+        let presenter = LanguagePresenter(view: view, delegate: languageDelegate)
+        view.presenter = presenter
         return view
     }
     
