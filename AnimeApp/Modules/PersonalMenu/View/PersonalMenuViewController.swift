@@ -20,7 +20,7 @@ final class PersonalMenuViewController: UIViewController {
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.backgroundColor = .brandDarkBlue
-        collection.contentInset = UIEdgeInsets(top: 0, left: 24, bottom: 16, right: 24)
+        collection.contentInset = UIEdgeInsets(top: 24, left: 24, bottom: 16, right: 24)
         collection.register(MenuHeaderCollectionReusableView.self,
                             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                             withReuseIdentifier: MenuHeaderCollectionReusableView.identifier)
@@ -42,16 +42,11 @@ final class PersonalMenuViewController: UIViewController {
         view.backgroundColor = .brandDarkBlue
         setupViews()
         setupConstraints()
-        
-//        navigationItem.title = "aga"
+        setupNavigationBar()
     }
     
     private func setupViews() {
         view.addSubview(collectionView)
-        
-//        let myCustomSwitch = CustomSwitch(frame: CGRect(x: 50, y: 50, width: 50, height: 30))
-//        self.view.addSubview(myCustomSwitch)
-//        myCustomSwitch.center = view.center
     }
     
     private func setupConstraints() {
@@ -60,6 +55,23 @@ final class PersonalMenuViewController: UIViewController {
         }
     }
 
+    private func setupNavigationBar() {
+        navigationItem.title = "Profile"
+        navigationController?.overrideUserInterfaceStyle = .dark
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .brandDarkBlue
+        appearance.shadowImage = UIImage()
+        appearance.shadowColor = .clear
+        
+        appearance.titleTextAttributes = [
+            NSAttributedString.Key.font: UIFont.montserratSemiBold(size: 16) ?? .systemFont(ofSize: 16),
+            NSAttributedString.Key.foregroundColor: UIColor.white
+        ]
+        
+        navigationItem.standardAppearance = appearance
+        navigationItem.scrollEdgeAppearance = appearance
+    }
 }
 
 extension PersonalMenuViewController: PersonalMenuViewProtocol {
