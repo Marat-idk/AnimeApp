@@ -26,8 +26,8 @@ final class MenuCollectionViewCell: UICollectionViewCell {
                 containerView.layer.borderWidth = 1
             } else {
                 containerView.layer.cornerRadius = 0
-                containerView.layer.borderColor = UIColor.brandBlue.cgColor
-                containerView.layer.borderWidth = 1
+                containerView.layer.borderColor = UIColor.brandDarkBlue.cgColor
+                containerView.layer.borderWidth = 0
             }
         }
     }
