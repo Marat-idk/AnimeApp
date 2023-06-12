@@ -19,7 +19,7 @@ class CustomSwitch: UIControl {
     
     var offTintColor = UIColor.lightGray {
         didSet {
-            setupViews()
+            self.layoutIfNeeded()
         }
     }
     
@@ -31,7 +31,7 @@ class CustomSwitch: UIControl {
     
     var thumbTintColor = UIColor.white {
         didSet {
-            setupViews()
+            thumbView.backgroundColor = thumbTintColor
         }
     }
     
