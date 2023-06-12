@@ -20,6 +20,8 @@ extension UIColor {
     static let brandDarkOrange = UIColor(hexString: "#FF8700")
     
     static let brandGrey = UIColor(hexString: "#92929D")
+    
+    static let brandDarkGray = UIColor(hexString: "#696974")
 }
 
 // MARK: - Helpers
