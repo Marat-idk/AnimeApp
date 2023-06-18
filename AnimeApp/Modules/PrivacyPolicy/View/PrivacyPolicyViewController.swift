@@ -29,7 +29,7 @@ final class PrivacyPolicyViewController: UIViewController, FlowCoordinator {
         let lbl = UILabel()
         lbl.text = String(repeating: "Mock ", count: 50) + "\n\n" + String(repeating: "Mock ", count: 120)
         lbl.font = .montserratMedium(size: 14)
-        lbl.textColor = .brandGrey
+        lbl.textColor = .brandGray
         lbl.textAlignment = .left
         lbl.numberOfLines = 0
         lbl.setContentCompressionResistancePriority(.required, for: .vertical)
@@ -51,7 +51,7 @@ final class PrivacyPolicyViewController: UIViewController, FlowCoordinator {
         let lbl = UILabel()
         lbl.text = String(repeating: "Mock ", count: 50) + "\n\n" + String(repeating: "Mock ", count: 150)
         lbl.font = .montserratMedium(size: 14)
-        lbl.textColor = .brandGrey
+        lbl.textColor = .brandGray
         lbl.textAlignment = .left
         lbl.numberOfLines = 0
         lbl.setContentCompressionResistancePriority(.required, for: .vertical)

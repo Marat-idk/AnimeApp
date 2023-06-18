@@ -26,7 +26,7 @@ final class NotificationViewController: UIViewController {
         let lbl = UILabel()
         lbl.text = "Messages Notifications"
         lbl.font = .montserratMedium(size: 12)
-        lbl.textColor = .brandGrey
+        lbl.textColor = .brandGray
         lbl.adjustsFontSizeToFitWidth = true
         lbl.minimumScaleFactor = 0.5
         return lbl
