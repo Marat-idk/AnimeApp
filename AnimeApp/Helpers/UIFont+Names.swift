@@ -27,4 +27,8 @@ extension UIFont {
     static func montserratSemiBold(size: CGFloat) -> UIFont? {
         return UIFont(name: "Montserrat-SemiBold", size: size)
     }
+    
+    static func poppinsRegular(size: CGFloat) -> UIFont? {
+        return UIFont(name: "Poppins-Regular", size: size)
+    }
 }
