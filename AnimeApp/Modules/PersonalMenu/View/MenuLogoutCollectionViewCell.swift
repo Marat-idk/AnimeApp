@@ -8,10 +8,16 @@
 import UIKit
 import SnapKit
 
+protocol MenuLogoutCollectionViewCellDelegate: AnyObject {
+    func logoutButtonTapped()
+}
+
 // MARK: - MenuLogoutCollectionViewCell
 final class MenuLogoutCollectionViewCell: UICollectionViewCell {
     
     static let identifier = String(describing: MenuLogoutCollectionViewCell.self)
+    
+    var delegate: MenuLogoutCollectionViewCellDelegate?
     
     private lazy var logoutButton: UIButton = {
         let btn = UIButton()
@@ -24,6 +30,7 @@ final class MenuLogoutCollectionViewCell: UICollectionViewCell {
         btn.clipsToBounds = true
         btn.layer.borderWidth = 1
         btn.layer.borderColor = UIColor.brandLightBlue.cgColor
+        btn.addTarget(self, action: #selector(logoutButtonTapped(_:)), for: .touchUpInside)
         return btn
     }()
     
@@ -58,6 +65,10 @@ final class MenuLogoutCollectionViewCell: UICollectionViewCell {
         )
         
         return layoutAttributes
+    }
+    
+    @objc private func logoutButtonTapped(_ sender: UIButton) {
+        delegate?.logoutButtonTapped()
     }
     
 }

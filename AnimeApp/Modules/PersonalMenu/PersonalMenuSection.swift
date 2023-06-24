@@ -232,7 +232,7 @@ enum LogoutOptions: Int, PersonalMenuCellType {
     case logout
     
     var description: String {
-        return ""
+        return "logout"
     }
     
 }

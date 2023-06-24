@@ -32,6 +32,8 @@ final class PersonalMenuViewController: UIViewController {
         collection.register(MenuLogoutCollectionViewCell.self,
                             forCellWithReuseIdentifier: MenuLogoutCollectionViewCell.identifier)
         
+        collection.showsVerticalScrollIndicator = false
+        collection.showsHorizontalScrollIndicator = false
         collection.dataSource = self
         collection.delegate = self
         return collection
@@ -162,6 +164,7 @@ extension PersonalMenuViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuLogoutCollectionViewCell.identifier, for: indexPath) as? MenuLogoutCollectionViewCell else {
             return UICollectionViewCell()
         }
+        cell.delegate = self
         return cell
     }
 }
@@ -201,5 +204,13 @@ extension PersonalMenuViewController: UICollectionViewDelegateFlowLayout {
         default:
             return UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
         }
+    }
+}
+
+extension PersonalMenuViewController: MenuLogoutCollectionViewCellDelegate {
+    func logoutButtonTapped() {
+        let section = PersonalMenuSection.logout.rawValue
+        let item = LogoutOptions.logout.rawValue
+        presenter.menuItemDidSelect(at: IndexPath(item: item, section: section))
     }
 }
