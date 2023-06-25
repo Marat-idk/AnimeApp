@@ -87,6 +87,7 @@
 		D2ED90D72A2CA62D0057FEC4 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED90D62A2CA62D0057FEC4 /* NotificationViewController.swift */; };
 		D2ED90DB2A2D3AF50057FEC4 /* NotificationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED90DA2A2D3AF50057FEC4 /* NotificationStackView.swift */; };
 		D2ED90DD2A2D3D780057FEC4 /* NotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED90DC2A2D3D780057FEC4 /* NotificationType.swift */; };
+		E5615BEA2A483D7200A2BAD1 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5615BE92A483D7200A2BAD1 /* EditProfileViewController.swift */; };
 		E5DC35622A35FA64002470B3 /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC35612A35FA64002470B3 /* CustomSwitch.swift */; };
 		E5DC35672A3633D3002470B3 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC35662A3633D3002470B3 /* LanguageViewController.swift */; };
 		E5DC35692A3638B2002470B3 /* LanguageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC35682A3638B2002470B3 /* LanguageSection.swift */; };
@@ -201,6 +202,7 @@
 		D2ED90DC2A2D3D780057FEC4 /* NotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationType.swift; sourceTree = "<group>"; };
 		D6DAA2BCD3FE64CDCFFC809C /* Pods-AnimeApp-AnimeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeApp-AnimeAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-AnimeApp-AnimeAppUITests/Pods-AnimeApp-AnimeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E13D97B2C43C41399E76F5D1 /* Pods-AnimeApp-AnimeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeApp-AnimeAppUITests.release.xcconfig"; path = "Target Support Files/Pods-AnimeApp-AnimeAppUITests/Pods-AnimeApp-AnimeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E5615BE92A483D7200A2BAD1 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		E5DC35612A35FA64002470B3 /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
 		E5DC35662A3633D3002470B3 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		E5DC35682A3638B2002470B3 /* LanguageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSection.swift; sourceTree = "<group>"; };
@@ -500,6 +502,7 @@
 		D2ECBB2529F5B0AA006D1FF1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E5615BE62A483C9100A2BAD1 /* EditProfile */,
 				E5DC35632A3633A5002470B3 /* Language */,
 				D2ED90D52A2CA5F70057FEC4 /* Notification */,
 				D27AD3912A23E7D500630065 /* PrivacyPolicy */,
@@ -605,6 +608,30 @@
 				D2ED90DA2A2D3AF50057FEC4 /* NotificationStackView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E5615BE62A483C9100A2BAD1 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				E5615BE72A483D4300A2BAD1 /* View */,
+				E5615BE82A483D4A00A2BAD1 /* Presenter */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
+		E5615BE72A483D4300A2BAD1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E5615BE92A483D7200A2BAD1 /* EditProfileViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E5615BE82A483D4A00A2BAD1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		E5DC35632A3633A5002470B3 /* Language */ = {
@@ -968,6 +995,7 @@
 				E5F09C9D2A3A696E0052FD71 /* PopupView.swift in Sources */,
 				E5DC356F2A36488C002470B3 /* LanguageCollectionViewCell.swift in Sources */,
 				D2ECBB4C29F5D45B006D1FF1 /* UIColor+Helper.swift in Sources */,
+				E5615BEA2A483D7200A2BAD1 /* EditProfileViewController.swift in Sources */,
 				D230221329ECA6580091DE37 /* AuthorizationRequest.swift in Sources */,
 				D27AD38E2A23BFFE00630065 /* PersonalMenuCoordinator.swift in Sources */,
 				D230220C29EC90350091DE37 /* JSONParameterEncoder.swift in Sources */,
