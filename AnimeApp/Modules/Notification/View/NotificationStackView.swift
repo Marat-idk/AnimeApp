@@ -20,6 +20,8 @@ final class NotificationStackView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let lbl = UILabel()
+        lbl.backgroundColor = .brandDarkBlue
+        lbl.isOpaque = true
         lbl.text = type.description
         lbl.font = .montserratMedium(size: 16)
         lbl.textColor = .white
@@ -46,6 +48,8 @@ final class NotificationStackView: UIView {
             make.height.equalTo(24)
         }
         let stack = UIStackView(arrangedSubviews: [titleLabel, notificationSwitch])
+        stack.backgroundColor = .brandDarkBlue
+        stack.isOpaque = true
         stack.axis = .horizontal
         stack.distribution = .equalCentering
         stack.alignment = .fill

@@ -24,6 +24,8 @@ final class NotificationViewController: UIViewController {
     
     private let messagesLabel: UILabel = {
         let lbl = UILabel()
+        lbl.backgroundColor = .brandDarkBlue
+        lbl.isOpaque = true
         lbl.text = "Messages Notifications"
         lbl.font = .montserratMedium(size: 12)
         lbl.textColor = .brandGray
@@ -45,6 +47,7 @@ final class NotificationViewController: UIViewController {
     private let separatorView: UIView = {
         let view = UIView()
         view.backgroundColor = .brandBlue
+        view.isOpaque = true
         return view
     }()
     
@@ -54,6 +57,8 @@ final class NotificationViewController: UIViewController {
                                                    showNatificationStackView,
                                                    separatorView,
                                                    exceptionsStackView])
+        stack.backgroundColor = .brandDarkBlue
+        stack.isOpaque = true
         stack.axis = .vertical
         stack.distribution = .equalCentering
         stack.alignment = .fill

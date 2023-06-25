@@ -17,6 +17,8 @@ final class PrivacyPolicyViewController: UIViewController, FlowCoordinator {
     
     private let termLabel: UILabel = {
         let lbl = UILabel()
+        lbl.backgroundColor = .brandDarkBlue
+        lbl.isOpaque = true
         lbl.text = "Term"
         lbl.font = .montserratSemiBold(size: 14)
         lbl.textColor = .white
@@ -27,6 +29,8 @@ final class PrivacyPolicyViewController: UIViewController, FlowCoordinator {
     
     private let termDescriptionLabel: UILabel = {
         let lbl = UILabel()
+        lbl.backgroundColor = .brandDarkBlue
+        lbl.isOpaque = true
         lbl.text = String(repeating: "Mock ", count: 50) + "\n\n" + String(repeating: "Mock ", count: 120)
         lbl.font = .montserratMedium(size: 14)
         lbl.textColor = .brandGray
@@ -38,6 +42,8 @@ final class PrivacyPolicyViewController: UIViewController, FlowCoordinator {
     
     private let changesLabel: UILabel = {
         let lbl = UILabel()
+        lbl.backgroundColor = .brandDarkBlue
+        lbl.isOpaque = true
         lbl.text = "Changes to the Service and/or Terms:"
         lbl.font = .montserratSemiBold(size: 14)
         lbl.textColor = .white
@@ -49,6 +55,8 @@ final class PrivacyPolicyViewController: UIViewController, FlowCoordinator {
     
     private let changeDescriptionLabel: UILabel = {
         let lbl = UILabel()
+        lbl.backgroundColor = .brandDarkBlue
+        lbl.isOpaque = true
         lbl.text = String(repeating: "Mock ", count: 50) + "\n\n" + String(repeating: "Mock ", count: 150)
         lbl.font = .montserratMedium(size: 14)
         lbl.textColor = .brandGray
