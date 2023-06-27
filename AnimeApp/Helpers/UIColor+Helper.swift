@@ -22,6 +22,8 @@ extension UIColor {
     static let brandGray = UIColor(hexString: "#92929D")
     
     static let brandDarkGray = UIColor(hexString: "#696974")
+    
+    static let brandRed = UIColor(hexString: "#FB4141")
 }
 
 // MARK: - Helpers
