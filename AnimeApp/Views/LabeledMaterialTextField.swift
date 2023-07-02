@@ -13,16 +13,32 @@ class LabeledMaterialTextField: UIView {
     
     weak var delegate: UITextFieldDelegate?
     
+    var shouldReturnBlock: ((UITextField) -> (Bool))?
+    var didBeginEditing: ((UITextField) -> Void)?
+    var didEndEditing: ((UITextField) -> Void)?
+    var editingChanged: ((UITextField) -> Void)?
+    
     // MARK: - override properties
     override var backgroundColor: UIColor? {
         get {
-            return super.backgroundColor
+            return textFieldView.backgroundColor
         }
         set {
             textFieldView.backgroundColor = newValue
             fieldLabelContainer.backgroundColor = newValue
             fieldLabel.backgroundColor = newValue
             textField.backgroundColor = newValue
+            failLabel.backgroundColor = newValue
+        }
+    }
+    
+    override var tag: Int {
+        get {
+            super.tag
+        }
+        set {
+            super.tag = newValue
+            textField.tag = newValue
         }
     }
     
@@ -36,7 +52,7 @@ class LabeledMaterialTextField: UIView {
         }
     }
     
-    var borderColor: UIColor? {
+    private var _borderColor: UIColor? {
         get {
             guard let cgColor = textFieldView.layer.borderColor else {
                 return nil
@@ -48,6 +64,11 @@ class LabeledMaterialTextField: UIView {
         }
     }
     
+    var borderColor: UIColor? {
+        didSet {
+            _borderColor = borderColor
+        }
+    }
     var failedBorderColor: UIColor?
     
     var borderWidth: CGFloat {
@@ -69,6 +90,33 @@ class LabeledMaterialTextField: UIView {
         }
     }
     
+    var text: String? {
+        get {
+            textField.text
+        }
+        set {
+            textField.text = newValue
+        }
+    }
+    
+    var keyboardType: UIKeyboardType {
+        get {
+            textField.keyboardType
+        }
+        set {
+            textField.keyboardType = newValue
+        }
+    }
+    
+    var isSecureTextEntry: Bool {
+        get {
+            textField.isSecureTextEntry
+        }
+        set {
+            textField.isSecureTextEntry = newValue
+        }
+    }
+    
     // MARK: - label's properties
     var labelFont: UIFont! {
         get {
@@ -76,6 +124,7 @@ class LabeledMaterialTextField: UIView {
         }
         set {
             fieldLabel.font = newValue
+            failLabel.font = newValue
         }
     }
     
@@ -94,6 +143,25 @@ class LabeledMaterialTextField: UIView {
         }
         set {
             fieldLabel.textColor = newValue
+        }
+    }
+    
+    // MARK: - fail label's properties
+    var failLabelText: String? {
+        get {
+            failLabel.text
+        }
+        set {
+            failLabel.text = newValue
+        }
+    }
+    
+    var failLabelTextColor: UIColor! {
+        get {
+            failLabel.textColor
+        }
+        set {
+            failLabel.textColor = newValue
         }
     }
 
@@ -119,13 +187,25 @@ class LabeledMaterialTextField: UIView {
         return lbl
     }()
     
-    private let textField: UITextField = {
+    private lazy var textField: UITextField = {
         let tf = UITextField()
+        tf.textColor = .brandGray
+        tf.addTarget(self, action: #selector(handleEditingChanged(_:)), for: .editingChanged)
         return tf
     }()
     
+    private let failLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.isOpaque = true
+        return lbl
+    }()
+    
+    private var shouldShowFailLabel: Bool = false
+    private var failLabelHeightConstraint: Constraint?
+    
     // MARK: - init
-    override init(frame: CGRect) {
+    init(frame: CGRect, shouldShowFailLabel: Bool) {
+        self.shouldShowFailLabel = shouldShowFailLabel
         super.init(frame: frame)
         self.textField.delegate = self
         setupViews()
@@ -136,13 +216,36 @@ class LabeledMaterialTextField: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    convenience init() {
+        self.init(frame: .zero, shouldShowFailLabel: false)
+    }
+    
+    // MARK: - override methods
     override func layoutSubviews() {
         super.layoutSubviews()
     }
     
+    @discardableResult
+    override func becomeFirstResponder() -> Bool {
+        if super.becomeFirstResponder() { return true }
+        textField.becomeFirstResponder()
+        return false
+    }
+    
+    @discardableResult
+    override func resignFirstResponder() -> Bool {
+        if super.resignFirstResponder() { return true }
+        textField.resignFirstResponder()
+        return false
+    }
+    
     // MARK: - private methods
     private func setupViews() {
-        addSubviews(textFieldView, fieldLabelContainer)
+        if shouldShowFailLabel {
+            addSubview(failLabel)
+        }
+        addSubviews(textFieldView,
+                    fieldLabelContainer)
         textFieldView.addSubview(textField)
         fieldLabelContainer.addSubview(fieldLabel)
     }
@@ -150,7 +253,11 @@ class LabeledMaterialTextField: UIView {
     private func setupConstraints() {
         textFieldView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
-            make.horizontalEdges.bottom.equalToSuperview()
+            make.horizontalEdges.equalToSuperview()
+            make.height.equalTo(53)
+            if !shouldShowFailLabel {
+                make.bottom.equalToSuperview()
+            }
         }
         
         fieldLabelContainer.snp.makeConstraints { make in
@@ -171,6 +278,40 @@ class LabeledMaterialTextField: UIView {
             make.horizontalEdges.equalToSuperview().inset(4)
             make.centerX.equalToSuperview()
         }
+        
+        if shouldShowFailLabel {
+            failLabel.snp.makeConstraints { make in
+                make.top.equalTo(textFieldView.snp.bottom).offset(8)
+                make.horizontalEdges.equalToSuperview().inset(16)
+                make.bottom.equalToSuperview()
+                failLabelHeightConstraint = make.height.equalTo(16).constraint
+            }
+        }
+    }
+    
+    // MARK: - targets actions
+    @objc private func handleEditingChanged(_ sender: UITextField) {
+        editingChanged?(textField)
+    }
+    
+    func hideFail() {
+        guard shouldShowFailLabel else { return }
+        self.window?.layoutIfNeeded()
+        UIView.animate(withDuration: 1, delay: 0.0, options: .curveLinear) {
+            self._borderColor = self.borderColor
+            self.failLabelHeightConstraint?.update(offset: 0)
+            self.window?.layoutIfNeeded()
+        }
+    }
+    
+    func showFail() {
+        guard shouldShowFailLabel else { return }
+        self.window?.layoutIfNeeded()
+        UIView.animate(withDuration: 1, delay: 0.0, options: .curveLinear) {
+            self._borderColor = self.failedBorderColor
+            self.failLabelHeightConstraint?.update(offset: 16)
+            self.window?.layoutIfNeeded()
+        }
     }
 }
 
@@ -181,7 +322,7 @@ extension LabeledMaterialTextField: UITextFieldDelegate {
             return outerDelegate.textFieldShouldReturn?(textField) ?? true
         }
         textField.resignFirstResponder()
-        return true
+        return shouldReturnBlock?(textField) ?? true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -189,6 +330,7 @@ extension LabeledMaterialTextField: UITextFieldDelegate {
             outerDelegate.textFieldDidBeginEditing?(textField)
         }
         textField.textColor = .white
+        didBeginEditing?(textField)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -196,5 +338,6 @@ extension LabeledMaterialTextField: UITextFieldDelegate {
             outerDelegate.textFieldDidEndEditing?(textField)
         }
         textField.textColor = .brandGray
+        didEndEditing?(textField)
     }
 }
