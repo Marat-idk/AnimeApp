@@ -7,10 +7,16 @@
 
 import UIKit
 
+protocol MenuProfileCollectionViewCellDelegate: AnyObject {
+    func editProfileButtonTapped()
+}
+
 // MARK: - MenuProfileCollectionViewCell
 final class MenuProfileCollectionViewCell: UICollectionViewCell {
     
     static let identifier = String(describing: MenuProfileCollectionViewCell.self)
+    
+    weak var delegate: MenuProfileCollectionViewCellDelegate?
     
     var isPremium: Bool = false {
         didSet {
@@ -259,6 +265,7 @@ final class MenuProfileCollectionViewCell: UICollectionViewCell {
     
     @objc private func editButtonTapped(_ sender: UIButton) {
         print("editButton tapped")
+        delegate?.editProfileButtonTapped()
     }
 }
 

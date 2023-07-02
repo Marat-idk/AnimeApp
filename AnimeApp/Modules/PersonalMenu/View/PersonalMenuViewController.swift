@@ -80,6 +80,7 @@ extension PersonalMenuViewController: PersonalMenuViewProtocol {
     
 }
 
+// MARK: - UICollectionViewDataSource
 extension PersonalMenuViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -148,6 +149,7 @@ extension PersonalMenuViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuProfileCollectionViewCell.identifier, for: indexPath) as? MenuProfileCollectionViewCell else {
             return UICollectionViewCell()
         }
+        cell.delegate = self
         cell.isPremium = true
         return cell
     }
@@ -169,12 +171,21 @@ extension PersonalMenuViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegate
 extension PersonalMenuViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter.menuItemDidSelect(at: indexPath)
+        guard let section = PersonalMenuSection(rawValue: indexPath.section) else { return }
+        
+        switch section {
+        case .account, .general, .more:
+            presenter.menuItemDidSelect(at: indexPath)
+        default:
+            break
+        }
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 extension PersonalMenuViewController: UICollectionViewDelegateFlowLayout {
     // header size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -207,6 +218,16 @@ extension PersonalMenuViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - MenuProfileCollectionViewCellDelegate
+extension PersonalMenuViewController: MenuProfileCollectionViewCellDelegate {
+    func editProfileButtonTapped() {
+        let section = PersonalMenuSection.profileEdit.rawValue
+        let item = ProfileEditOptions.profileEdit.rawValue
+        presenter.menuItemDidSelect(at: IndexPath(item: item, section: section))
+    }
+}
+
+// MARK: - MenuLogoutCollectionViewCellDelegate
 extension PersonalMenuViewController: MenuLogoutCollectionViewCellDelegate {
     func logoutButtonTapped() {
         let section = PersonalMenuSection.logout.rawValue

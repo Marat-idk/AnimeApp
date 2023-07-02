@@ -87,7 +87,11 @@
 		D2ED90D72A2CA62D0057FEC4 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED90D62A2CA62D0057FEC4 /* NotificationViewController.swift */; };
 		D2ED90DB2A2D3AF50057FEC4 /* NotificationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED90DA2A2D3AF50057FEC4 /* NotificationStackView.swift */; };
 		D2ED90DD2A2D3D780057FEC4 /* NotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED90DC2A2D3D780057FEC4 /* NotificationType.swift */; };
+		E555C81A2A51867A00244A80 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E555C8192A51867A00244A80 /* EditProfilePresenter.swift */; };
 		E5615BEA2A483D7200A2BAD1 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5615BE92A483D7200A2BAD1 /* EditProfileViewController.swift */; };
+		E5615BEC2A48A7D400A2BAD1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5615BEB2A48A7D400A2BAD1 /* ProfileView.swift */; };
+		E5615BEE2A48BB0100A2BAD1 /* UserPersonal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5615BED2A48BB0100A2BAD1 /* UserPersonal.swift */; };
+		E5CABFF32A4A1F00007CE1A5 /* LabeledMaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CABFF22A4A1F00007CE1A5 /* LabeledMaterialTextField.swift */; };
 		E5DC35622A35FA64002470B3 /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC35612A35FA64002470B3 /* CustomSwitch.swift */; };
 		E5DC35672A3633D3002470B3 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC35662A3633D3002470B3 /* LanguageViewController.swift */; };
 		E5DC35692A3638B2002470B3 /* LanguageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC35682A3638B2002470B3 /* LanguageSection.swift */; };
@@ -202,7 +206,11 @@
 		D2ED90DC2A2D3D780057FEC4 /* NotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationType.swift; sourceTree = "<group>"; };
 		D6DAA2BCD3FE64CDCFFC809C /* Pods-AnimeApp-AnimeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeApp-AnimeAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-AnimeApp-AnimeAppUITests/Pods-AnimeApp-AnimeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E13D97B2C43C41399E76F5D1 /* Pods-AnimeApp-AnimeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeApp-AnimeAppUITests.release.xcconfig"; path = "Target Support Files/Pods-AnimeApp-AnimeAppUITests/Pods-AnimeApp-AnimeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E555C8192A51867A00244A80 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
 		E5615BE92A483D7200A2BAD1 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		E5615BEB2A48A7D400A2BAD1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E5615BED2A48BB0100A2BAD1 /* UserPersonal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPersonal.swift; sourceTree = "<group>"; };
+		E5CABFF22A4A1F00007CE1A5 /* LabeledMaterialTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledMaterialTextField.swift; sourceTree = "<group>"; };
 		E5DC35612A35FA64002470B3 /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
 		E5DC35662A3633D3002470B3 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		E5DC35682A3638B2002470B3 /* LanguageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSection.swift; sourceTree = "<group>"; };
@@ -495,6 +503,7 @@
 				D23AA47429FFEB3500B877CF /* Authorization.swift */,
 				D23AA4782A00A7F700B877CF /* Registration.swift */,
 				D23AA4822A0A6B2B00B877CF /* Genre.swift */,
+				E5615BED2A48BB0100A2BAD1 /* UserPersonal.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -588,6 +597,7 @@
 				D2626DD329F5F787008E9521 /* MaterialTextField.swift */,
 				E5DC35612A35FA64002470B3 /* CustomSwitch.swift */,
 				E5F09C9C2A3A696E0052FD71 /* PopupView.swift */,
+				E5CABFF22A4A1F00007CE1A5 /* LabeledMaterialTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -623,6 +633,7 @@
 			isa = PBXGroup;
 			children = (
 				E5615BE92A483D7200A2BAD1 /* EditProfileViewController.swift */,
+				E5615BEB2A48A7D400A2BAD1 /* ProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -630,6 +641,7 @@
 		E5615BE82A483D4A00A2BAD1 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				E555C8192A51867A00244A80 /* EditProfilePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -947,6 +959,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E555C81A2A51867A00244A80 /* EditProfilePresenter.swift in Sources */,
 				D23AA47B2A08326700B877CF /* TestViewController.swift in Sources */,
 				D2ECBB2C29F5B154006D1FF1 /* AuthorizationPresenter.swift in Sources */,
 				D2ED90DB2A2D3AF50057FEC4 /* NotificationStackView.swift in Sources */,
@@ -955,6 +968,7 @@
 				D235DD6C2A1974A900B7D898 /* ModuleFactory.swift in Sources */,
 				D230220529EC8D360091DE37 /* ParameterEncoding.swift in Sources */,
 				D27AD38C2A23BCD300630065 /* AppCoordinator.swift in Sources */,
+				E5615BEE2A48BB0100A2BAD1 /* UserPersonal.swift in Sources */,
 				D23AA4772A00A3F800B877CF /* RegistrationValidators.swift in Sources */,
 				D23AA4852A0AB97600B877CF /* AnimeService.swift in Sources */,
 				D2ECBB5129F5D90A006D1FF1 /* GradientView.swift in Sources */,
@@ -987,6 +1001,8 @@
 				D235DD6E2A1A1E7500B7D898 /* UIImage+Helper.swift in Sources */,
 				D2626DDC29F61A8D008E9521 /* UIViewController+Helper.swift in Sources */,
 				D2626DD829F5FE9C008E9521 /* UIResponder+Helper.swift in Sources */,
+				E5CABFF32A4A1F00007CE1A5 /* LabeledMaterialTextField.swift in Sources */,
+				E5615BEC2A48A7D400A2BAD1 /* ProfileView.swift in Sources */,
 				D2626DD429F5F787008E9521 /* MaterialTextField.swift in Sources */,
 				D27AD38A2A23849200630065 /* CoordinatorProtocol.swift in Sources */,
 				D2ECBB2229F07EDD006D1FF1 /* User.swift in Sources */,
