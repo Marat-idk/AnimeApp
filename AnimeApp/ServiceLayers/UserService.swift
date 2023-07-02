@@ -15,6 +15,7 @@ typealias UserServiceCompletion = (Result<Any, Error>) -> Void
 protocol UserServiceProtocol {
     var user: User? { get }
     var session: Session? { get }
+    var userPersonal: UserPersonal { get }
     
     func login(email: String, and password: String, completion: @escaping UserServiceCompletion)
     func login(username: String, and password: String, completion: @escaping UserServiceCompletion)
@@ -39,11 +40,18 @@ class UserService: UserServiceProtocol {
     
     var user: User?
     var session: Session?
+    var userPersonal: UserPersonal
     
     private var networkManager: NetworkManager
     
     private init(networkManager: NetworkManager = NetworkManagerImpl()) {
         self.networkManager = networkManager
+        // TODO: - mock user perosnal
+        self.userPersonal = UserPersonal()
+        userPersonal.firstName = "Tiffany"
+        userPersonal.lastName = ""
+        userPersonal.email = "Tiffanyjearsey@gmail.com"
+        userPersonal.phone = "+182120142305"
     }
     
     func login(email: String, and password: String, completion: @escaping UserServiceCompletion) {
@@ -111,7 +119,7 @@ class UserService: UserServiceProtocol {
     }
     
     func registration(email: String, username: String, password: String, completion: @escaping UserServiceCompletion) {
-        networkManager.request(with: AuthorizationRequest.userCreate(email: email, password: password, username: username)) { data, response, error in
+        networkManager.request(with: AuthorizationRequest.userCreate(email: email, password: password, username: username)) { data, _, error in
             
             guard error == nil else {
                 completion(.failure(NetworkError.connectionFailed))
