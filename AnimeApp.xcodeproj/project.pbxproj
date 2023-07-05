@@ -88,6 +88,7 @@
 		D2ED90DB2A2D3AF50057FEC4 /* NotificationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED90DA2A2D3AF50057FEC4 /* NotificationStackView.swift */; };
 		D2ED90DD2A2D3D780057FEC4 /* NotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED90DC2A2D3D780057FEC4 /* NotificationType.swift */; };
 		E555C81A2A51867A00244A80 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E555C8192A51867A00244A80 /* EditProfilePresenter.swift */; };
+		E555C81C2A51FCAC00244A80 /* PersonalInfoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E555C81B2A51FCAC00244A80 /* PersonalInfoType.swift */; };
 		E5615BEA2A483D7200A2BAD1 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5615BE92A483D7200A2BAD1 /* EditProfileViewController.swift */; };
 		E5615BEC2A48A7D400A2BAD1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5615BEB2A48A7D400A2BAD1 /* ProfileView.swift */; };
 		E5615BEE2A48BB0100A2BAD1 /* UserPersonal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5615BED2A48BB0100A2BAD1 /* UserPersonal.swift */; };
@@ -207,6 +208,7 @@
 		D6DAA2BCD3FE64CDCFFC809C /* Pods-AnimeApp-AnimeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeApp-AnimeAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-AnimeApp-AnimeAppUITests/Pods-AnimeApp-AnimeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E13D97B2C43C41399E76F5D1 /* Pods-AnimeApp-AnimeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeApp-AnimeAppUITests.release.xcconfig"; path = "Target Support Files/Pods-AnimeApp-AnimeAppUITests/Pods-AnimeApp-AnimeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E555C8192A51867A00244A80 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
+		E555C81B2A51FCAC00244A80 /* PersonalInfoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoType.swift; sourceTree = "<group>"; };
 		E5615BE92A483D7200A2BAD1 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		E5615BEB2A48A7D400A2BAD1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E5615BED2A48BB0100A2BAD1 /* UserPersonal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPersonal.swift; sourceTree = "<group>"; };
@@ -625,6 +627,7 @@
 			children = (
 				E5615BE72A483D4300A2BAD1 /* View */,
 				E5615BE82A483D4A00A2BAD1 /* Presenter */,
+				E555C81B2A51FCAC00244A80 /* PersonalInfoType.swift */,
 			);
 			path = EditProfile;
 			sourceTree = "<group>";
@@ -1024,6 +1027,7 @@
 				D23AA47D2A0832E300B877CF /* TestCollectionViewCell.swift in Sources */,
 				D23AA47329FFE56100B877CF /* AuthorizationValidators.swift in Sources */,
 				D230220129EC892B0091DE37 /* HTTPMethod.swift in Sources */,
+				E555C81C2A51FCAC00244A80 /* PersonalInfoType.swift in Sources */,
 				E5DC35622A35FA64002470B3 /* CustomSwitch.swift in Sources */,
 				D23021FF29EC88A80091DE37 /* RequestProtocol.swift in Sources */,
 				D23AA4E12A118C0C00B877CF /* MenuFooterCollectionReusableView.swift in Sources */,
