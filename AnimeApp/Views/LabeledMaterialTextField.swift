@@ -201,6 +201,7 @@ class LabeledMaterialTextField: UIView {
     }()
     
     private var shouldShowFailLabel: Bool = false
+    private var isFailAlreadyHidden: Bool = false
     private var failLabelHeightConstraint: Constraint?
     
     // MARK: - init
@@ -295,22 +296,26 @@ class LabeledMaterialTextField: UIView {
     }
     
     func hideFail() {
-        guard shouldShowFailLabel else { return }
+        guard shouldShowFailLabel, !isFailAlreadyHidden else { return }
         self.window?.layoutIfNeeded()
-        UIView.animate(withDuration: 1, delay: 0.0, options: .curveLinear) {
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveLinear) {
             self._borderColor = self.borderColor
             self.failLabelHeightConstraint?.update(offset: 0)
             self.window?.layoutIfNeeded()
+        } completion: { _ in
+            self.isFailAlreadyHidden = true
         }
     }
     
     func showFail() {
         guard shouldShowFailLabel else { return }
         self.window?.layoutIfNeeded()
-        UIView.animate(withDuration: 1, delay: 0.0, options: .curveLinear) {
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveLinear) {
             self._borderColor = self.failedBorderColor
             self.failLabelHeightConstraint?.update(offset: 16)
             self.window?.layoutIfNeeded()
+        } completion: { _ in
+            self.isFailAlreadyHidden = false
         }
     }
 }
