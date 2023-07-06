@@ -21,20 +21,14 @@ final class EditProfileViewController: UIViewController, FlowCoordinator {
         return scroll
     }()
     
+    private let containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    
     private let profileView: ProfileView = {
         let view = ProfileView()
-        return view
-    }()
-    
-    private let mockContainer: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        return view
-    }()
-    
-    private let mockView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
         return view
     }()
     
@@ -192,26 +186,24 @@ final class EditProfileViewController: UIViewController, FlowCoordinator {
     private func setupViews() {
         view.addSubview(scrollView)
         
-        scrollView.addSubview(mockContainer)
+        scrollView.addSubview(containerView)
         
-        mockContainer.addSubviews(profileView, generalStackView)
+        containerView.addSubviews(profileView, generalStackView)
     }
     
     private func setupConstraints() {
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-            make.width.equalToSuperview()
         }
         
-        mockContainer.snp.makeConstraints { make in
-            make.horizontalEdges.top.equalToSuperview()
+        containerView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
             make.width.equalToSuperview()
             make.height.equalToSuperview().priority(.low)
-            make.bottom.equalToSuperview()
         }
         
         profileView.snp.makeConstraints { make in
-            make.top.equalTo(mockContainer.safeAreaLayoutGuide.snp.top).offset(30)
+            make.top.equalTo(containerView.safeAreaLayoutGuide.snp.top).offset(30)
             make.horizontalEdges.equalToSuperview().inset(50)
             make.centerX.equalToSuperview()
             make.height.equalTo(138)
