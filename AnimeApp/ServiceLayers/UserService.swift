@@ -31,6 +31,8 @@ protocol UserServiceProtocol {
     func updatePassword(oldPassword: String, newPassword: String, repeatPassword: String, completion: @escaping UserServiceCompletion)
     
     func delete(id: String, completion: @escaping UserServiceCompletion)
+    
+    func save(new userPersonal: UserPersonal)
 }
 
 // MARK: - UserService
@@ -52,6 +54,7 @@ class UserService: UserServiceProtocol {
         userPersonal.lastName = ""
         userPersonal.email = "Tiffanyjearsey@gmail.com"
         userPersonal.phone = "+182120142305"
+        userPersonal.isPremium = true
     }
     
     func login(email: String, and password: String, completion: @escaping UserServiceCompletion) {
@@ -173,6 +176,9 @@ class UserService: UserServiceProtocol {
         
     }
     
+    func save(new userPersonal: UserPersonal) {
+        self.userPersonal = userPersonal
+    }
 }
 
 extension Data {

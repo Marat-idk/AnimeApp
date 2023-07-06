@@ -14,4 +14,5 @@ struct UserPersonal {
     var lastName: String? = ""
     var email: String = ""
     var phone: String = ""
+    var isPremium: Bool = false
 }
