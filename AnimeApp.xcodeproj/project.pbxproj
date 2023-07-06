@@ -103,6 +103,7 @@
 		E5DC35742A379D5D002470B3 /* LanguagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC35732A379D5D002470B3 /* LanguagePresenter.swift */; };
 		E5F09C9D2A3A696E0052FD71 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F09C9C2A3A696E0052FD71 /* PopupView.swift */; };
 		E5F09CA02A40FEDD0052FD71 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F09C9F2A40FEDD0052FD71 /* Poppins-Regular.ttf */; };
+		E5FD894B2A561A37007581EF /* EditProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FD894A2A561A37007581EF /* EditProfileCoordinator.swift */; };
 		E7B97FAE5216B47C355042F4 /* Pods_AnimeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CD00E30B6444FA4BBDDCEE /* Pods_AnimeAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -223,6 +224,7 @@
 		E5DC35732A379D5D002470B3 /* LanguagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePresenter.swift; sourceTree = "<group>"; };
 		E5F09C9C2A3A696E0052FD71 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		E5F09C9F2A40FEDD0052FD71 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../../../../Downloads/Poppins/Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		E5FD894A2A561A37007581EF /* EditProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileCoordinator.swift; sourceTree = "<group>"; };
 		F1CD00E30B6444FA4BBDDCEE /* Pods_AnimeAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimeAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -684,6 +686,7 @@
 				D27AD38B2A23BCD300630065 /* AppCoordinator.swift */,
 				D27AD38D2A23BFFE00630065 /* PersonalMenuCoordinator.swift */,
 				E5DC35712A37855F002470B3 /* LanguageCoordinator.swift */,
+				E5FD894A2A561A37007581EF /* EditProfileCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -988,6 +991,7 @@
 				D230221029EC916B0091DE37 /* NetworkManagerImpl.swift in Sources */,
 				E5DC356D2A36460C002470B3 /* LanguageHeaderCollectionReusableView.swift in Sources */,
 				D23AA4E32A19095900B877CF /* MenuLogoutCollectionViewCell.swift in Sources */,
+				E5FD894B2A561A37007581EF /* EditProfileCoordinator.swift in Sources */,
 				D23AA46E29FE834700B877CF /* UIDevice+Helper.swift in Sources */,
 				D2626DDA29F603E5008E9521 /* UIView+Helper.swift in Sources */,
 				D23AA4CC2A114C7400B877CF /* PersonalMenuViewController.swift in Sources */,
