@@ -13,14 +13,20 @@ protocol ModuleFactoryProtocol {
     func createAuthorizationModule() -> UIViewController
     // MARK: - personal menu
     func createPesonalMenuModule(navigationDelegate: PersonalMenuNavigationDelegate?) -> UIViewController
+    func createEditProfileModule(editProfileDelegate: EditProfileDelegate?) -> UIViewController
     func createNotificationModule() -> UIViewController
     func createLanguageModule(languageDelegate: LanguageUpdatingDelegate?) -> UIViewController
     func createPrivacyPolicyModule() -> UIViewController
 }
 
+// MARK: - default implementation
 extension ModuleFactoryProtocol {
     func createPesonalMenuModule() -> UIViewController {
         return createPesonalMenuModule(navigationDelegate: nil)
+    }
+    
+    func createEditProfileModule() -> UIViewController {
+        return createEditProfileModule(editProfileDelegate: nil)
     }
 }
 
@@ -41,6 +47,14 @@ struct ModuleFactory: ModuleFactoryProtocol {
     func createPesonalMenuModule(navigationDelegate: PersonalMenuNavigationDelegate?) -> UIViewController {
         let view = PersonalMenuViewController()
         let presenter = PersonalMenuPresenter(view: view, navigationDelegate: navigationDelegate)
+        view.presenter = presenter
+        return view
+    }
+    
+    func createEditProfileModule(editProfileDelegate: EditProfileDelegate?) -> UIViewController {
+        let view = EditProfileViewController()
+        // MOCK: пока просто передаю напрямую UserService.shared
+        let presenter = EditProfilePresenter(view: view, userService: UserService.shared, delegate: editProfileDelegate)
         view.presenter = presenter
         return view
     }

@@ -10,6 +10,7 @@ import UIKit
 protocol CoordinatorFactoryProtocol {
     static func createPersonalMenuCoordinator(with navigationController: UINavigationController) -> PersonalMenuCoordinator
     static func createLanguageCoordinator(with navigationController: UINavigationController) -> LanguageCoordinator
+    static func createEditProfileCoordinator(with navigationController: UINavigationController) -> EditProfileCoordinator
 }
 
 struct CoordinatorFactory: CoordinatorFactoryProtocol {
@@ -19,5 +20,9 @@ struct CoordinatorFactory: CoordinatorFactoryProtocol {
     
     static func createLanguageCoordinator(with navigationController: UINavigationController) -> LanguageCoordinator {
         return LanguageCoordinator(navigationController: navigationController)
+    }
+    
+    static func createEditProfileCoordinator(with navigationController: UINavigationController) -> EditProfileCoordinator {
+        return EditProfileCoordinator(navigationController: navigationController)
     }
 }
