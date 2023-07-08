@@ -8,12 +8,6 @@
 import UIKit
 import SnapKit
 
-// MARK: - PopupType
-enum PopupType {
-    case logout
-    case paymentSuccess
-}
-
 // MARK: - PopupView
 class PopupView: UIView {
     
@@ -21,16 +15,18 @@ class PopupView: UIView {
         didSet {
             guard let type = type else { return }
             
+            imageView.image = UIImage(named: type.imageName)
+            titleLabel.text = type.title
+            descriptionLabel.text = type.description
+            
+            doneButton.setTitle(type.doneButtonTitle, for: .normal)
+            cancelButton.setTitle(type.cancelButtonTitle, for: .normal)
+            
+            doneButton.backgroundColor = type.doneButtonBackgroundColor
+            cancelButton.backgroundColor = type.cancelButtonBackgroundColor
             switch type {
             case .logout:
-                imageView.image = UIImage(named: "ic-bigQuestion")
-                titleLabel.text = "Are you sure ?"
-                descriptionLabel.text = "Ullamcorper imperdiet urna id non sed est\nsem. Rhoncus amet, enim purus gravida\ndonec aliquet."
-                
-                doneButton.setTitle("Log Out", for: .normal)
                 doneButton.setTitleColor(.brandLightBlue, for: .normal)
-                
-                cancelButton.setTitle("Cancel", for: .normal)
                 cancelButton.setTitleColor(.white, for: .normal)
                 
                 titleLabel.numberOfLines = 1
@@ -42,12 +38,6 @@ class PopupView: UIView {
                 doneButton.isHidden = false
                 cancelButton.isHidden = false
             case .paymentSuccess:
-                imageView.image = UIImage(named: "ic-done")
-                titleLabel.text = "Your payment has\ncompleted!"
-                descriptionLabel.text = "Ullamcorper imperdiet urna id non sed est\nsem. Rhoncus amet, enim purus gravida\ndonec aliquet."
-                
-                doneButton.backgroundColor = .brandLightBlue
-                doneButton.setTitle("OK", for: .normal)
                 doneButton.setTitleColor(.white, for: .normal)
                 doneButton.setTitleColor(.brandGray, for: .highlighted)
                 

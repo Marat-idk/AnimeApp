@@ -103,6 +103,7 @@
 		E5DC35742A379D5D002470B3 /* LanguagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC35732A379D5D002470B3 /* LanguagePresenter.swift */; };
 		E5F09C9D2A3A696E0052FD71 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F09C9C2A3A696E0052FD71 /* PopupView.swift */; };
 		E5F09CA02A40FEDD0052FD71 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F09C9F2A40FEDD0052FD71 /* Poppins-Regular.ttf */; };
+		E5F864082A59F7B700A9855B /* PopupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F864072A59F7B700A9855B /* PopupType.swift */; };
 		E5FD894B2A561A37007581EF /* EditProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FD894A2A561A37007581EF /* EditProfileCoordinator.swift */; };
 		E7B97FAE5216B47C355042F4 /* Pods_AnimeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CD00E30B6444FA4BBDDCEE /* Pods_AnimeAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -224,6 +225,7 @@
 		E5DC35732A379D5D002470B3 /* LanguagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePresenter.swift; sourceTree = "<group>"; };
 		E5F09C9C2A3A696E0052FD71 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		E5F09C9F2A40FEDD0052FD71 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../../../../Downloads/Poppins/Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		E5F864072A59F7B700A9855B /* PopupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupType.swift; sourceTree = "<group>"; };
 		E5FD894A2A561A37007581EF /* EditProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileCoordinator.swift; sourceTree = "<group>"; };
 		F1CD00E30B6444FA4BBDDCEE /* Pods_AnimeAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimeAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -508,6 +510,7 @@
 				D23AA4782A00A7F700B877CF /* Registration.swift */,
 				D23AA4822A0A6B2B00B877CF /* Genre.swift */,
 				E5615BED2A48BB0100A2BAD1 /* UserPersonal.swift */,
+				E5F864072A59F7B700A9855B /* PopupType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -999,6 +1002,7 @@
 				D23021CB29EC853E0091DE37 /* AppDelegate.swift in Sources */,
 				D2ECBB1D29EDFB59006D1FF1 /* UserService.swift in Sources */,
 				D23021CD29EC853E0091DE37 /* SceneDelegate.swift in Sources */,
+				E5F864082A59F7B700A9855B /* PopupType.swift in Sources */,
 				D23AA4832A0A6B2B00B877CF /* Genre.swift in Sources */,
 				D23AA47529FFEB3500B877CF /* Authorization.swift in Sources */,
 				E5DC356B2A364590002470B3 /* MenuHeaderCollectionReusableView.swift in Sources */,
