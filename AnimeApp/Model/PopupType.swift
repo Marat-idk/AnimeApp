@@ -30,7 +30,7 @@ enum PopupType {
         }
     }
     
-    var imageName: UIImage? {
+    var image: UIImage? {
         switch self {
         case .logout:
             return .bigQuestion
