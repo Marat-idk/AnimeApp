@@ -30,12 +30,12 @@ enum PopupType {
         }
     }
     
-    var imageName: String {
+    var imageName: UIImage? {
         switch self {
         case .logout:
-            return "ic-bigQuestion"
+            return .bigQuestion
         case .paymentSuccess:
-            return "ic-done"
+            return .done
         }
     }
     

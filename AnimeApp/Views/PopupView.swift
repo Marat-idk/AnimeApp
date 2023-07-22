@@ -15,7 +15,7 @@ class PopupView: UIView {
         didSet {
             guard let type = type else { return }
             
-            imageView.image = UIImage(named: type.imageName)
+            imageView.image = type.image
             titleLabel.text = type.title
             descriptionLabel.text = type.description
             
