@@ -51,7 +51,7 @@ enum PopupType {
     var cancelButtonTitle: String {
         switch self {
         case .logout:
-            return "cancel"
+            return "Cancel"
         case .paymentSuccess:
             return ""
         }
