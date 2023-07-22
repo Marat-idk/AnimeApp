@@ -10,8 +10,14 @@ import UIKit
 // MARK: - UIImage+AnimeAppImages
 extension UIImage {
     // tab bar icons
-    static let home = UIImage(named: "ic-home")
-    static let search = UIImage(named: "ic-search")
-    static let download = UIImage(named: "ic-download")
-    static let personal = UIImage(named: "ic-person")
+    static let home        = UIImage(named: "ic-home")
+    static let search      = UIImage(named: "ic-search")
+    static let download    = UIImage(named: "ic-download")
+    static let personal    = UIImage(named: "ic-person")
+    
+    // big icons
+    static let bigQuestion = UIImage(named: "ic-bigQuestion")
+    static let done        = UIImage(named: "ic-done")
+    static let folder      = UIImage(named: "ic-folder")
+    static let noResults   = UIImage(named: "ic-no-results")
 }
