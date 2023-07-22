@@ -28,5 +28,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Just mock text</string>
 </dict>
 </plist>
