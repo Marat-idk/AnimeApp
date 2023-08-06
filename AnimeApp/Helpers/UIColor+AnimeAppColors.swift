@@ -23,6 +23,8 @@ extension UIColor {
     
     static let brandDarkGray = UIColor(hexString: "#696974")
     
+    static let brandWhiteGray = UIColor(hexString: "#EBEBEF")
+    
     static let brandRed = UIColor(hexString: "#FB4141")
 }
 
