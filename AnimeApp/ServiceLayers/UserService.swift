@@ -55,6 +55,7 @@ class UserService: UserServiceProtocol {
         userPersonal.email = "Tiffanyjearsey@gmail.com"
         userPersonal.phone = "+182120142305"
         userPersonal.isPremium = true
+        userPersonal.image = UIImage(named: "ic-profile")
     }
     
     func login(email: String, and password: String, completion: @escaping UserServiceCompletion) {
@@ -177,7 +178,12 @@ class UserService: UserServiceProtocol {
     }
     
     func save(new userPersonal: UserPersonal) {
-        self.userPersonal = userPersonal
+        self.userPersonal.firstName = userPersonal.firstName
+        self.userPersonal.lastName = userPersonal.lastName
+        self.userPersonal.email = userPersonal.email
+        self.userPersonal.phone = userPersonal.phone
+        self.userPersonal.isPremium = userPersonal.isPremium
+        self.userPersonal.image = userPersonal.image
     }
 }
 
