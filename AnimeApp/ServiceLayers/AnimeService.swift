@@ -8,13 +8,19 @@
 import Foundation
 import ObjectMapper
 
+// MARK: - AnimeServiceProtocol
 protocol AnimeServiceProtocol {
     var genres: [Genre] { get }
+    var topGenres: [Genre] { get }
     func loadAllGenres(completion: @escaping () -> Void)
 }
 
+// MARK: - AnimeService
 class AnimeService: AnimeServiceProtocol {
     var genres: [Genre] = []
+    var topGenres: [Genre] {
+        Genre.topGenres()
+    }
     
     static let shared = AnimeService()
     
