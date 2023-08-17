@@ -18,6 +18,7 @@ target 'AnimeApp' do
 
     # network
     pod 'netfox'
+    pod 'Kingfisher', '~> 7.0'
 
   target 'AnimeAppTests' do
     inherit! :search_paths

@@ -1,24 +1,28 @@
 PODS:
+  - Kingfisher (7.9.0)
   - netfox (1.21.0)
   - ObjectMapper (4.2.0)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
+  - Kingfisher (~> 7.0)
   - netfox
   - ObjectMapper
   - SnapKit
 
 SPEC REPOS:
   trunk:
+    - Kingfisher
     - netfox
     - ObjectMapper
     - SnapKit
 
 SPEC CHECKSUMS:
+  Kingfisher: 59f908b6d2f403b0a3e539debb0eec05cb27002c
   netfox: 9d5cc727fe7576c4c7688a2504618a156b7d44b7
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: db41684270ee8641039da163698ff24480beb953
+PODFILE CHECKSUM: 0f26863ae82ccb4239b460cc79f86795550f19cf
 
 COCOAPODS: 1.12.1
