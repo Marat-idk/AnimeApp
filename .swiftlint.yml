@@ -10,7 +10,7 @@ identifier_name:
     warning: 45
     error: 60
   min_length:
-    warning: 2
+    warning: 1
 disabled_rules:
   - trailing_whitespace
   - private_over_fileprivate
