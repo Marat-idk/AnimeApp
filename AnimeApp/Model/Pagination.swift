@@ -36,6 +36,8 @@ struct Items: Mappable {
     var total: Int?
     var perPage: Int?
     
+    init() {}
+    
     init?(map: Map) {
         guard map.mappingType == .toJSON else { return }
         mapping(map: map)

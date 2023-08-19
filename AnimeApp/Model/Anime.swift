@@ -71,6 +71,38 @@ enum Rating: String {
     }
 }
 
+// MARK: - Status
+enum Status: String {
+    
+    case airing
+    case complete
+    case upcoming
+    
+    init?(rawValue: String) {
+        switch rawValue {
+        case "airing", "Currently Airing":
+            self = .airing
+        case "complete", "Finished Airing":
+            self = .complete
+        case "upcoming", "Not yet aired":
+            self = .upcoming
+        default:
+            return nil
+        }
+    }
+    
+    var description: String {
+        switch self {
+        case .airing:
+            return "Currently Airing"
+        case .complete:
+            return "Finished Airing"
+        case .upcoming:
+            return "Not yet aired"
+        }
+    }
+}
+
 // MARK: - Anime
 struct Anime: Mappable {
     var malID: Int?
@@ -84,7 +116,7 @@ struct Anime: Mappable {
     var type: String?
     var source: String?
     var episodes: Int?
-    var status: String?
+    var status: Status?
     var airing: Bool?
     var aired: Aired?
     var duration: String?
@@ -122,7 +154,7 @@ struct Anime: Mappable {
         type            <- map["type"]
         source          <- map["source"]
         episodes        <- map["episodes"]
-        status          <- map["status"]
+//        status          <- map["status"]
         airing          <- map["airing"]
         aired           <- map["aired"]
         duration        <- map["duration"]
@@ -142,9 +174,8 @@ struct Anime: Mappable {
         explicitGenres  <- map["explicit_genres"]
         demographics    <- map["demographics"]
         
-        var rawRating: String?
-        rawRating       <- map["rating"]
-        rating = Rating(rawValue: rawRating ?? "")
+        status <- (map["status"], EnumTransform<Status>())
+        rating <- (map["rating"], EnumTransform<Rating>())
     }
 }
 
