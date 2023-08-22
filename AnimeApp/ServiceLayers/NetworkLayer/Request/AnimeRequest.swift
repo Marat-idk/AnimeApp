@@ -15,10 +15,67 @@ enum GenresFilter: String {
     case demographics
 }
 
+enum OrderBy {
+    case malID
+    case title
+    case startDate
+    case endDate
+    case episodes
+    case score
+    case scoredBy
+    case rank
+    case popularity
+    case members
+    case favorites
+    
+    var rawValue: String {
+        switch self {
+        case .malID:      return "mal_id"
+        case .title:      return "title"
+        case .startDate:  return "start_date"
+        case .endDate:    return "end_date"
+        case .episodes:   return "episodes"
+        case .score:      return "score"
+        case .scoredBy:   return "scored_by"
+        case .rank:       return "rank"
+        case .popularity: return "popularity"
+        case .members:    return "members"
+        case .favorites:  return "favorites"
+        }
+    }
+}
+
+enum SortOrderType: String {
+    case asc = "asc"
+    case desc = "desc"
+}
+
 // MARK: - AnimeRequest
 enum AnimeRequest {
-    case getAnimeGenres(_ filter: GenresFilter? = nil)
-    case getMangaGenres(_ filter: GenresFilter? = nil)
+    case animeGenres(_ filter: GenresFilter? = nil)
+    case mangaGenres(_ filter: GenresFilter? = nil)
+    case animeSearch(_ genres: Model? = nil)
+    
+    struct Model {
+        var pagination: Pagination?
+        var filter: Filter?
+        
+        struct Filter {
+            var status: Status?
+            var rating: Rating?
+            var genres: [Int]?
+            var genresExclude: [Int]?
+            var orderBy: OrderBy?
+            var sortOrder: SortOrderType?
+        }
+        
+        init() {
+            self.pagination = Pagination()
+            self.filter = Filter()
+            
+            self.pagination?.items = Items()
+        }
+    }
 }
 
 extension AnimeRequest: RequestProtocol {
@@ -28,10 +85,12 @@ extension AnimeRequest: RequestProtocol {
     
     var path: String {
         switch self {
-        case .getAnimeGenres:
+        case .animeGenres:
             return "genres/anime"
-        case .getMangaGenres:
+        case .mangaGenres:
             return "genres/manga"
+        case .animeSearch:
+            return "anime"
         }
     }
     
@@ -41,10 +100,44 @@ extension AnimeRequest: RequestProtocol {
     
     var parameters: Parameters? {
         switch self {
-        case .getAnimeGenres(let filter):
+        case .animeGenres(let filter):
             return filter != nil ? ["filter": filter!.rawValue] : nil
-        case .getMangaGenres(let filter):
+        case .mangaGenres(let filter):
             return filter != nil ? ["filter": filter!.rawValue] : nil
+        case .animeSearch(let model):
+            guard let model = model else { return nil }
+            
+            var params: [String: Any] = [:]
+            
+            if let page = model.pagination?.currentPage {
+                params["page"] = page
+            }
+            
+            if let perPage = model.pagination?.items?.perPage {
+                params["limit"] = perPage
+            }
+            
+            if let status = model.filter?.status {
+                params["status"] = status.rawValue
+            }
+            
+            if let rating = model.filter?.rating {
+                params["rating"] = rating.rawValue
+            }
+            
+            if let orderBy = model.filter?.orderBy {
+                params["order_by"] = orderBy.rawValue
+            }
+            
+            if let sortOrder = model.filter?.sortOrder {
+                params["sort"] = sortOrder.rawValue
+            }
+            
+            if let genres = model.filter?.genres {
+                params["genres"] = genres.map { String($0) }.joined(separator: ",")
+            }
+            
+            return params
         }
     }
 }
