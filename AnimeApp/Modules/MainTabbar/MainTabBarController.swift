@@ -12,7 +12,12 @@ final class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        generateTabBar()
+//        generateTabBar()
+//        setupTabBarAppearance()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         setupTabBarAppearance()
     }
     
@@ -41,13 +46,18 @@ final class MainTabBarController: UITabBarController {
         return navVC
     }
     
-    private func setupTabBarAppearance() {
+    func setupTabBarAppearance() {
+        let itemSpacing = 17.0
+        tabBar.itemWidth = 48
+        tabBar.itemSpacing = itemSpacing
+        tabBar.itemPositioning = .centered
+        
         tabBar.unselectedItemTintColor = .lightGray
         tabBar.tintColor = .brandLightBlue
         
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .brandBlue
+        appearance.backgroundColor = .brandDarkBlue
         appearance.shadowImage = UIImage()
         appearance.shadowColor = .clear
         
