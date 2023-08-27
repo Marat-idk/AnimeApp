@@ -18,9 +18,14 @@ final class MenuProfileCollectionViewCell: UICollectionViewCell {
     
     weak var delegate: MenuProfileCollectionViewCellDelegate?
     
-    var isPremium: Bool = false {
+    var userPersonalData: UserPersonal? {
         didSet {
-            premiumContainerView.isHidden = !isPremium
+            guard let personal = userPersonalData else { return }
+            
+            nameLabel.text = personal.firstName
+            emailLabel.text = personal.email
+            premiumContainerView.isHidden = !personal.isPremium
+            imageView.image = personal.image
         }
     }
     
@@ -30,7 +35,7 @@ final class MenuProfileCollectionViewCell: UICollectionViewCell {
         imgView.backgroundColor = .blue
         imgView.isOpaque = true
         imgView.image = UIImage(named: "ic-profile")
-        imgView.contentMode = .scaleAspectFit
+        imgView.contentMode = .scaleToFill
         imgView.clipsToBounds = true
         return imgView
     }()
@@ -89,7 +94,7 @@ final class MenuProfileCollectionViewCell: UICollectionViewCell {
         stack.backgroundColor = .brandDarkBlue
         stack.isOpaque = true
         stack.axis = .horizontal
-        stack.distribution = .fillProportionally
+        stack.distribution = .fill
         stack.alignment = .fill
         stack.setCustomSpacing(16, after: imageView)
         stack.setCustomSpacing(16, after: infoStackView)

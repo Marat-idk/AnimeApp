@@ -150,7 +150,8 @@ extension PersonalMenuViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         cell.delegate = self
-        cell.isPremium = true
+        // FIXME: временная моковое говно, обязательно исправь
+        cell.userPersonalData = UserService.shared.userPersonal
         return cell
     }
     
@@ -233,5 +234,18 @@ extension PersonalMenuViewController: MenuLogoutCollectionViewCellDelegate {
         let section = PersonalMenuSection.logout.rawValue
         let item = LogoutOptions.logout.rawValue
         presenter.menuItemDidSelect(at: IndexPath(item: item, section: section))
+    }
+}
+
+// MARK: - UpdatableWithUserPersonal
+extension PersonalMenuViewController: UpdatableWithUserPersonal {
+    func update(_ userPersonal: UserPersonal) {
+        let section = PersonalMenuSection.profileEdit.rawValue
+        let item = ProfileEditOptions.profileEdit.rawValue
+        guard let cell = collectionView.cellForItem(at: IndexPath(item: item, section: section)) as? MenuProfileCollectionViewCell else {
+            return
+        }
+        cell.userPersonalData = userPersonal
+        collectionView.reloadData()
     }
 }
