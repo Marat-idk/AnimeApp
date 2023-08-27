@@ -137,6 +137,10 @@ struct Anime: Mappable {
     var explicitGenres: [Genre]?
     var demographics: [Genre]?
     
+    var genresText: String? {
+        return genres?.compactMap { $0.name }.joined(separator: ", ")
+    }
+    
     init?(map: Map) {
         guard map.mappingType == .toJSON else { return }
         mapping(map: map)
