@@ -25,4 +25,7 @@ extension UIImage {
     // icons
     static let heart = UIImage(named: "ic-heart")
     static let options = UIImage(named: "ic-options")
+    static let calendar = UIImage(named: "ic-calendar")
+    static let clock = UIImage(named: "ic-clock")
+    static let film = UIImage(named: "ic-film")
 }
