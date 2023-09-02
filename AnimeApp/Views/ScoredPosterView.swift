@@ -20,6 +20,11 @@ enum ScorePosition {
 final class ScoredPosterView: UIView {
     
     private var scorePosition: ScorePosition = .topRight
+    var score: Double {
+        didSet {
+            scoreView.score = score
+        }
+    }
     
     let posterImageView: UIImageView = {
         let imageView = UIImageView()
@@ -27,48 +32,27 @@ final class ScoredPosterView: UIView {
         return imageView
     }()
     
-    private let blurScoreContainerView: UIVisualEffectView = {
-        let effect = UIBlurEffect(style: .light)
-        let view = UIVisualEffectView(effect: effect)
-        view.layer.cornerRadius = 8
-        view.layer.masksToBounds = true
+    private lazy var scoreView: ScoreView = {
+        let view = ScoreView(score: score, isBlurBackground: true)
         return view
     }()
     
-    private let starImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = .star?.template
-        imageView.tintColor = .brandOrange
-        imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
-        return imageView
-    }()
-    
-    let scoreLabel: UILabel = {
-        let lbl = UILabel()
-        lbl.font = .montserratSemiBold(size: 12)
-        lbl.textColor = .brandDarkOrange
-        lbl.textAlignment = .center
-        lbl.setContentCompressionResistancePriority(.required, for: .horizontal)
-        return lbl
-    }()
-    
-    private lazy var stackView: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [starImageView, scoreLabel])
-        stack.axis = .horizontal
-        stack.distribution = .fillProportionally
-        stack.alignment = .center
-        stack.spacing = 4
-        return stack
-    }()
-    
     // MARK: - Init
-    convenience init(frame: CGRect = .zero, scorePosition: ScorePosition) {
-        self.init(frame: frame)
+    init(frame: CGRect, scorePosition: ScorePosition, score: Double) {
         self.scorePosition = scorePosition
+        self.score = score
+        super.init(frame: frame)
         
         setupViews()
         setupConstraints()
+    }
+    
+    convenience init(scorePosition: ScorePosition, score: Double) {
+        self.init(frame: .zero, scorePosition: scorePosition, score: score)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Override methods
@@ -79,10 +63,7 @@ final class ScoredPosterView: UIView {
     // MARK: - Private methods
     private func setupViews() {
         addSubview(posterImageView)
-        
-        posterImageView.addSubview(blurScoreContainerView)
-        
-        blurScoreContainerView.contentView.addSubview(stackView)
+        posterImageView.addSubview(scoreView)
     }
     
     private func setupConstraints() {
@@ -90,7 +71,7 @@ final class ScoredPosterView: UIView {
             $0.edges.equalToSuperview()
         }
         
-        blurScoreContainerView.snp.makeConstraints { [unowned self] in
+        scoreView.snp.makeConstraints { [unowned self] in
             
             switch self.scorePosition {
             case .bottomLeft, .bottomRight:
@@ -106,15 +87,6 @@ final class ScoredPosterView: UIView {
                 $0.right.equalToSuperview().offset(-8)
             }
             $0.height.equalTo(24)
-        }
-        
-        stackView.snp.makeConstraints {
-            $0.verticalEdges.equalToSuperview().inset(4)
-            $0.horizontalEdges.equalToSuperview().inset(8)
-        }
-        
-        starImageView.snp.makeConstraints {
-            $0.size.equalTo(16)
         }
     }
 }
