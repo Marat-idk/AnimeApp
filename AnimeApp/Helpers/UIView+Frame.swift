@@ -19,4 +19,10 @@ extension UIView {
         
         layer.mask = shape
     }
+    
+    func roundCorners(_ radius: CGFloat) {
+        layer.cornerRadius = radius
+        layer.masksToBounds = true
+        layer.cornerCurve = .continuous
+    }
 }
