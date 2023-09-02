@@ -28,4 +28,6 @@ extension UIImage {
     static let calendar = UIImage(named: "ic-calendar")
     static let clock = UIImage(named: "ic-clock")
     static let film = UIImage(named: "ic-film")
+    static let share = UIImage(named: "ic-share")
+    static let play = UIImage(named: "ic-play")
 }
