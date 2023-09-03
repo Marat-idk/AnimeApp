@@ -82,12 +82,19 @@
 		D2ECBB4D29F5D45B006D1FF1 /* UIColor+AnimeAppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ECBB4B29F5D45B006D1FF1 /* UIColor+AnimeAppColors.swift */; };
 		D2ECBB4E29F5D45B006D1FF1 /* UIColor+AnimeAppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ECBB4B29F5D45B006D1FF1 /* UIColor+AnimeAppColors.swift */; };
 		D2ECBB5129F5D90A006D1FF1 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ECBB5029F5D90A006D1FF1 /* GradientView.swift */; };
-		D2ED90D42A25479E0057FEC4 /* UIViewController+CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED90D32A25479E0057FEC4 /* UIViewController+CustomBackButton.swift */; };
+		D2ED90D42A25479E0057FEC4 /* UIViewController+CustomBarButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED90D32A25479E0057FEC4 /* UIViewController+CustomBarButtons.swift */; };
 		D2ED90D72A2CA62D0057FEC4 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED90D62A2CA62D0057FEC4 /* NotificationViewController.swift */; };
 		D2ED90DB2A2D3AF50057FEC4 /* NotificationStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED90DA2A2D3AF50057FEC4 /* NotificationStackView.swift */; };
 		D2ED90DD2A2D3D780057FEC4 /* NotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED90DC2A2D3D780057FEC4 /* NotificationType.swift */; };
 		E330C885789B0F59FCB8685A /* Pods_AnimeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570EE6F8AD9B23DC5361283B /* Pods_AnimeApp.framework */; };
 		E538A62E2A673D0400541EC3 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E538A62D2A673D0400541EC3 /* TabCoordinator.swift */; };
+		E53D4CAB2A9B85DB00AF7F77 /* AnimeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53D4CAA2A9B85DB00AF7F77 /* AnimeDetailViewController.swift */; };
+		E53D4CAD2A9B85F600AF7F77 /* AnimeDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53D4CAC2A9B85F600AF7F77 /* AnimeDetailPresenter.swift */; };
+		E549DBD12A9EC95F00A80080 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549DBD02A9EC95F00A80080 /* DescriptionView.swift */; };
+		E549DBD32A9EDD9B00A80080 /* AnimeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549DBD22A9EDD9B00A80080 /* AnimeDetailView.swift */; };
+		E549DBD52AA281DD00A80080 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549DBD42AA281DD00A80080 /* ScoreView.swift */; };
+		E549DBD72AA3E5AA00A80080 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549DBD62AA3E5AA00A80080 /* Character.swift */; };
+		E549DBDB2AA49A7000A80080 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E549DBDA2AA49A7000A80080 /* UIViewController+Alert.swift */; };
 		E555C81A2A51867A00244A80 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E555C8192A51867A00244A80 /* EditProfilePresenter.swift */; };
 		E555C81C2A51FCAC00244A80 /* PersonalInfoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E555C81B2A51FCAC00244A80 /* PersonalInfoType.swift */; };
 		E55C3D052A7D26ED00243963 /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C3D042A7D26ED00243963 /* CustomPageControl.swift */; };
@@ -102,6 +109,8 @@
 		E5615BEE2A48BB0100A2BAD1 /* UserPersonal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5615BED2A48BB0100A2BAD1 /* UserPersonal.swift */; };
 		E565BD542A783F1D00542A6D /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565BD532A783F1D00542A6D /* CarouselCollectionViewCell.swift */; };
 		E565BD562A7841D300542A6D /* TopAnimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565BD552A7841D300542A6D /* TopAnimeCollectionViewCell.swift */; };
+		E56766512A9D4DD700CB6CB9 /* PosterBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56766502A9D4DD700CB6CB9 /* PosterBackgroundView.swift */; };
+		E56766532A9D647500CB6CB9 /* DescriptionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56766522A9D647500CB6CB9 /* DescriptionItemView.swift */; };
 		E57D87952A6A198E00CAB5DF /* UIImage+AnimeAppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57D87942A6A198E00CAB5DF /* UIImage+AnimeAppImages.swift */; };
 		E5A97FD52A6C377600D55A04 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A97FD42A6C377600D55A04 /* HomeViewController.swift */; };
 		E5A97FD72A6C3B7800D55A04 /* PersonalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A97FD62A6C3B7800D55A04 /* PersonalCollectionViewCell.swift */; };
@@ -225,12 +234,19 @@
 		D2ECBB4729F5D14F006D1FF1 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
 		D2ECBB4B29F5D45B006D1FF1 /* UIColor+AnimeAppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AnimeAppColors.swift"; sourceTree = "<group>"; };
 		D2ECBB5029F5D90A006D1FF1 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		D2ED90D32A25479E0057FEC4 /* UIViewController+CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomBackButton.swift"; sourceTree = "<group>"; };
+		D2ED90D32A25479E0057FEC4 /* UIViewController+CustomBarButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomBarButtons.swift"; sourceTree = "<group>"; };
 		D2ED90D62A2CA62D0057FEC4 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		D2ED90DA2A2D3AF50057FEC4 /* NotificationStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationStackView.swift; sourceTree = "<group>"; };
 		D2ED90DC2A2D3D780057FEC4 /* NotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationType.swift; sourceTree = "<group>"; };
 		DAAA018CA910EC0CA66AF799 /* Pods-AnimeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeAppTests.release.xcconfig"; path = "Target Support Files/Pods-AnimeAppTests/Pods-AnimeAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		E538A62D2A673D0400541EC3 /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
+		E53D4CAA2A9B85DB00AF7F77 /* AnimeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailViewController.swift; sourceTree = "<group>"; };
+		E53D4CAC2A9B85F600AF7F77 /* AnimeDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailPresenter.swift; sourceTree = "<group>"; };
+		E549DBD02A9EC95F00A80080 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		E549DBD22A9EDD9B00A80080 /* AnimeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailView.swift; sourceTree = "<group>"; };
+		E549DBD42AA281DD00A80080 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		E549DBD62AA3E5AA00A80080 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		E549DBDA2AA49A7000A80080 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		E555C8192A51867A00244A80 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
 		E555C81B2A51FCAC00244A80 /* PersonalInfoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoType.swift; sourceTree = "<group>"; };
 		E55C3D042A7D26ED00243963 /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
@@ -245,6 +261,8 @@
 		E5615BED2A48BB0100A2BAD1 /* UserPersonal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPersonal.swift; sourceTree = "<group>"; };
 		E565BD532A783F1D00542A6D /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewCell.swift; sourceTree = "<group>"; };
 		E565BD552A7841D300542A6D /* TopAnimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAnimeCollectionViewCell.swift; sourceTree = "<group>"; };
+		E56766502A9D4DD700CB6CB9 /* PosterBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterBackgroundView.swift; sourceTree = "<group>"; };
+		E56766522A9D647500CB6CB9 /* DescriptionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionItemView.swift; sourceTree = "<group>"; };
 		E57D87942A6A198E00CAB5DF /* UIImage+AnimeAppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+AnimeAppImages.swift"; sourceTree = "<group>"; };
 		E5A97FD42A6C377600D55A04 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E5A97FD62A6C3B7800D55A04 /* PersonalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -545,6 +563,7 @@
 				E5F864072A59F7B700A9855B /* PopupType.swift */,
 				E5BB2F242A8AC59E00C9372E /* Anime.swift */,
 				E5BB2F262A8ACBBF00C9372E /* Pagination.swift */,
+				E549DBD62AA3E5AA00A80080 /* Character.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -552,6 +571,7 @@
 		D2ECBB2529F5B0AA006D1FF1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E53D4CA72A9B850D00AF7F77 /* AnimeDetail */,
 				E5A97FD12A6C373400D55A04 /* Home */,
 				E5615BE62A483C9100A2BAD1 /* EditProfile */,
 				E5DC35632A3633A5002470B3 /* Language */,
@@ -609,7 +629,8 @@
 				D23AA46F29FF275E00B877CF /* String+Helper.swift */,
 				D235DD6D2A1A1E7500B7D898 /* UIImage+Helper.swift */,
 				E57D87942A6A198E00CAB5DF /* UIImage+AnimeAppImages.swift */,
-				D2ED90D32A25479E0057FEC4 /* UIViewController+CustomBackButton.swift */,
+				D2ED90D32A25479E0057FEC4 /* UIViewController+CustomBarButtons.swift */,
+				E549DBDA2AA49A7000A80080 /* UIViewController+Alert.swift */,
 				E55D272A2A7B267A002B5079 /* UICollectionView+Snapping.swift */,
 				E5BB2F422A920E7A00C9372E /* Array+Helper.swift */,
 			);
@@ -645,6 +666,7 @@
 				E5CABFF22A4A1F00007CE1A5 /* LabeledMaterialTextField.swift */,
 				E55C3D042A7D26ED00243963 /* CustomPageControl.swift */,
 				E5BB2F222A89785C00C9372E /* ScoredPosterView.swift */,
+				E549DBD42AA281DD00A80080 /* ScoreView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -675,6 +697,35 @@
 				8BF3DEAA19C3402A48A94B0F /* Pods_AnimeAppTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E53D4CA72A9B850D00AF7F77 /* AnimeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E53D4CA82A9B852600AF7F77 /* View */,
+				E53D4CA92A9B852B00AF7F77 /* Presenter */,
+			);
+			path = AnimeDetail;
+			sourceTree = "<group>";
+		};
+		E53D4CA82A9B852600AF7F77 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E53D4CAA2A9B85DB00AF7F77 /* AnimeDetailViewController.swift */,
+				E56766502A9D4DD700CB6CB9 /* PosterBackgroundView.swift */,
+				E56766522A9D647500CB6CB9 /* DescriptionItemView.swift */,
+				E549DBD02A9EC95F00A80080 /* DescriptionView.swift */,
+				E549DBD22A9EDD9B00A80080 /* AnimeDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E53D4CA92A9B852B00AF7F77 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E53D4CAC2A9B85F600AF7F77 /* AnimeDetailPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		E55C3D0C2A7FA4FB00243963 /* Components */ = {
@@ -1101,6 +1152,7 @@
 				D23AA4852A0AB97600B877CF /* AnimeService.swift in Sources */,
 				D2ECBB5129F5D90A006D1FF1 /* GradientView.swift in Sources */,
 				E5BB2F212A89756100C9372E /* AnimeCollectionViewCell.swift in Sources */,
+				E53D4CAD2A9B85F600AF7F77 /* AnimeDetailPresenter.swift in Sources */,
 				D23AA4DD2A1188C600B877CF /* MenuCollectionViewCell.swift in Sources */,
 				D23AA46B29FDB07000B877CF /* RegistrationView.swift in Sources */,
 				D2ED90D72A2CA62D0057FEC4 /* NotificationViewController.swift in Sources */,
@@ -1127,11 +1179,13 @@
 				D23021CD29EC853E0091DE37 /* SceneDelegate.swift in Sources */,
 				E5F864082A59F7B700A9855B /* PopupType.swift in Sources */,
 				D23AA4832A0A6B2B00B877CF /* Genre.swift in Sources */,
+				E549DBD12A9EC95F00A80080 /* DescriptionView.swift in Sources */,
 				D23AA47529FFEB3500B877CF /* Authorization.swift in Sources */,
 				E5DC356B2A364590002470B3 /* MenuHeaderCollectionReusableView.swift in Sources */,
 				D2ECBB2A29F5B124006D1FF1 /* AuthorizationViewController.swift in Sources */,
 				D27AD3942A23E7F700630065 /* PrivacyPolicyViewController.swift in Sources */,
 				D23AA4812A0A643F00B877CF /* AnimeRequest.swift in Sources */,
+				E56766532A9D647500CB6CB9 /* DescriptionItemView.swift in Sources */,
 				D235DD6E2A1A1E7500B7D898 /* UIImage+Helper.swift in Sources */,
 				D2626DDC29F61A8D008E9521 /* UIViewController+Helper.swift in Sources */,
 				D2626DD829F5FE9C008E9521 /* UIResponder+Helper.swift in Sources */,
@@ -1149,6 +1203,7 @@
 				E5F09C9D2A3A696E0052FD71 /* PopupView.swift in Sources */,
 				E5DC356F2A36488C002470B3 /* LanguageCollectionViewCell.swift in Sources */,
 				D2ECBB4C29F5D45B006D1FF1 /* UIColor+AnimeAppColors.swift in Sources */,
+				E549DBDB2AA49A7000A80080 /* UIViewController+Alert.swift in Sources */,
 				E5615BEA2A483D7200A2BAD1 /* EditProfileViewController.swift in Sources */,
 				E57D87952A6A198E00CAB5DF /* UIImage+AnimeAppImages.swift in Sources */,
 				D230221329ECA6580091DE37 /* AuthorizationRequest.swift in Sources */,
@@ -1158,17 +1213,21 @@
 				D230220C29EC90350091DE37 /* JSONParameterEncoder.swift in Sources */,
 				E5BB2F272A8ACBBF00C9372E /* Pagination.swift in Sources */,
 				D230220729EC8DAE0091DE37 /* URLParameterEncoder.swift in Sources */,
+				E549DBD52AA281DD00A80080 /* ScoreView.swift in Sources */,
 				E5DC35672A3633D3002470B3 /* LanguageViewController.swift in Sources */,
 				D2ECBB2F29F5BB2B006D1FF1 /* UIFont+Names.swift in Sources */,
 				E565BD562A7841D300542A6D /* TopAnimeCollectionViewCell.swift in Sources */,
 				E55D27292A7B1260002B5079 /* SnappingCollectionViewFlowLayout.swift in Sources */,
 				E5BB2F1C2A84308600C9372E /* HomePresenter.swift in Sources */,
-				D2ED90D42A25479E0057FEC4 /* UIViewController+CustomBackButton.swift in Sources */,
+				D2ED90D42A25479E0057FEC4 /* UIViewController+CustomBarButtons.swift in Sources */,
+				E549DBD32A9EDD9B00A80080 /* AnimeDetailView.swift in Sources */,
 				D2ECBB2429F0820C006D1FF1 /* Session.swift in Sources */,
+				E549DBD72AA3E5AA00A80080 /* Character.swift in Sources */,
 				D23AA4792A00A7F700B877CF /* Registration.swift in Sources */,
 				D23AA47D2A0832E300B877CF /* TestCollectionViewCell.swift in Sources */,
 				D23AA47329FFE56100B877CF /* AuthorizationValidators.swift in Sources */,
 				E5BB2F432A920E7A00C9372E /* Array+Helper.swift in Sources */,
+				E56766512A9D4DD700CB6CB9 /* PosterBackgroundView.swift in Sources */,
 				E5BB2F252A8AC59E00C9372E /* Anime.swift in Sources */,
 				D230220129EC892B0091DE37 /* HTTPMethod.swift in Sources */,
 				E55C3D092A7F93ED00243963 /* CategoryCollectionViewCell.swift in Sources */,
@@ -1180,6 +1239,7 @@
 				D23AA4D62A11720100B877CF /* UIView+Frame.swift in Sources */,
 				E5A97FD52A6C377600D55A04 /* HomeViewController.swift in Sources */,
 				D2ECBB1F29EFA9C3006D1FF1 /* APIError.swift in Sources */,
+				E53D4CAB2A9B85DB00AF7F77 /* AnimeDetailViewController.swift in Sources */,
 				D23AA4D02A114EC300B877CF /* PersonalMenuSection.swift in Sources */,
 				E55D272D2A7B3D6A002B5079 /* HomeSection.swift in Sources */,
 				E5DC35742A379D5D002470B3 /* LanguagePresenter.swift in Sources */,
