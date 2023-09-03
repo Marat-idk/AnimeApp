@@ -141,6 +141,22 @@ struct Anime: Mappable {
         return genres?.compactMap { $0.name }.joined(separator: ", ")
     }
     
+    var majorGenre: String? {
+        return genres?.first?.name
+    }
+    
+    var releaseYear: String? {
+        if let year = year {
+            return "\(year)"
+        }
+        
+        if let year = aired?.from?.year {
+            return "\(year)"
+        }
+        
+        return nil
+    }
+    
     init?(map: Map) {
         guard map.mappingType == .toJSON else { return }
         mapping(map: map)
