@@ -5,7 +5,8 @@
 //  Created by Марат on 02.07.2023.
 //
 
-import Foundation
+//import Foundation
+import UIKit
 
 // MARK: - EditProfileDelegate
 protocol EditProfileDelegate: AnyObject {
@@ -26,14 +27,23 @@ protocol EditProfilePresenterProtocol: AnyObject {
     func getUserPersonal()
     func checkInput(text: String, _ type: PersonalInfoType)
     func save(name: String, email: String, password: String, phone: String)
+    func save(image: UIImage)
 }
 
 // MARK: - EditProfilePresenter
 final class EditProfilePresenter: EditProfilePresenterProtocol {
     
     weak var view: EditProfileViewProtocol?
-    private var userService: UserServiceProtocol
     weak var delegate: EditProfileDelegate?
+    private var userService: UserServiceProtocol
+    private var userPersonal: UserPersonal? {
+        didSet {
+            guard let userPersonal = userPersonal else { return }
+            userService.save(new: userPersonal)
+            delegate?.update(with: userPersonal)
+            view?.update(with: userPersonal)
+        }
+    }
     
     // MARK: - init
     init(view: EditProfileViewProtocol, userService: UserServiceProtocol, delegate: EditProfileDelegate?) {
@@ -62,14 +72,18 @@ final class EditProfilePresenter: EditProfilePresenterProtocol {
         view?.enableSaveButton()
     }
     
-    // FIXME: - password don't saves
+    // FIXME: - password doesn't save
     func save(name: String, email: String, password: String, phone: String) {
         var userPersonal = userService.userPersonal
         userPersonal.firstName = name
         userPersonal.email = email
         userPersonal.phone = phone
-        userService.save(new: userPersonal)
-        delegate?.update(with: userPersonal)
-        view?.update(with: userPersonal)
+        self.userPersonal = userPersonal
+    }
+    
+    func save(image: UIImage) {
+        var userPersonal = userService.userPersonal
+        userPersonal.image = image
+        self.userPersonal = userPersonal
     }
 }

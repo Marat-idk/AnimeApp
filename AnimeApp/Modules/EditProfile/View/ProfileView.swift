@@ -8,8 +8,14 @@
 import UIKit
 import SnapKit
 
+protocol ProfileViewDelegate: AnyObject {
+    func editPhotoTapped()
+}
+
 // MARK: - ProfileView
 final class ProfileView: UIView {
+    
+    weak var delegate: ProfileViewDelegate?
     
     var model: UserPersonal? {
         didSet {
@@ -17,12 +23,13 @@ final class ProfileView: UIView {
             
             nameLabel.text = model.firstName
             emailLabel.text = model.email
+            profileImageView.image = model.image
         }
     }
     
     private let profileImageContainerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .red
+        view.backgroundColor = .brandDarkBlue
         view.isOpaque = true
         return view
     }()
@@ -45,12 +52,17 @@ final class ProfileView: UIView {
         return view
     }()
     
-    private let editImageView: UIImageView = {
+    private lazy var editImageView: UIImageView = {
         let imgView = UIImageView()
         imgView.image = UIImage(named: "ic-pencil")?.template
         imgView.contentMode = .scaleAspectFit
         imgView.tintColor = .brandLightBlue
         imgView.clipsToBounds = true
+        imgView.isUserInteractionEnabled = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(editImageTapped(_:)))
+        imgView.addGestureRecognizer(tapGesture)
+        
         return imgView
     }()
     
@@ -144,5 +156,11 @@ final class ProfileView: UIView {
         editImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(8)
         }
+    }
+    
+    // MARK: - targets actions
+    @objc private func editImageTapped(_ sender: UITapGestureRecognizer) {
+        print("editImageTapped")
+        delegate?.editPhotoTapped()
     }
 }

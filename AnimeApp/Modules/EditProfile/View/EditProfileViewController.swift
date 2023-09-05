@@ -27,8 +27,9 @@ final class EditProfileViewController: UIViewController, FlowCoordinator {
         return view
     }()
     
-    private let profileView: ProfileView = {
+    private lazy var profileView: ProfileView = {
         let view = ProfileView()
+        view.delegate = self
         return view
     }()
     
@@ -165,6 +166,14 @@ final class EditProfileViewController: UIViewController, FlowCoordinator {
         stack.spacing = 24
         stack.setCustomSpacing(40, after: phoneTextField)
         return stack
+    }()
+    
+    private lazy var imagePickerController: UIImagePickerController = {
+        let controller = UIImagePickerController()
+        controller.sourceType = .photoLibrary
+        controller.allowsEditing = true
+        controller.delegate = self
+        return controller
     }()
 
     // MARK: - override methods
@@ -349,10 +358,40 @@ extension EditProfileViewController: EditProfileViewProtocol {
     }
     
     func update(with userPersonal: UserPersonal) {
+        view.endEditing(true)
         profileView.model = userPersonal
         nameTextField.text = userPersonal.firstName
         emailTextField.text = userPersonal.email
         phoneTextField.text = userPersonal.phone
         enableSaveButton(false)
+    }
+}
+
+// MARK: - ProfileViewDelegate
+extension EditProfileViewController: ProfileViewDelegate {
+    func editPhotoTapped() {
+        present(imagePickerController, animated: true)
+    }
+}
+
+extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        var newProfileImage: UIImage?
+        
+        if let editedImage = info[.editedImage] as? UIImage {
+            newProfileImage = editedImage
+        } else if let originalImage = info[.originalImage] as? UIImage {
+            newProfileImage = originalImage
+        }
+        
+        if let newProfileImage = newProfileImage {
+            presenter.save(image: newProfileImage)
+        }
+        picker.dismiss(animated: true)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print("imagePickerControllerDidCancel")
+        picker.dismiss(animated: true)
     }
 }
