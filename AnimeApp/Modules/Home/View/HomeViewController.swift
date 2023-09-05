@@ -209,6 +209,7 @@ extension HomeViewController: UICollectionViewDataSource {
         }
         
         cell.animes = presenter.selectedGenreAnime
+        cell.delegate = presenter
         
         return cell
     }

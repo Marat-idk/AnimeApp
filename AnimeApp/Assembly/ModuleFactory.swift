@@ -11,9 +11,12 @@ import UIKit
 protocol ModuleFactoryProtocol {
     func createMainTabBarModule() -> UIViewController
     func createAuthorizationModule() -> UIViewController
+    // MARK: - home
+    func createHomeModule(userService: UserServiceProtocol, animeService: AnimeServiceProtocol, navigationDelegate: HomeNavigationDelegate?) -> UIViewController
+    func createAnimeDetailModule(with anime: Anime) -> UIViewController
     // MARK: - personal menu
     func createPesonalMenuModule(navigationDelegate: PersonalMenuNavigationDelegate?) -> UIViewController
-    func createEditProfileModule(editProfileDelegate: EditProfileDelegate?) -> UIViewController
+    func createEditProfileModule(userService: UserServiceProtocol, editProfileDelegate: EditProfileDelegate?) -> UIViewController
     func createNotificationModule() -> UIViewController
     func createLanguageModule(languageDelegate: LanguageUpdatingDelegate?) -> UIViewController
     func createPrivacyPolicyModule() -> UIViewController
@@ -21,12 +24,16 @@ protocol ModuleFactoryProtocol {
 
 // MARK: - default implementation
 extension ModuleFactoryProtocol {
+    func createHomeModule(userService: UserServiceProtocol, animeService: AnimeServiceProtocol) -> UIViewController {
+        return createHomeModule(userService: userService, animeService: animeService, navigationDelegate: nil)
+    }
+    
     func createPesonalMenuModule() -> UIViewController {
         return createPesonalMenuModule(navigationDelegate: nil)
     }
     
-    func createEditProfileModule() -> UIViewController {
-        return createEditProfileModule(editProfileDelegate: nil)
+    func createEditProfileModule(userService: UserServiceProtocol) -> UIViewController {
+        return createEditProfileModule(userService: userService, editProfileDelegate: nil)
     }
 }
 
@@ -44,6 +51,25 @@ struct ModuleFactory: ModuleFactoryProtocol {
         return view
     }
     
+    // MARK: - home
+    func createHomeModule(userService: UserServiceProtocol, animeService: AnimeServiceProtocol, navigationDelegate: HomeNavigationDelegate?) -> UIViewController {
+        let view = HomeViewController()
+        let presenter = HomePresenter(view: view,
+                                      userService: userService,
+                                      animeService: animeService,
+                                      navigationDelegate: navigationDelegate)
+        view.presenter = presenter
+        return view
+    }
+    
+    func createAnimeDetailModule(with anime: Anime) -> UIViewController {
+        let view = AnimeDetailViewController()
+        let presenter = AnimeDetailPresenter(view: view, anime: anime)
+        view.presenter = presenter
+        return view
+    }
+    
+    // MARK: - personal menu
     func createPesonalMenuModule(navigationDelegate: PersonalMenuNavigationDelegate?) -> UIViewController {
         let view = PersonalMenuViewController()
         let presenter = PersonalMenuPresenter(view: view, navigationDelegate: navigationDelegate)
@@ -51,10 +77,9 @@ struct ModuleFactory: ModuleFactoryProtocol {
         return view
     }
     
-    func createEditProfileModule(editProfileDelegate: EditProfileDelegate?) -> UIViewController {
+    func createEditProfileModule(userService: UserServiceProtocol, editProfileDelegate: EditProfileDelegate?) -> UIViewController {
         let view = EditProfileViewController()
-        // MOCK: пока просто передаю напрямую UserService.shared
-        let presenter = EditProfilePresenter(view: view, userService: UserService.shared, delegate: editProfileDelegate)
+        let presenter = EditProfilePresenter(view: view, userService: userService, delegate: editProfileDelegate)
         view.presenter = presenter
         return view
     }
