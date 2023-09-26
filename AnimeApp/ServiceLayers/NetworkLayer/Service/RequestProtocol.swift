@@ -36,10 +36,13 @@ extension RequestProtocol {
         if let parameters = parameters, !parameters.isEmpty {
             urlComponents.queryItems = parameters.map({ URLQueryItem(name: $0.key, value: "\($0.value)") })
         }
+        
+        var queryText = ""
+        if let query = urlComponents.query {
+            queryText = "?\(urlComponents.query)"
+        }
 
-        let query =  urlComponents.query != nil ? "?\(urlComponents.query!)" : ""
-
-        var log = "curl -X '\(httpMethod)' \\\n \(baseURL)\(path)\(query) \\\n"
+        var log = "curl -X '\(httpMethod)' \\\n \(baseURL)\(path)\(queryText) \\\n"
         if let headers = headers {
             for (key, value) in headers {
                 log += "-H '\(key): \(value)' \\\n"
