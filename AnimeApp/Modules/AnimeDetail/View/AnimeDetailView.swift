@@ -199,6 +199,9 @@ final class AnimeDetailView: UIView {
         stack.alignment = .fill
         stack.spacing = 8
         stack.setCustomSpacing(24, after: synopsisLabel)
+        
+        synopsisLabel.isHidden = anime.synopsis.isNilOrEmpty
+        synopsisTilteLabel.isHidden = anime.synopsis.isNilOrEmpty
         return stack
     }()
     
