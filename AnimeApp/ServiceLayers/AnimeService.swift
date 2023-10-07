@@ -14,7 +14,8 @@ protocol AnimeServiceProtocol {
     var topGenres: [Genre] { get }
     var topGenresAnime: [Genre: [Anime]] { get }
     func loadAllGenres(completion: @escaping () -> Void)
-    func loadAnime(with model: AnimeRequest.Model?, completion: @escaping (Result<Animes, Error>) -> Void)
+    func loadAnime(with searchOptions: AnimeSearchOptions?, completion: @escaping (Result<Animes, Error>) -> Void)
+    func loadCharacters(from animeId: Int, completion: @escaping (Result<Characters, Error>) -> Void)
     func loadTopGenresAnime(completion: @escaping () -> Void)
 }
 
@@ -65,7 +66,30 @@ class AnimeService: AnimeServiceProtocol {
         }
     }
     
-    func loadAnime(with model: AnimeRequest.Model? = nil, completion: @escaping (Result<Animes, Error>) -> Void) {
+    func loadCharacters(from animeId: Int, completion: @escaping (Result<Characters, Error>) -> Void) {
+        networkManager.request(with: AnimeRequest.animeCharacters(animeId)) { data, response, error in
+            guard error == nil else {
+                completion(.failure(NetworkError.connectionFailed))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(APIError.noDataAvailable))
+                return
+            }
+            
+            do {
+                let jsonData = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any]
+                
+                let characters = Mapper<Character>().mapArray(JSONObject: jsonData?["data"]) ?? []
+                completion(.success(characters))
+            } catch {
+                completion(.failure(APIError.canNotProcessData))
+            }
+        }
+    }
+    
+    func loadAnime(with model: AnimeSearchOptions? = nil, completion: @escaping (Result<Animes, Error>) -> Void) {
         networkManager.request(with: AnimeRequest.animeSearch(model)) { data, _, error in
             guard error == nil else {
                 completion(.failure(NetworkError.connectionFailed))
@@ -125,18 +149,18 @@ class AnimeService: AnimeServiceProtocol {
     }
     
     private func loadAnimeBy(genre: Genre, completion: @escaping () -> Void) {
-        var model = AnimeRequest.Model()
-        model.filter?.status = .complete
+        var searchOptions = AnimeSearchOptions()
+        searchOptions.filter?.status = .complete
 //        model.filter?.rating = .r17
-        model.pagination?.items?.perPage = 10
-        model.filter?.orderBy = .score
-        model.filter?.sortOrder = .desc
+        searchOptions.pagination?.items?.perPage = 25
+        searchOptions.filter?.orderBy = .score
+        searchOptions.filter?.sortOrder = .desc
         
         if let genreId = genre.malID, genreId > 0 {
-            model.filter?.genres = [genreId]
+            searchOptions.filter?.genres = [genreId]
         }
         
-        loadAnime(with: model) { [weak self] result in
+        loadAnime(with: searchOptions) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let animes):

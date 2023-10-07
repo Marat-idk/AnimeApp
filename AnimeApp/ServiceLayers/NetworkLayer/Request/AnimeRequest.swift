@@ -7,6 +7,9 @@
 
 import Foundation
 
+// MARK: - AnimeSearchOptions
+typealias AnimeSearchOptions = AnimeRequest.AnimeSearchOptions
+
 // MARK: - GenresFilter
 enum GenresFilter: String {
     case genres
@@ -46,17 +49,19 @@ enum OrderBy {
 }
 
 enum SortOrderType: String {
-    case asc = "asc"
-    case desc = "desc"
+    case asc
+    case desc
 }
 
 // MARK: - AnimeRequest
 enum AnimeRequest {
     case animeGenres(_ filter: GenresFilter? = nil)
     case mangaGenres(_ filter: GenresFilter? = nil)
-    case animeSearch(_ genres: Model? = nil)
+    case animeSearch(_ searchOptions: AnimeSearchOptions? = nil)
     
-    struct Model {
+    case animeCharacters(_ animeId: Int)
+    
+    struct AnimeSearchOptions {
         var pagination: Pagination?
         var filter: Filter?
         
@@ -78,6 +83,7 @@ enum AnimeRequest {
     }
 }
 
+// MARK: - RequestProtocol
 extension AnimeRequest: RequestProtocol {
     var baseURL: String {
         return "https://api.jikan.moe/v4/"
@@ -91,6 +97,8 @@ extension AnimeRequest: RequestProtocol {
             return "genres/manga"
         case .animeSearch:
             return "anime"
+        case .animeCharacters(let id):
+            return "anime/\(id)/characters"
         }
     }
     
@@ -137,7 +145,11 @@ extension AnimeRequest: RequestProtocol {
                 params["genres"] = genres.map { String($0) }.joined(separator: ",")
             }
             
+//            params["type"] = "movie"
+            
             return params
+        default:
+            return nil
         }
     }
 }
