@@ -15,6 +15,7 @@ target 'AnimeApp' do
 
     # UI
     pod 'SnapKit'
+    pod 'UIScrollView-InfiniteScroll', '~> 1.3.0'
 
     # network
     pod 'netfox'

@@ -3,12 +3,14 @@ PODS:
   - netfox (1.21.0)
   - ObjectMapper (4.2.0)
   - SnapKit (5.6.0)
+  - UIScrollView-InfiniteScroll (1.3.0)
 
 DEPENDENCIES:
   - Kingfisher (~> 7.0)
   - netfox
   - ObjectMapper
   - SnapKit
+  - UIScrollView-InfiniteScroll (~> 1.3.0)
 
 SPEC REPOS:
   trunk:
@@ -16,13 +18,15 @@ SPEC REPOS:
     - netfox
     - ObjectMapper
     - SnapKit
+    - UIScrollView-InfiniteScroll
 
 SPEC CHECKSUMS:
   Kingfisher: 59f908b6d2f403b0a3e539debb0eec05cb27002c
   netfox: 9d5cc727fe7576c4c7688a2504618a156b7d44b7
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  UIScrollView-InfiniteScroll: a30af3dec185edd26d6ad50c521aa277f3ebf177
 
-PODFILE CHECKSUM: 0f26863ae82ccb4239b460cc79f86795550f19cf
+PODFILE CHECKSUM: 2e39179fb94ba29d05030c17089ad360599bedd8
 
 COCOAPODS: 1.12.1
