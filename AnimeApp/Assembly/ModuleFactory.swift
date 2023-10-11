@@ -14,6 +14,7 @@ protocol ModuleFactoryProtocol {
     // MARK: - home
     func createHomeModule(userService: UserServiceProtocol, animeService: AnimeServiceProtocol, navigationDelegate: HomeNavigationDelegate?) -> UIViewController
     func createAnimeDetailModule(with anime: Anime) -> UIViewController
+    func createAnimesModule(animeService: AnimeServiceProtocol, with searchOptions: AnimeSearchOptions) -> UIViewController
     // MARK: - personal menu
     func createPesonalMenuModule(navigationDelegate: PersonalMenuNavigationDelegate?) -> UIViewController
     func createEditProfileModule(userService: UserServiceProtocol, editProfileDelegate: EditProfileDelegate?) -> UIViewController
@@ -65,6 +66,13 @@ struct ModuleFactory: ModuleFactoryProtocol {
     func createAnimeDetailModule(with anime: Anime) -> UIViewController {
         let view = AnimeDetailViewController()
         let presenter = AnimeDetailPresenter(view: view, anime: anime)
+        view.presenter = presenter
+        return view
+    }
+    
+    func createAnimesModule(animeService: AnimeServiceProtocol, with searchOptions: AnimeSearchOptions) -> UIViewController {
+        let view = AnimesViewController()
+        let presenter = AnimesPresenter(view: view, animeService: animeService, searchOptions: searchOptions)
         view.presenter = presenter
         return view
     }

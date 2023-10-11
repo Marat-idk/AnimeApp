@@ -17,6 +17,7 @@ protocol AnimeServiceProtocol {
     func loadAnime(with searchOptions: AnimeSearchOptions?, completion: @escaping (Result<Animes, Error>) -> Void)
     func loadCharacters(from animeId: Int, completion: @escaping (Result<Characters, Error>) -> Void)
     func loadTopGenresAnime(completion: @escaping () -> Void)
+    func mostPopularAnimesSearchOptions(for genre: Genre) -> AnimeSearchOptions
 }
 
 extension AnimeServiceProtocol {
@@ -148,7 +149,7 @@ class AnimeService: AnimeServiceProtocol {
         }
     }
     
-    private func loadAnimeBy(genre: Genre, completion: @escaping () -> Void) {
+    func mostPopularAnimesSearchOptions(for genre: Genre) -> AnimeSearchOptions {
         var searchOptions = AnimeSearchOptions()
         searchOptions.filter?.status = .complete
 //        model.filter?.rating = .r17
@@ -159,6 +160,12 @@ class AnimeService: AnimeServiceProtocol {
         if let genreId = genre.malID, genreId > 0 {
             searchOptions.filter?.genres = [genreId]
         }
+        
+        return searchOptions
+    }
+    
+    private func loadAnimeBy(genre: Genre, completion: @escaping () -> Void) {
+        let searchOptions = mostPopularAnimesSearchOptions(for: genre)
         
         loadAnime(with: searchOptions) { [weak self] result in
             DispatchQueue.main.async {
