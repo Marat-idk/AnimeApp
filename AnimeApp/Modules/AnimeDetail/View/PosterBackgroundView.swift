@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 // MARK: - PosterBackgroundView
 final class PosterBackgroundView: UIView {
@@ -42,7 +43,9 @@ final class PosterBackgroundView: UIView {
         
         setupViews()
         setupConstraints()
-        posterImageView.kf.setImage(with: URL(string: anime.images?.largeImageURL ?? ""))
+        posterImageView.kf.setImage(with: URL(string: anime.images?.largeImageURL ?? ""),
+                                              options: [.diskCacheExpiration(.expired),
+                                                        .memoryCacheExpiration(.expired)])
     }
     
     convenience init(anime: Anime) {

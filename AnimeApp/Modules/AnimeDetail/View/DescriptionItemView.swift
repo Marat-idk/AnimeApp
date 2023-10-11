@@ -12,11 +12,25 @@ import SnapKit
 final class DescriptionItemView: UIView {
     
     private let icon: UIImage?
-    private let title: String
+    var title: String {
+        didSet {
+            titleLabel.text = title
+        }
+    }
+    
+    var iconTintColor: UIColor! {
+        get {
+            imageView.tintColor
+        }
+        set {
+            imageView.tintColor = newValue
+        }
+    }
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = icon
+        imageView.image = icon?.template
+        imageView.tintColor = .white
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -70,7 +84,7 @@ final class DescriptionItemView: UIView {
     
     private func setupConstraints() {
         imageView.snp.makeConstraints {
-            $0.size.equalTo(16).priority(.high)
+            $0.size.equalTo(16)
         }
         
         stackView.snp.makeConstraints {

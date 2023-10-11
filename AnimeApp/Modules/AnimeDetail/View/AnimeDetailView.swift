@@ -263,7 +263,9 @@ final class AnimeDetailView: UIView {
                                     options: [
                                         .processor(processor),
                                         .scaleFactor(UIScreen.main.scale),
-                                        .cacheOriginalImage
+                                        .cacheOriginalImage,
+                                        .diskCacheExpiration(.expired),
+                                        .memoryCacheExpiration(.expired)
                                     ])
         
         print(anime.malID)
