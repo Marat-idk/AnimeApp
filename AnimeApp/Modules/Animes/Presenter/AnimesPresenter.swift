@@ -9,8 +9,8 @@ import Foundation
 
 // MARK: - AnimesViewProtocol
 protocol AnimesViewProtocol: AnyObject {
-    func updateAnimes()
     func display(newAnimes: Int)
+    func hideActivityIndicator()
 }
 
 // MARK: - AnimesPresenterProtocol
@@ -29,7 +29,7 @@ final class AnimesPresenter: AnimesPresenterProtocol {
     var animes: [Anime]? = []
     
     private let animeService: AnimeServiceProtocol
-    private let searchOptions: AnimeSearchOptions
+    private var searchOptions: AnimeSearchOptions
     private var totalPages   = 0
     private var currentPage  = 1
     private let itemsPerPage = 25
@@ -41,25 +41,20 @@ final class AnimesPresenter: AnimesPresenterProtocol {
     }
     
     func fetchAnimes() {
-//        var searchOptions = AnimeSearchOptions()
-//        if let genreId = genre.malID {
-//            searchOptions.filter?.genres = [genreId]
-//        }
-//
-//        searchOptions.pagination?.currentPage = currentPage
-//
-//        // FIXME: - MOCK model
-//        searchOptions.filter?.status = .complete
-////        model.filter?.rating = .r17
-//        searchOptions.pagination?.items?.perPage = itemsPerPage
-//        searchOptions.filter?.orderBy = .score
-//        searchOptions.filter?.sortOrder = .desc
-        
+        searchOptions.filter?.genres = [65]
+        guard currentPage <= totalPages || totalPages == 0 else {
+            view?.hideActivityIndicator()
+            return
+        }
         currentPage += 1
         animeService.loadAnime(with: searchOptions) { [weak self] result in
             switch result {
             case .success(let animes):
                 DispatchQueue.main.async {
+                    if let totalPages = animes.pagination?.lastVisiblePage {
+                        self?.totalPages = totalPages
+                    }
+                    
                     if let animes = animes.data {
                         self?.animes?.append(contentsOf: animes)
                         self?.view?.display(newAnimes: animes.count)

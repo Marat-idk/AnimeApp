@@ -18,19 +18,20 @@ final class AnimesViewController: UIViewController {
         table.backgroundColor = .brandDarkBlue
         table.isOpaque = true
         table.separatorStyle = .none
-//        table.contentInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
-//        table.layoutMargins = .init(top: 0.0, left: 44, bottom: 0.0, right: 44)
         table.register(AnimeTableViewCell.self,
                        forCellReuseIdentifier: AnimeTableViewCell.identifier)
         
         table.dataSource = self
         table.delegate = self
         
-//        table.showsVerticalScrollIndicator = false
-        
-        table.addInfiniteScroll { [weak self] table in
+        table.addInfiniteScroll { [weak self] _ in
             self?.presenter.fetchAnimes()
         }
+        
+        let indicator = UIActivityIndicatorView()
+        indicator.color = .brandLightBlue
+        
+        table.infiniteScrollIndicatorView = indicator
         
         return table
     }()
@@ -113,32 +114,10 @@ extension AnimesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 163
     }
-    
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        guard tableView.contentSize.height != .zero else { return }
-//        print("±±±±±± scrollView.contentOffset = \(scrollView.contentOffset)")
-//        print("±±±±±± tableView.contentSize.height = \(tableView.contentSize.height)")
-//        print("±±±±±± scrollView.frame.height = \(scrollView.frame.height)")
-//        print("±±±±±± \(tableView.contentSize.height - scrollView.frame.height - 100)")
-//
-//        let position = scrollView.contentOffset.y
-//        if position > tableView.contentSize.height - scrollView.frame.height + 100 {
-//            presenter.fetchAnimes()
-//            tableView.isScrollEnabled = false
-//        }
-//    }
 }
 
 // MARK: - AnimesViewProtocol
 extension AnimesViewController: AnimesViewProtocol {
-    
-    // FIXME: - переработать методы
-    func updateAnimes() {
-//        tableView.isScrollEnabled = true
-        tableView.reloadData()
-        tableView.finishInfiniteScroll()
-    }
-    
     func display(newAnimes: Int) {
         guard let animes = presenter.animes else { return }
         
@@ -156,6 +135,10 @@ extension AnimesViewController: AnimesViewProtocol {
         } else {
             tableView.reloadData()
         }
+        tableView.finishInfiniteScroll()
+    }
+    
+    func hideActivityIndicator() {
         tableView.finishInfiniteScroll()
     }
 
