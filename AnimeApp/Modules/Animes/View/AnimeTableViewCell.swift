@@ -16,9 +16,6 @@ final class AnimeTableViewCell: UITableViewCell {
     var anime: Anime? {
         didSet {
             guard let anime = anime else { return }
-            
-            //titleLabel.text = "بتحويل الكتابة العربي الى كتابة مفهومة من قبل اغلب"//anime.title
-            //            genreLabel.text = anime.genresText
             posterView.posterImageView.kf.setImage(with: URL(string: anime.images?.imageURL ?? "" ),
                                                    options: [.diskCacheExpiration(.expired),
                                                              .memoryCacheExpiration(.expired)])
