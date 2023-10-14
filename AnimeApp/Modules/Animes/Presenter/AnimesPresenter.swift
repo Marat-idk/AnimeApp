@@ -41,13 +41,14 @@ final class AnimesPresenter: AnimesPresenterProtocol {
     }
     
     func fetchAnimes() {
-        searchOptions.filter?.genres = [65]
         guard currentPage <= totalPages || totalPages == 0 else {
             view?.hideActivityIndicator()
             return
         }
-        currentPage += 1
+        searchOptions.pagination?.items?.perPage = itemsPerPage
+        searchOptions.pagination?.currentPage = currentPage
         animeService.loadAnime(with: searchOptions) { [weak self] result in
+            self?.currentPage += 1
             switch result {
             case .success(let animes):
                 DispatchQueue.main.async {
