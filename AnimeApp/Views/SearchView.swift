@@ -8,9 +8,26 @@
 import UIKit
 import SnapKit
 
+// MARK: - SearchViewMode
+extension SearchView {
+    enum SearchViewMode {
+        case withFilter
+        case withCancelButton
+    }
+}
+
+@objc protocol SearchViewDelegate: AnyObject {
+    @objc optional func filterButtonTapped()
+}
+
 // MARK: - SearchView
 class SearchView: UIView {
     
+    weak var delegate: SearchViewDelegate?
+    
+    var searchTextChanged: ((String) -> Void)?
+    
+    // MARK: Private properties
     private let mode: SearchViewMode
     private var cancelTrailingConstraint: Constraint?
     private var stackViewTrailingToSuperviewConstraint: Constraint?
@@ -44,6 +61,12 @@ class SearchView: UIView {
         tf.clipsToBounds = true
         tf.delegate = self
         tf.layer.masksToBounds = true
+        
+        tf.editingChanged = { [weak self] field in
+            guard let text = field.text else { return }
+            self?.searchTextChanged?(text)
+        }
+        
         return tf
     }()
     
@@ -124,6 +147,9 @@ class SearchView: UIView {
         btn.setTitleColor(.white, for: .normal)
         btn.setTitleColor(.brandWhiteGray, for: .highlighted)
         btn.titleLabel?.font = .montserratMedium(size: 12)
+        
+        btn.addTarget(self, action: #selector(cancelButtonTapped(_:)), for: .touchUpInside)
+        
         return btn
     }()
     
@@ -209,15 +235,13 @@ class SearchView: UIView {
     
     // MARK: Targets action
     @objc private func filterTapped(_ sender: UITapGestureRecognizer) {
-        print("filterTapped")
+        delegate?.filterButtonTapped?()
     }
-}
-
-// MARK: - SearchViewMode
-extension SearchView {
-    enum SearchViewMode {
-        case withFilter
-        case withCancelButton
+    
+    @objc private func cancelButtonTapped(_ sender: UIButton) {
+        searchTextField.text = ""
+        searchTextField.sendActions(for: .editingChanged)
+        searchTextField.resignFirstResponder()
     }
 }
 
