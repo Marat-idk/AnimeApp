@@ -19,6 +19,7 @@ extension UIImage {
     static let bigQuestion = UIImage(named: "ic-bigQuestion")
     static let done        = UIImage(named: "ic-done")
     static let folder      = UIImage(named: "ic-folder")
+    static let box         = UIImage(named: "ic-box")
     static let noResults   = UIImage(named: "ic-no-results")
     static let star        = UIImage(named: "ic-star")
     
