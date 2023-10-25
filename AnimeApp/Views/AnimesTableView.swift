@@ -8,14 +8,24 @@
 import UIKit
 import SnapKit
 
+// MARK: - AnimesTableViewType
+extension AnimesTableView {
+    enum DisplayMode {
+        case normal
+        case search
+    }
+}
+
+@objc protocol AnimesTableViewDelegate: AnyObject {
+    @objc optional func updateSearch(with searchText: String)
+}
+
 // MARK: - AnimesTableView
 final class AnimesTableView: UIView {
     
     private let mode: DisplayMode
     
-    private var cancelTrailingConstraint: Constraint?
-    private var stackViewTrailingToSuperviewConstraint: Constraint?
-    private var stackViewTrailingToCancelButtonConstraint: Constraint?
+    var infiniteScroll: ((UITableView) -> Void)?
     
     weak var dataSource: UITableViewDataSource? {
         get {
@@ -35,8 +45,25 @@ final class AnimesTableView: UIView {
         }
     }
     
+    // TODO: - not best naming, rename it
+    var tableViewIsHidden: Bool {
+        get {
+            return tableView.isHidden
+        }
+        set {
+            tableView.isHidden = newValue
+        }
+    }
+    
+    weak var searchDelegate: AnimesTableViewDelegate?
+    
     private lazy var searchView: SearchView = {
         let searchView = SearchView(mode: .withCancelButton)
+        
+        searchView.searchTextChanged = { [weak self] text in
+            self?.searchDelegate?.updateSearch?(with: text)
+        }
+        
         return searchView
     }()
     
@@ -48,15 +75,13 @@ final class AnimesTableView: UIView {
         table.register(AnimeTableViewCell.self,
                        forCellReuseIdentifier: AnimeTableViewCell.identifier)
         
-        // TODO: - перенеси на уровень выше
-//        table.addInfiniteScroll { [weak self] _ in
-//            self?.presenter.fetchAnimes()
-//        }
-//
-//        let indicator = UIActivityIndicatorView()
-//        indicator.color = .brandLightBlue
-//
-//        table.infiniteScrollIndicatorView = indicator
+        table.addInfiniteScroll { [weak self] table in
+            self?.infiniteScroll?(table)
+        }
+        let indicator = UIActivityIndicatorView()
+        indicator.color = .brandLightBlue
+
+        table.infiniteScrollIndicatorView = indicator
         
         return table
     }()
@@ -116,12 +141,12 @@ final class AnimesTableView: UIView {
     func reloadData() {
         tableView.reloadData()
     }
-}
-
-// MARK: - AnimesTableViewType
-extension AnimesTableView {
-    enum DisplayMode {
-        case normal
-        case search
+    
+    func insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
+        tableView.insertRows(at: indexPaths, with: animation)
+    }
+    
+    func finishInfiniteScroll() {
+        tableView.finishInfiniteScroll()
     }
 }
