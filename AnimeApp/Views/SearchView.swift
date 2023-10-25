@@ -53,6 +53,7 @@ class SearchView: UIView {
         tf.backgroundColor = .brandBlue
         tf.font = .montserratMedium(size: 14)
         tf.textColor = .white
+        tf.returnKeyType = .done
         tf.attributedPlaceholder = NSAttributedString(string: "Search a title...",
                                                       attributes:
                                                         [
