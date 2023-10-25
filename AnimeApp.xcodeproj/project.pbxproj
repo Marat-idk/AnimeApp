@@ -90,6 +90,7 @@
 		E51FC4EF2AE3CE9400CCD8FB /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51FC4EE2AE3CE9400CCD8FB /* SearchView.swift */; };
 		E51FC4F72AE9BAF700CCD8FB /* BlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51FC4F62AE9BAF700CCD8FB /* BlankView.swift */; };
 		E51FC4F92AE9C04400CCD8FB /* BlankType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51FC4F82AE9C04400CCD8FB /* BlankType.swift */; };
+		E51FC4FB2AE9C0D900CCD8FB /* DispatchQueue+Debounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51FC4FA2AE9C0D900CCD8FB /* DispatchQueue+Debounce.swift */; };
 		E538A62E2A673D0400541EC3 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E538A62D2A673D0400541EC3 /* TabCoordinator.swift */; };
 		E53D4CAB2A9B85DB00AF7F77 /* AnimeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53D4CAA2A9B85DB00AF7F77 /* AnimeDetailViewController.swift */; };
 		E53D4CAD2A9B85F600AF7F77 /* AnimeDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53D4CAC2A9B85F600AF7F77 /* AnimeDetailPresenter.swift */; };
@@ -253,6 +254,7 @@
 		E51FC4EE2AE3CE9400CCD8FB /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		E51FC4F62AE9BAF700CCD8FB /* BlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankView.swift; sourceTree = "<group>"; };
 		E51FC4F82AE9C04400CCD8FB /* BlankType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankType.swift; sourceTree = "<group>"; };
+		E51FC4FA2AE9C0D900CCD8FB /* DispatchQueue+Debounce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Debounce.swift"; sourceTree = "<group>"; };
 		E538A62D2A673D0400541EC3 /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
 		E53D4CAA2A9B85DB00AF7F77 /* AnimeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailViewController.swift; sourceTree = "<group>"; };
 		E53D4CAC2A9B85F600AF7F77 /* AnimeDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailPresenter.swift; sourceTree = "<group>"; };
@@ -659,6 +661,7 @@
 				E549DBDA2AA49A7000A80080 /* UIViewController+Alert.swift */,
 				E55D272A2A7B267A002B5079 /* UICollectionView+Snapping.swift */,
 				E5BB2F422A920E7A00C9372E /* Array+Helper.swift */,
+				E51FC4FA2AE9C0D900CCD8FB /* DispatchQueue+Debounce.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1252,6 +1255,7 @@
 				D2626DD629F5FD50008E9521 /* UITextField+Helper.swift in Sources */,
 				D23021CF29EC853E0091DE37 /* ViewController.swift in Sources */,
 				D2ED90DD2A2D3D780057FEC4 /* NotificationType.swift in Sources */,
+				E51FC4FB2AE9C0D900CCD8FB /* DispatchQueue+Debounce.swift in Sources */,
 				E51FC4EF2AE3CE9400CCD8FB /* SearchView.swift in Sources */,
 				D230221029EC916B0091DE37 /* NetworkManagerImpl.swift in Sources */,
 				E5DC356D2A36460C002470B3 /* LanguageHeaderCollectionReusableView.swift in Sources */,
