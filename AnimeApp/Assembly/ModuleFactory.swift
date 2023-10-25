@@ -52,7 +52,7 @@ struct ModuleFactory: ModuleFactoryProtocol {
         return view
     }
     
-    // MARK: - home
+    // MARK: home
     func createHomeModule(userService: UserServiceProtocol, animeService: AnimeServiceProtocol, navigationDelegate: HomeNavigationDelegate?) -> UIViewController {
         let view = HomeViewController()
         let presenter = HomePresenter(view: view,
@@ -77,7 +77,7 @@ struct ModuleFactory: ModuleFactoryProtocol {
         return view
     }
     
-    // MARK: - personal menu
+    // MARK: personal menu
     func createPesonalMenuModule(navigationDelegate: PersonalMenuNavigationDelegate?) -> UIViewController {
         let view = PersonalMenuViewController()
         let presenter = PersonalMenuPresenter(view: view, navigationDelegate: navigationDelegate)

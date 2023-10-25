@@ -17,8 +17,7 @@ final class AnimeTableViewCell: UITableViewCell {
         didSet {
             guard let anime = anime else { return }
             posterView.posterImageView.kf.setImage(with: URL(string: anime.images?.imageURL ?? "" ),
-                                                   options: [.diskCacheExpiration(.expired),
-                                                             .memoryCacheExpiration(.expired)])
+                                                   options: [.diskCacheExpiration(.expired)])
             posterView.score = anime.score
             
             titleLabel.text = anime.title
