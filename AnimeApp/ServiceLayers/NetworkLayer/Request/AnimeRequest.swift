@@ -72,6 +72,7 @@ enum AnimeRequest {
             var genresExclude: [Int]?
             var orderBy: OrderBy?
             var sortOrder: SortOrderType?
+            var query: String?
         }
         
         init() {
@@ -146,6 +147,10 @@ extension AnimeRequest: RequestProtocol {
             }
             
 //            params["type"] = "movie"
+            
+            if let query = model.filter?.query {
+                params["q"] = query
+            }
             
             return params
         default:
