@@ -121,15 +121,12 @@ extension SearchViewController: AnimesTableViewDelegate {
 }
 
 extension SearchViewController: SearchViewProtocol {
-    func updateAnimes() {
+    func updateAnimes(shouldShowBlankView: Bool) {
         let isSearchResultEmpty = presenter.animes?.isEmpty ?? true
         
         tableView.tableViewIsHidden = isSearchResultEmpty
-        blackView.isHidden = !isSearchResultEmpty
-        
-        if !isSearchResultEmpty {
-            tableView.reloadData()
-        }
+        blackView.isHidden = !(isSearchResultEmpty && shouldShowBlankView)
+        tableView.reloadData()
     }
     
     func display(newAnimes: Int) {

@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - SearchViewProtocol
 protocol SearchViewProtocol: AnyObject {
-    func updateAnimes()
+    func updateAnimes(shouldShowBlankView: Bool)
     func display(newAnimes: Int)
     func hideActivityIndicator()
 }
@@ -43,6 +43,7 @@ final class SearchPresenter: SearchPresenterProtocol {
     
     func searchAnimes(with query: String) {
         animes?.removeAll()
+        view?.updateAnimes(shouldShowBlankView: false)
         currentPage = 1
         
         searchOptions = AnimeSearchOptions()
@@ -58,7 +59,7 @@ final class SearchPresenter: SearchPresenterProtocol {
                 DispatchQueue.main.async {
                     if let animes = animes.data {
                         self?.animes?.append(contentsOf: animes)
-                        self?.view?.updateAnimes()
+                        self?.view?.updateAnimes(shouldShowBlankView: true)
                     }
                     
                     if let totalPages = animes.pagination?.lastVisiblePage {
