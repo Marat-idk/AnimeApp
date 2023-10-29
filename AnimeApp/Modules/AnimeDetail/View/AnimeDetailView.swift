@@ -26,7 +26,7 @@ final class AnimeDetailView: UIView {
     
     var characters: Characters? {
         didSet {
-            collectionView.reloadData()
+            charactersCollectionView.reloadData()
             charactersLabel.isHidden = characters == nil || characters?.isEmpty == true
         }
     }
@@ -202,10 +202,11 @@ final class AnimeDetailView: UIView {
         
         synopsisLabel.isHidden = anime.synopsis.isNilOrEmpty
         synopsisTilteLabel.isHidden = anime.synopsis.isNilOrEmpty
+        charactersLabel.isHidden = true
         return stack
     }()
     
-    private lazy var collectionView: UICollectionView = {
+    private lazy var charactersCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 16
@@ -287,7 +288,7 @@ final class AnimeDetailView: UIView {
     // MARK: - Private methods
     private func setupViews() {
         addSubview(scrollView)
-        scrollView.addSubviews(stackView, collectionView)
+        scrollView.addSubviews(stackView, charactersCollectionView)
     }
     
     private func setupConstraints() {
@@ -314,6 +315,11 @@ final class AnimeDetailView: UIView {
         
         synopsisStackView.snp.makeConstraints {
             $0.width.equalToSuperview()
+            // Плохое решение, но работает
+            // если в аниме нет синопсиса, но при этом будут персонажи
+            // лейбл synopsisStackView будет иметь нулевую высоту и charactersLabel
+            // не будет виден
+            $0.height.greaterThanOrEqualTo(0.5)
         }
         
         stackView.snp.makeConstraints {
@@ -323,7 +329,7 @@ final class AnimeDetailView: UIView {
             $0.height.equalToSuperview().priority(.low)
         }
 
-        collectionView.snp.makeConstraints {
+        charactersCollectionView.snp.makeConstraints {
             $0.top.equalTo(stackView.snp.bottom).offset(16)
             $0.height.equalTo(60).priority(.required)
             $0.horizontalEdges.bottom.equalToSuperview()
