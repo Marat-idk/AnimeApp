@@ -25,6 +25,14 @@ final class CategoryCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    private var isCellForItemAtExecuted = false {
+        didSet {
+            if isCellForItemAtExecuted != oldValue {
+                scrollToSelectedGenre()
+            }
+        }
+    }
+    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -83,6 +91,11 @@ final class CategoryCollectionViewCell: UICollectionViewCell {
             $0.edges.equalToSuperview()
         }
     }
+    
+    func scrollToSelectedGenre() {
+        guard let item = genres?.firstIndex(where: { $0.isSelected == true }) else { return }
+        collectionView.scrollToItem(at: IndexPath(item: item, section: 0), at: .left, animated: true)
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -98,6 +111,7 @@ extension CategoryCollectionViewCell: UICollectionViewDataSource {
         }
         
         cell.genre = genres?[indexPath.item]
+        isCellForItemAtExecuted = true
         
         return cell
     }
