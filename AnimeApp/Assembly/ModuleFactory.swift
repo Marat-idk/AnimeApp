@@ -15,6 +15,8 @@ protocol ModuleFactoryProtocol {
     func createHomeModule(userService: UserServiceProtocol, animeService: AnimeServiceProtocol, navigationDelegate: HomeNavigationDelegate?) -> UIViewController
     func createAnimeDetailModule(with anime: Anime) -> UIViewController
     func createAnimesModule(animeService: AnimeServiceProtocol, with searchOptions: AnimeSearchOptions) -> UIViewController
+    // MARK: - search
+    func createSearch(animeService: AnimeServiceProtocol, navigationDelegate: SearchNavigationDelegate?) -> UIViewController
     // MARK: - personal menu
     func createPesonalMenuModule(navigationDelegate: PersonalMenuNavigationDelegate?) -> UIViewController
     func createEditProfileModule(userService: UserServiceProtocol, editProfileDelegate: EditProfileDelegate?) -> UIViewController
@@ -27,6 +29,10 @@ protocol ModuleFactoryProtocol {
 extension ModuleFactoryProtocol {
     func createHomeModule(userService: UserServiceProtocol, animeService: AnimeServiceProtocol) -> UIViewController {
         return createHomeModule(userService: userService, animeService: animeService, navigationDelegate: nil)
+    }
+    
+    func createSearch(animeService: AnimeServiceProtocol) -> UIViewController {
+        return createSearch(animeService: animeService, navigationDelegate: nil)
     }
     
     func createPesonalMenuModule() -> UIViewController {
@@ -73,6 +79,14 @@ struct ModuleFactory: ModuleFactoryProtocol {
     func createAnimesModule(animeService: AnimeServiceProtocol, with searchOptions: AnimeSearchOptions) -> UIViewController {
         let view = AnimesViewController()
         let presenter = AnimesPresenter(view: view, animeService: animeService, searchOptions: searchOptions)
+        view.presenter = presenter
+        return view
+    }
+    
+    // MARK: search
+    func createSearch(animeService: AnimeServiceProtocol, navigationDelegate: SearchNavigationDelegate?) -> UIViewController {
+        let view = SearchViewController()
+        let presenter = SearchPresenter(view: view, animeService: animeService, navigationDelegate: navigationDelegate)
         view.presenter = presenter
         return view
     }

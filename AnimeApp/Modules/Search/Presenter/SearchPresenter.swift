@@ -16,17 +16,23 @@ protocol SearchViewProtocol: AnyObject {
 
 // MARK: - SearchPresenterProtocol
 protocol SearchPresenterProtocol: AnyObject {
-    init(view: SearchViewProtocol, animeService: AnimeServiceProtocol)
+    init(view: SearchViewProtocol, animeService: AnimeServiceProtocol, navigationDelegate: SearchNavigationDelegate?)
     
     var animes: [Anime]? { get }
     
     func searchAnimes(with query: String)
     func loadMore()
+    func didSelected(_ anime: Anime)
+}
+
+protocol SearchNavigationDelegate: AnyObject {
+    func onSelectedAnime(_ anime: Anime)
 }
 
 // MARK: - SearchPresenter
 final class SearchPresenter: SearchPresenterProtocol {
     weak var view: SearchViewProtocol?
+    weak var navigationDelegate: SearchNavigationDelegate?
     
     var animes: [Anime]? = []
     
@@ -36,9 +42,10 @@ final class SearchPresenter: SearchPresenterProtocol {
     private var currentPage  = 1
     private let itemsPerPage = 25
     
-    init(view: SearchViewProtocol, animeService: AnimeServiceProtocol) {
+    init(view: SearchViewProtocol, animeService: AnimeServiceProtocol, navigationDelegate: SearchNavigationDelegate?) {
         self.view = view
         self.animeService = animeService
+        self.navigationDelegate = navigationDelegate
     }
     
     func searchAnimes(with query: String) {
@@ -98,5 +105,9 @@ final class SearchPresenter: SearchPresenterProtocol {
                 print("anime error = \(error.localizedDescription)")
             }
         }
+    }
+    
+    func didSelected(_ anime: Anime) {
+        navigationDelegate?.onSelectedAnime(anime)
     }
 }

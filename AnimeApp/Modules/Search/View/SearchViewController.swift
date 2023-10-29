@@ -99,8 +99,7 @@ extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // FIXME: - mock
         guard let anime = presenter.animes?[indexPath.row] else { return }
-        let view = ModuleFactory().createAnimeDetailModule(with: anime)
-        navigationController?.pushViewController(view, animated: true)
+        presenter.didSelected(anime)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
