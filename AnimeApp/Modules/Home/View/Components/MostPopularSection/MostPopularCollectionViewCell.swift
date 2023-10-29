@@ -8,9 +8,15 @@
 import UIKit
 import SnapKit
 
+protocol MostPopularCollectionViewCellDelegate: AnyObject {
+    func didSelect(_ anime: Anime)
+}
+
 // MARK: - MostPopularCollectionViewCell
 final class MostPopularCollectionViewCell: UICollectionViewCell {
     static let identifier = String(describing: MostPopularCollectionViewCell.self)
+    
+    weak var delegate: MostPopularCollectionViewCellDelegate?
     
     var animes: [Anime]? {
         didSet {
@@ -96,7 +102,10 @@ extension MostPopularCollectionViewCell: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension MostPopularCollectionViewCell: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let anime = animes?[indexPath.row] else { return }
+        delegate?.didSelect(anime)
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout

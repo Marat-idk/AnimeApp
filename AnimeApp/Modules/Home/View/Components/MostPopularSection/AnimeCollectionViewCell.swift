@@ -21,12 +21,12 @@ final class AnimeCollectionViewCell: UICollectionViewCell {
             genreLabel.text = anime.genresText
             
             posterView.posterImageView.kf.setImage(with: URL(string: anime.images?.largeImageURL ?? ""))
-            posterView.scoreLabel.text = "\(anime.score)"
+            posterView.score = anime.score
         }
     }
     
-    private let posterView: ScoredPosterView = {
-        let poster = ScoredPosterView(scorePosition: .topRight)
+    private lazy var posterView: ScoredPosterView = {
+        let poster = ScoredPosterView(scorePosition: .topRight, score: anime?.score ?? 0.0)
         return poster
     }()
     

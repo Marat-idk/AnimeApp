@@ -29,7 +29,7 @@ final class TopAnimeCollectionViewCell: UICollectionViewCell {
         lbl.numberOfLines = 2
         lbl.alpha = 0
         // FIXME: - mock mock, remove it
-        lbl.text = "Black Panther: Wakanda Forever Onlyfans"
+        lbl.text = "Black Panther: Wakanda Forever"
         
         return lbl
     }()

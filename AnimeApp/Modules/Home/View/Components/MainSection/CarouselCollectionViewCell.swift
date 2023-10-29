@@ -18,8 +18,12 @@ final class CarouselCollectionViewCell: UICollectionViewCell {
     private let colors: [UIColor] = [.red, .green, .blue]
     
     private lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+//        let layout = UICollectionViewFlowLayout()
+//        layout.scrollDirection = .horizontal
+        
+        let layout = SnappingLayout()
         layout.scrollDirection = .horizontal
+        layout.snapPosition = .right
         
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.backgroundColor = .brandDarkBlue
@@ -34,6 +38,7 @@ final class CarouselCollectionViewCell: UICollectionViewCell {
         collection.showsVerticalScrollIndicator = false
         collection.showsHorizontalScrollIndicator = false
         
+        collection.decelerationRate = .fast
         collection.dataSource = self
         collection.delegate = self
         
@@ -170,14 +175,14 @@ extension CarouselCollectionViewCell: UIScrollViewDelegate {
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.collectionView.scrollToNearestVisibleCollectionViewCell()
+//        self.collectionView.scrollToNearestVisibleCollectionViewCell()
     }
 
     // вызывается после того, как закончился скрол
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate {
-            self.collectionView.scrollToNearestVisibleCollectionViewCell()
-        }
+//        if !decelerate {
+//            self.collectionView.scrollToNearestVisibleCollectionViewCell()
+//        }
     }
 }
 
