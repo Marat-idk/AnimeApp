@@ -2,6 +2,11 @@ PODS:
   - Kingfisher (7.9.0)
   - netfox (1.21.0)
   - ObjectMapper (4.2.0)
+  - Realm (10.44.0):
+    - Realm/Headers (= 10.44.0)
+  - Realm/Headers (10.44.0)
+  - RealmSwift (10.44.0):
+    - Realm (= 10.44.0)
   - SnapKit (5.6.0)
   - UIScrollView-InfiniteScroll (1.3.0)
 
@@ -9,6 +14,7 @@ DEPENDENCIES:
   - Kingfisher (~> 7.0)
   - netfox
   - ObjectMapper
+  - RealmSwift (~> 10)
   - SnapKit
   - UIScrollView-InfiniteScroll (~> 1.3.0)
 
@@ -17,6 +23,8 @@ SPEC REPOS:
     - Kingfisher
     - netfox
     - ObjectMapper
+    - Realm
+    - RealmSwift
     - SnapKit
     - UIScrollView-InfiniteScroll
 
@@ -24,9 +32,11 @@ SPEC CHECKSUMS:
   Kingfisher: 59f908b6d2f403b0a3e539debb0eec05cb27002c
   netfox: 9d5cc727fe7576c4c7688a2504618a156b7d44b7
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+  Realm: 0419a32457873acb720df25bf1d658df36967cf2
+  RealmSwift: 352f85c018b4d0efe961974bfa95bf7a30e079f6
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   UIScrollView-InfiniteScroll: a30af3dec185edd26d6ad50c521aa277f3ebf177
 
-PODFILE CHECKSUM: 2e39179fb94ba29d05030c17089ad360599bedd8
+PODFILE CHECKSUM: abb89a2bc53a730401da3946ed0b3535c59733df
 
 COCOAPODS: 1.12.1
