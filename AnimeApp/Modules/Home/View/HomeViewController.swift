@@ -181,6 +181,7 @@ extension HomeViewController: UICollectionViewDataSource {
                                                             for: indexPath) as? SearchCollectionViewCell else {
             return UICollectionViewCell()
         }
+        cell.delegate = presenter
         return cell
     }
     

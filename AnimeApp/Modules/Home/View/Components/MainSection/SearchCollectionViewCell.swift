@@ -24,7 +24,11 @@ final class SearchCollectionViewCell: UICollectionViewCell {
         searchView.delegate = self
         
         searchView.searchTextChanged = { [weak self] text in
+            guard let self = self else { return }
             print("searchTextChanged = \(text)")
+            DispatchQueue.main.asyncDeduped(target: self, after: 1.0) {
+                self.delegate?.searchAnimes(text)
+            }
         }
         
         return searchView
@@ -63,20 +67,5 @@ final class SearchCollectionViewCell: UICollectionViewCell {
 extension SearchCollectionViewCell: SearchViewDelegate {
     func filterButtonTapped() {
         print("filterTapped")
-    }
-}
-
-extension SearchCollectionViewCell: UITextFieldDelegate {
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        guard let text = textField.text else { return }
-        
-        DispatchQueue.main.asyncDeduped(target: self, after: 0.5) { [weak self] in
-            self?.delegate?.searchAnimes(text)
-        }
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
 }

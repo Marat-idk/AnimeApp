@@ -21,9 +21,9 @@ final class AnimeTableViewCell: UITableViewCell {
             posterView.score = anime.score
             
             titleLabel.text = anime.title
-            dateDescriptionItemView.title = anime.releaseYear ?? ""
-            durationDescriptionItemView.title = anime.duration ?? ""
-            filmDescriptionItemView.title = anime.majorGenre ?? ""
+            dateDescriptionItemView.title = anime.releaseYear ?? "unknown"
+            durationDescriptionItemView.title = anime.duration ?? "unknown"
+            filmDescriptionItemView.title = anime.majorGenre ?? "unknown"
         }
     }
     

@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - CollectionViewCellAndHeaderDelegate
-typealias CollectionViewCellAndHeaderDelegate = CategoryCollectionViewCellDelegate & HomeHeaderCollectionReusableViewDelegate & MostPopularCollectionViewCellDelegate
+typealias CollectionViewCellAndHeaderDelegate = CategoryCollectionViewCellDelegate & HomeHeaderCollectionReusableViewDelegate & SearchCollectionViewCellDelegate & MostPopularCollectionViewCellDelegate
 
 // MARK: - HomeViewProtocol
 protocol HomeViewProtocol: AnyObject {
@@ -22,12 +22,12 @@ protocol HomePresenterProtocol: AnyObject, CollectionViewCellAndHeaderDelegate {
     
     var topGenres: [Genre] { get }
     var selectedGenreAnime: [Anime] { get }
-    
     func fetchAnimeForSelectedGenre()
 }
 
 protocol HomeNavigationDelegate: AnyObject {
     func onSelectedAnime(_ anime: Anime)
+    func onSelectedMostPopularGenre(with searchOptions: AnimeSearchOptions)
 }
 
 final class HomePresenter: HomePresenterProtocol {
@@ -35,6 +35,7 @@ final class HomePresenter: HomePresenterProtocol {
     weak var navigationDelegate: HomeNavigationDelegate?
     
     var topGenres: [Genre] = []
+    var currentSelectedGenre: Genre?
     var selectedGenreAnime: [Anime] = [] {
         didSet {
             view?.updateMostPopular(with: selectedGenreAnime)
@@ -60,6 +61,7 @@ final class HomePresenter: HomePresenterProtocol {
         
         // FIXME: - remove
         self.topGenres = animeService.topGenres
+        self.currentSelectedGenre = topGenres.first(where: { $0.isSelected == true })
     }
     
     func fetchAnimeForSelectedGenre() {
@@ -72,7 +74,28 @@ final class HomePresenter: HomePresenterProtocol {
         }
     }
     
+    // TODO: Will be implemented later
+    func searchAnimes(_ searchText: String) {
+//        var searchOptions = animeService?.mostPopularAnimesSearchOptions(for: topGenres.first!)
+//        searchOptions?.filter?.genres = nil
+//        searchOptions?.filter?.query = searchText
+//        print("searchText = \(searchText)")
+//        animeService?.loadAnime(with: searchOptions, completion: { [weak self] result in
+//            guard let self = self else { return }
+//            switch result {
+//            case .success(let animes):
+//                guard let animes = animes.data else { return }
+//                animes.forEach { anime in
+//                    print("Anime title = \(anime.title)")
+//                }
+//            case .failure(let error):
+//                print("searchAnimes error = \(error.localizedDescription)")
+//            }
+//        })
+    }
+    
     func didSelected(_ genre: Genre) {
+        currentSelectedGenre = genre
         for index in topGenres.indices {
             topGenres[index].isSelected = topGenres[index] == genre
         }
@@ -83,7 +106,15 @@ final class HomePresenter: HomePresenterProtocol {
     }
     
     func headerButtonTapped(on section: HomeSection) {
-        print("headerButtonTapped on \(section.description)")
+        switch section {
+        case .mostPopular:
+            guard let genre = currentSelectedGenre,
+                  let animeService = animeService else { return }
+            let searchOptions = animeService.mostPopularAnimesSearchOptions(for: genre)
+            navigationDelegate?.onSelectedMostPopularGenre(with: searchOptions)
+        default:
+            break
+        }
     }
     
     func didSelect(_ anime: Anime) {
