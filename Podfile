@@ -17,6 +17,9 @@ target 'AnimeApp' do
     pod 'SnapKit'
     pod 'UIScrollView-InfiniteScroll', '~> 1.3.0'
 
+    # Database
+    pod 'RealmSwift', '~>10'
+
     # network
     pod 'netfox'
     pod 'Kingfisher', '~> 7.0'
