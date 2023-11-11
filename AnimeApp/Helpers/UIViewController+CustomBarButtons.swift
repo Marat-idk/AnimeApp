@@ -27,12 +27,12 @@ extension UIViewController {
         navigationItem.leftBarButtonItem = backButton
     }
     
-    func favoriteRightButton(isFavorited: Bool, with action: Selector) {
+    func favoriteRightButton(isFavorite: Bool, with action: Selector) {
         let favoriteImageView = UIImageView()
         favoriteImageView.backgroundColor = .brandBlue
         favoriteImageView.isOpaque = true
         favoriteImageView.image = .heart?.template
-        favoriteImageView.tintColor = isFavorited ? .brandRed : .brandWhiteGray
+        favoriteImageView.tintColor = isFavorite ? .brandRed : .brandWhiteGray
         favoriteImageView.contentMode = .scaleAspectFit
         favoriteImageView.clipsToBounds = true
         
@@ -49,5 +49,13 @@ extension UIViewController {
         }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+    }
+    
+    func updateFavoriteRightButtonAppearance(isFavorite: Bool) {
+        guard let button = navigationItem.rightBarButtonItem?.customView as? UIButton,
+              let favoriteImageView = button.subviews.first as? UIImageView else {
+            return
+        }
+        favoriteImageView.tintColor = isFavorite ? .brandRed : .brandWhiteGray
     }
 }

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import ObjectMapper
 
 // MARK: - AnimeDetailViewProtocol
 protocol AnimeDetailViewProtocol: AnyObject {
@@ -15,12 +14,14 @@ protocol AnimeDetailViewProtocol: AnyObject {
 
 // MARK: - AnimeDetailPresenterProtocol
 protocol AnimeDetailPresenterProtocol: AnyObject {
-    init(view: AnimeDetailViewProtocol, anime: Anime)
+    init(view: AnimeDetailViewProtocol, anime: Anime, favoritesService: FavoritesServiceProtocol)
     
     var anime: Anime { get }
     var characters: Characters? { get }
+    var isFavorite: Bool { get }
     
     func fetchAnimeCharacters()
+    func favoriteToggle()
 }
 
 // MARK: - AnimeDetailPresenter
@@ -34,9 +35,16 @@ final class AnimeDetailPresenter: AnimeDetailPresenterProtocol {
         }
     }
     
-    init(view: AnimeDetailViewProtocol, anime: Anime) {
+    var isFavorite: Bool {
+        return favoritesService.exists(anime)
+    }
+    
+    private var favoritesService: FavoritesServiceProtocol
+    
+    init(view: AnimeDetailViewProtocol, anime: Anime, favoritesService: FavoritesServiceProtocol) {
         self.view = view
         self.anime = anime
+        self.favoritesService = favoritesService
     }
     
     func fetchAnimeCharacters() {
@@ -50,5 +58,9 @@ final class AnimeDetailPresenter: AnimeDetailPresenterProtocol {
                 }
             }
         }
+    }
+    
+    func favoriteToggle() {
+        isFavorite ? favoritesService.remove(anime) : favoritesService.append(anime)
     }
 }
