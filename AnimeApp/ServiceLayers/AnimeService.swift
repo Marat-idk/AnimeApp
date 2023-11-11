@@ -139,12 +139,12 @@ class AnimeService: AnimeServiceProtocol {
         group.notify(queue: .main) {
             let animesByGenre = self.topGenresAnime
             
-            // FIXME: - log print should be removed
-            print("++++++++ animesByGenre \(animesByGenre.count)")
-            
-            for (genre, animes) in animesByGenre {
-                print("genre = \(genre) and count = \(animes.count)")
-            }
+//            // FIXME: - log print should be removed
+//            print("++++++++ animesByGenre \(animesByGenre.count)")
+//            
+//            for (genre, animes) in animesByGenre {
+//                print("genre = \(genre) and count = \(animes.count)")
+//            }
             completion()
         }
     }

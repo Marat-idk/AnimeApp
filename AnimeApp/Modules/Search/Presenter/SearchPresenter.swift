@@ -25,6 +25,7 @@ protocol SearchPresenterProtocol: AnyObject {
     func didSelected(_ anime: Anime)
 }
 
+// MARK: - SearchNavigationDelegate
 protocol SearchNavigationDelegate: AnyObject {
     func onSelectedAnime(_ anime: Anime)
 }

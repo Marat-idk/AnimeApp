@@ -15,6 +15,7 @@ protocol FavoritesServiceProtocol {
     func append(_ anime: Anime)
     func remove(_ anime: Anime)
     func removeAll()
+    func exists(_ anime: Anime) -> Bool
 }
 
 // MARK: - FavoritesService
