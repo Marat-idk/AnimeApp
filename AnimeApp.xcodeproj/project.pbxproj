@@ -91,6 +91,7 @@
 		E51FC4F72AE9BAF700CCD8FB /* BlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51FC4F62AE9BAF700CCD8FB /* BlankView.swift */; };
 		E51FC4F92AE9C04400CCD8FB /* BlankType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51FC4F82AE9C04400CCD8FB /* BlankType.swift */; };
 		E51FC4FB2AE9C0D900CCD8FB /* DispatchQueue+Debounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51FC4FA2AE9C0D900CCD8FB /* DispatchQueue+Debounce.swift */; };
+		E51FC4FD2AEE882400CCD8FB /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51FC4FC2AEE882400CCD8FB /* SearchCoordinator.swift */; };
 		E538A62E2A673D0400541EC3 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E538A62D2A673D0400541EC3 /* TabCoordinator.swift */; };
 		E53D4CAB2A9B85DB00AF7F77 /* AnimeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53D4CAA2A9B85DB00AF7F77 /* AnimeDetailViewController.swift */; };
 		E53D4CAD2A9B85F600AF7F77 /* AnimeDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53D4CAC2A9B85F600AF7F77 /* AnimeDetailPresenter.swift */; };
@@ -112,6 +113,7 @@
 		E5615BEA2A483D7200A2BAD1 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5615BE92A483D7200A2BAD1 /* EditProfileViewController.swift */; };
 		E5615BEC2A48A7D400A2BAD1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5615BEB2A48A7D400A2BAD1 /* ProfileView.swift */; };
 		E5615BEE2A48BB0100A2BAD1 /* UserPersonal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5615BED2A48BB0100A2BAD1 /* UserPersonal.swift */; };
+		E56252B32AFD853C00EF0ED7 /* DBAnime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56252B22AFD853C00EF0ED7 /* DBAnime.swift */; };
 		E565BD542A783F1D00542A6D /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565BD532A783F1D00542A6D /* CarouselCollectionViewCell.swift */; };
 		E565BD562A7841D300542A6D /* TopAnimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565BD552A7841D300542A6D /* TopAnimeCollectionViewCell.swift */; };
 		E56766512A9D4DD700CB6CB9 /* PosterBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56766502A9D4DD700CB6CB9 /* PosterBackgroundView.swift */; };
@@ -143,6 +145,7 @@
 		E5DC356F2A36488C002470B3 /* LanguageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC356E2A36488C002470B3 /* LanguageCollectionViewCell.swift */; };
 		E5DC35722A37855F002470B3 /* LanguageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC35712A37855F002470B3 /* LanguageCoordinator.swift */; };
 		E5DC35742A379D5D002470B3 /* LanguagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC35732A379D5D002470B3 /* LanguagePresenter.swift */; };
+		E5DD3C2D2AF9737500A151BF /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DD3C2C2AF9737500A151BF /* FavoritesService.swift */; };
 		E5F09C9D2A3A696E0052FD71 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F09C9C2A3A696E0052FD71 /* PopupView.swift */; };
 		E5F09CA02A40FEDD0052FD71 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F09C9F2A40FEDD0052FD71 /* Poppins-Regular.ttf */; };
 		E5F864082A59F7B700A9855B /* PopupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F864072A59F7B700A9855B /* PopupType.swift */; };
@@ -276,6 +279,7 @@
 		E5615BE92A483D7200A2BAD1 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		E5615BEB2A48A7D400A2BAD1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E5615BED2A48BB0100A2BAD1 /* UserPersonal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPersonal.swift; sourceTree = "<group>"; };
+		E56252B22AFD853C00EF0ED7 /* DBAnime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBAnime.swift; sourceTree = "<group>"; };
 		E565BD532A783F1D00542A6D /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewCell.swift; sourceTree = "<group>"; };
 		E565BD552A7841D300542A6D /* TopAnimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAnimeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E56766502A9D4DD700CB6CB9 /* PosterBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterBackgroundView.swift; sourceTree = "<group>"; };
@@ -307,6 +311,7 @@
 		E5DC356E2A36488C002470B3 /* LanguageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCollectionViewCell.swift; sourceTree = "<group>"; };
 		E5DC35712A37855F002470B3 /* LanguageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCoordinator.swift; sourceTree = "<group>"; };
 		E5DC35732A379D5D002470B3 /* LanguagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePresenter.swift; sourceTree = "<group>"; };
+		E5DD3C2C2AF9737500A151BF /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
 		E5F09C9C2A3A696E0052FD71 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		E5F09C9F2A40FEDD0052FD71 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../../../../Downloads/Poppins/Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		E5F864072A59F7B700A9855B /* PopupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupType.swift; sourceTree = "<group>"; };
@@ -380,6 +385,7 @@
 		D23021C929EC853E0091DE37 /* AnimeApp */ = {
 			isa = PBXGroup;
 			children = (
+				E56252AD2AFC1D1500EF0ED7 /* Common */,
 				D235DD6A2A19746A00B7D898 /* Assembly */,
 				D23AA46C29FDC1D200B877CF /* AnimeApp.entitlements */,
 				E5DC35702A378528002470B3 /* Coordinator */,
@@ -435,6 +441,7 @@
 		D23021FC29EC87FA0091DE37 /* ServiceLayers */ = {
 			isa = PBXGroup;
 			children = (
+				E56252B02AFD84E200EF0ED7 /* FavoritesLayer */,
 				D23021FD29EC88390091DE37 /* NetworkLayer */,
 				D23AA4842A0AB97600B877CF /* AnimeService.swift */,
 				D2ECBB1C29EDFB59006D1FF1 /* UserService.swift */,
@@ -817,6 +824,23 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		E56252B02AFD84E200EF0ED7 /* FavoritesLayer */ = {
+			isa = PBXGroup;
+			children = (
+				E56252B12AFD851200EF0ED7 /* Model */,
+				E5DD3C2C2AF9737500A151BF /* FavoritesService.swift */,
+			);
+			path = FavoritesLayer;
+			sourceTree = "<group>";
+		};
+		E56252B12AFD851200EF0ED7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E56252B22AFD853C00EF0ED7 /* DBAnime.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E57C0BA62AC392F20095C682 /* Animes */ = {
 			isa = PBXGroup;
 			children = (
@@ -975,6 +999,8 @@
 			dependencies = (
 			);
 			name = AnimeApp;
+			packageProductDependencies = (
+			);
 			productName = AnimeApp;
 			productReference = D23021C729EC853E0091DE37 /* AnimeApp.app */;
 			productType = "com.apple.product-type.application";
@@ -1050,6 +1076,8 @@
 				Base,
 			);
 			mainGroup = D23021BE29EC853E0091DE37;
+			packageReferences = (
+			);
 			productRefGroup = D23021C829EC853E0091DE37 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1277,6 +1305,7 @@
 				E5DC356B2A364590002470B3 /* MenuHeaderCollectionReusableView.swift in Sources */,
 				D2ECBB2A29F5B124006D1FF1 /* AuthorizationViewController.swift in Sources */,
 				D27AD3942A23E7F700630065 /* PrivacyPolicyViewController.swift in Sources */,
+				E56252B32AFD853C00EF0ED7 /* DBAnime.swift in Sources */,
 				D23AA4812A0A643F00B877CF /* AnimeRequest.swift in Sources */,
 				E56766532A9D647500CB6CB9 /* DescriptionItemView.swift in Sources */,
 				D235DD6E2A1A1E7500B7D898 /* UIImage+Helper.swift in Sources */,
@@ -1324,10 +1353,12 @@
 				E5BB2F432A920E7A00C9372E /* Array+Helper.swift in Sources */,
 				E56766512A9D4DD700CB6CB9 /* PosterBackgroundView.swift in Sources */,
 				E5BB2F252A8AC59E00C9372E /* Anime.swift in Sources */,
+				E5DD3C2D2AF9737500A151BF /* FavoritesService.swift in Sources */,
 				D230220129EC892B0091DE37 /* HTTPMethod.swift in Sources */,
 				E55C3D092A7F93ED00243963 /* CategoryCollectionViewCell.swift in Sources */,
 				E555C81C2A51FCAC00244A80 /* PersonalInfoType.swift in Sources */,
 				E5DC35622A35FA64002470B3 /* CustomSwitch.swift in Sources */,
+				E56252BA2AFD8EB200EF0ED7 /* FavoritesViewController.swift in Sources */,
 				D23021FF29EC88A80091DE37 /* RequestProtocol.swift in Sources */,
 				D23AA4E12A118C0C00B877CF /* MenuFooterCollectionReusableView.swift in Sources */,
 				D2ECBB4829F5D14F006D1FF1 /* AuthorizationView.swift in Sources */,
