@@ -18,7 +18,7 @@ target 'AnimeApp' do
     pod 'UIScrollView-InfiniteScroll', '~> 1.3.0'
 
     # Database
-    pod 'RealmSwift', '~>10'
+    pod 'RealmSwift', '= 10.38'
 
     # network
     pod 'netfox'
