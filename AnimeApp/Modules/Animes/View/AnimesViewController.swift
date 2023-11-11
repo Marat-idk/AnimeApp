@@ -10,8 +10,10 @@ import SnapKit
 import UIScrollView_InfiniteScroll
 
 // MARK: - AnimesViewController
-final class AnimesViewController: UIViewController {
+final class AnimesViewController: UIViewController, FlowCoordinator {
     var presenter: AnimesPresenterProtocol!
+    
+    var completionHandler: ((Bool) -> Void)?
     
     private lazy var tableView: UITableView = {
         let table = UITableView()
@@ -75,7 +77,7 @@ final class AnimesViewController: UIViewController {
     // MARK: targets actions
     @objc private func backBattonTapped(_ sender: UITapGestureRecognizer) {
         print("backBattonTapped")
-//        completionHandler?(true)
+        completionHandler?(true)
         // FIXME: - mock poping
         navigationController?.popViewController(animated: true)
     }
@@ -101,10 +103,8 @@ extension AnimesViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension AnimesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // FIXME: - mock
-        guard let anime = presenter.animes?[indexPath.row] else { return }
-        let view = ModuleFactory().createAnimeDetailModule(with: anime)
-        navigationController?.pushViewController(view, animated: true)
+        guard let anime = presenter.animes?[safe: indexPath.row] else { return }
+        presenter.didSelect(anime)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

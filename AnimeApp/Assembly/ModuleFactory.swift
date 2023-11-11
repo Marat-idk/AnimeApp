@@ -10,18 +10,39 @@ import UIKit
 // MARK: - ModuleFactoryProtocol
 protocol ModuleFactoryProtocol {
     func createMainTabBarModule() -> UIViewController
+    
     func createAuthorizationModule() -> UIViewController
+    
     // MARK: - home
-    func createHomeModule(userService: UserServiceProtocol, animeService: AnimeServiceProtocol, navigationDelegate: HomeNavigationDelegate?) -> UIViewController
-    func createAnimeDetailModule(with anime: Anime) -> UIViewController
-    func createAnimesModule(animeService: AnimeServiceProtocol, with searchOptions: AnimeSearchOptions) -> UIViewController
+    func createHomeModule(userService: UserServiceProtocol,
+                          animeService: AnimeServiceProtocol,
+                          navigationDelegate: HomeNavigationDelegate?) -> UIViewController
+    
+    func createAnimeDetailModule(with anime: Anime,
+                                 favoritesService: FavoritesServiceProtocol) -> UIViewController
+    
+    func createAnimesModule(animeService: AnimeServiceProtocol,
+                            with searchOptions: AnimeSearchOptions,
+                            navigationDelegate: AnimesNavigationDelegate) -> UIViewController
+    
     // MARK: - search
-    func createSearch(animeService: AnimeServiceProtocol, navigationDelegate: SearchNavigationDelegate?) -> UIViewController
+    func createSearch(animeService: AnimeServiceProtocol,
+                      navigationDelegate: SearchNavigationDelegate?) -> UIViewController
+    
+    // MARK: - favorites
+    func createFavorites(favoriteService: FavoritesServiceProtocol,
+                         navigationDelegate: FavoritesNavigationDelegate) -> UIViewController
+    
     // MARK: - personal menu
     func createPesonalMenuModule(navigationDelegate: PersonalMenuNavigationDelegate?) -> UIViewController
-    func createEditProfileModule(userService: UserServiceProtocol, editProfileDelegate: EditProfileDelegate?) -> UIViewController
+    
+    func createEditProfileModule(userService: UserServiceProtocol,
+                                 editProfileDelegate: EditProfileDelegate?) -> UIViewController
+    
     func createNotificationModule() -> UIViewController
+    
     func createLanguageModule(languageDelegate: LanguageUpdatingDelegate?) -> UIViewController
+    
     func createPrivacyPolicyModule() -> UIViewController
 }
 
@@ -59,7 +80,10 @@ struct ModuleFactory: ModuleFactoryProtocol {
     }
     
     // MARK: home
-    func createHomeModule(userService: UserServiceProtocol, animeService: AnimeServiceProtocol, navigationDelegate: HomeNavigationDelegate?) -> UIViewController {
+    func createHomeModule(userService: UserServiceProtocol,
+                          animeService: AnimeServiceProtocol,
+                          navigationDelegate: HomeNavigationDelegate?) -> UIViewController {
+        
         let view = HomeViewController()
         let presenter = HomePresenter(view: view,
                                       userService: userService,
@@ -69,37 +93,59 @@ struct ModuleFactory: ModuleFactoryProtocol {
         return view
     }
     
-    func createAnimeDetailModule(with anime: Anime) -> UIViewController {
+    func createAnimeDetailModule(with anime: Anime,
+                                 favoritesService: FavoritesServiceProtocol) -> UIViewController {
+        
         let view = AnimeDetailViewController()
-        let presenter = AnimeDetailPresenter(view: view, anime: anime)
+        let presenter = AnimeDetailPresenter(view: view, anime: anime, favoritesService: favoritesService)
         view.presenter = presenter
         return view
     }
     
-    func createAnimesModule(animeService: AnimeServiceProtocol, with searchOptions: AnimeSearchOptions) -> UIViewController {
+    func createAnimesModule(animeService: AnimeServiceProtocol,
+                            with searchOptions: AnimeSearchOptions,
+                            navigationDelegate: AnimesNavigationDelegate) -> UIViewController {
+        
         let view = AnimesViewController()
-        let presenter = AnimesPresenter(view: view, animeService: animeService, searchOptions: searchOptions)
+        let presenter = AnimesPresenter(view: view,
+                                        animeService: animeService,
+                                        searchOptions: searchOptions, navigationDelegate: navigationDelegate)
         view.presenter = presenter
         return view
     }
     
     // MARK: search
-    func createSearch(animeService: AnimeServiceProtocol, navigationDelegate: SearchNavigationDelegate?) -> UIViewController {
+    func createSearch(animeService: AnimeServiceProtocol,
+                      navigationDelegate: SearchNavigationDelegate?) -> UIViewController {
+        
         let view = SearchViewController()
         let presenter = SearchPresenter(view: view, animeService: animeService, navigationDelegate: navigationDelegate)
         view.presenter = presenter
         return view
     }
     
+    // MARK: favorites
+    func createFavorites(favoriteService: FavoritesServiceProtocol,
+                         navigationDelegate: FavoritesNavigationDelegate) -> UIViewController {
+        
+        let view = FavoritesViewController()
+        let presenter = FavoritesPresenter(view: view, favoritesService: favoriteService, navigationDelegate: navigationDelegate)
+        view.presenter = presenter
+        return view
+    }
+    
     // MARK: personal menu
     func createPesonalMenuModule(navigationDelegate: PersonalMenuNavigationDelegate?) -> UIViewController {
+        
         let view = PersonalMenuViewController()
         let presenter = PersonalMenuPresenter(view: view, navigationDelegate: navigationDelegate)
         view.presenter = presenter
         return view
     }
     
-    func createEditProfileModule(userService: UserServiceProtocol, editProfileDelegate: EditProfileDelegate?) -> UIViewController {
+    func createEditProfileModule(userService: UserServiceProtocol,
+                                 editProfileDelegate: EditProfileDelegate?) -> UIViewController {
+        
         let view = EditProfileViewController()
         let presenter = EditProfilePresenter(view: view, userService: userService, delegate: editProfileDelegate)
         view.presenter = presenter

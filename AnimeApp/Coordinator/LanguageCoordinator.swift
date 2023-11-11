@@ -66,6 +66,7 @@ class LanguageCoordinator: CoordinatorProtocol {
     }
 }
 
+// MARK: - LanguageUpdatingDelegate
 extension LanguageCoordinator: LanguageUpdatingDelegate {
     func update(with language: String) {
         self.language = language

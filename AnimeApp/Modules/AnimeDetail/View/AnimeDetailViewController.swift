@@ -78,7 +78,7 @@ final class AnimeDetailViewController: UIViewController {
         appearance.shadowColor = .clear
         
         self.customBackButton(with: #selector(backBattonTapped(_:)))
-        self.favoriteRightButton(isFavorited: false, with: #selector(favoriteButtonTapped(_:)))
+        self.favoriteRightButton(isFavorite: presenter.isFavorite, with: #selector(favoriteButtonTapped(_:)))
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.isTranslucent = true
@@ -94,6 +94,8 @@ final class AnimeDetailViewController: UIViewController {
     
     @objc private func favoriteButtonTapped(_ sender: UIBarButtonItem) {
         print("favoriteButtonTapped")
+        presenter.favoriteToggle()
+        updateFavoriteRightButtonAppearance(isFavorite: presenter.isFavorite)
     }
 }
 

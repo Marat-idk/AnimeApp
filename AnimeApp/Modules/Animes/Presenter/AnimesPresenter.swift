@@ -15,16 +15,23 @@ protocol AnimesViewProtocol: AnyObject {
 
 // MARK: - AnimesPresenterProtocol
 protocol AnimesPresenterProtocol: AnyObject {
-    init(view: AnimesViewProtocol, animeService: AnimeServiceProtocol, searchOptions: AnimeSearchOptions)
+    init(view: AnimesViewProtocol, animeService: AnimeServiceProtocol, searchOptions: AnimeSearchOptions, navigationDelegate: AnimesNavigationDelegate)
     
     var animes: [Anime]? { get set }
     
     func fetchAnimes()
+    func didSelect(_ anime: Anime)
+}
+
+// MARK: - AnimesNavigationDelegate
+protocol AnimesNavigationDelegate: AnyObject {
+    func onSelectedAnime(_ anime: Anime)
 }
 
 // MARK: - AnimesPresenter
 final class AnimesPresenter: AnimesPresenterProtocol {
     weak var view: AnimesViewProtocol?
+    weak var navigationDelegate: AnimesNavigationDelegate?
     
     var animes: [Anime]? = []
     
@@ -34,10 +41,15 @@ final class AnimesPresenter: AnimesPresenterProtocol {
     private var currentPage  = 1
     private let itemsPerPage = 25
     
-    init(view: AnimesViewProtocol, animeService: AnimeServiceProtocol, searchOptions: AnimeSearchOptions) {
+    init(view: AnimesViewProtocol,
+         animeService: AnimeServiceProtocol,
+         searchOptions: AnimeSearchOptions,
+         navigationDelegate: AnimesNavigationDelegate) {
+        
         self.view = view
         self.animeService = animeService
         self.searchOptions = searchOptions
+        self.navigationDelegate = navigationDelegate
     }
     
     func fetchAnimes() {
@@ -65,5 +77,9 @@ final class AnimesPresenter: AnimesPresenterProtocol {
                 print("anime error = \(error.localizedDescription)")
             }
         }
+    }
+    
+    func didSelect(_ anime: Anime) {
+        navigationDelegate?.onSelectedAnime(anime)
     }
 }

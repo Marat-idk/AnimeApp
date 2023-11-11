@@ -10,14 +10,21 @@ import UIKit
 // MARK: HomeCoordinator
 class HomeCoordinator: CoordinatorProtocol {
     private let moduleFactory: ModuleFactoryProtocol
+    private let animeService: AnimeServiceProtocol
+    private let favoritesService: FavoritesServiceProtocol
     
     var navigationController: UINavigationController
     var flowCompletionHandler: CoordinatorHandler?
     var childCoordinators: [CoordinatorProtocol] = []
     
-    init(navigationController: UINavigationController, moduleFactory: ModuleFactoryProtocol = ModuleFactory()) {
+    init(navigationController: UINavigationController,
+         moduleFactory: ModuleFactoryProtocol = ModuleFactory(),
+         animeService: AnimeServiceProtocol = AnimeService.shared,
+         favoritesService: FavoritesServiceProtocol) {
         self.navigationController = navigationController
         self.moduleFactory = moduleFactory
+        self.animeService = animeService
+        self.favoritesService = favoritesService
     }
     
     func start() {
@@ -30,13 +37,33 @@ class HomeCoordinator: CoordinatorProtocol {
                                                   navigationDelegate: self)
         navigationController.pushViewController(view, animated: false)
     }
+    
+    func showAnimeDetail(for anime: Anime) {
+        let view = moduleFactory.createAnimeDetailModule(with: anime, favoritesService: favoritesService)
+        navigationController.pushViewController(view, animated: true)
+    }
+    
+    func showMostPopularAnimes(with searchOptions: AnimeSearchOptions) {
+        let animesFlow = CoordinatorFactory.animesCoordinator(with: navigationController,
+                                                              searchOptions: searchOptions,
+                                                              favoritesService: favoritesService)
+        
+        animesFlow.flowCompletionHandler = { [weak self] in
+            print("animesFlow ended")
+        }
+        
+        animesFlow.start()
+        childCoordinators.append(animesFlow)
+    }
 }
 
 // MARK: - HomeNavigationDelegate
 extension HomeCoordinator: HomeNavigationDelegate {
     func onSelectedAnime(_ anime: Anime) {
-        // FIXME: - it just mock pushing
-        let vc = ModuleFactory().createAnimeDetailModule(with: anime)
-        navigationController.pushViewController(vc, animated: true)
+        showAnimeDetail(for: anime)
+    }
+    
+    func onSelectedMostPopularGenre(with searchOptions: AnimeSearchOptions) {
+        showMostPopularAnimes(with: searchOptions)
     }
 }

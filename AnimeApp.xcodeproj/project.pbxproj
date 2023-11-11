@@ -113,7 +113,12 @@
 		E5615BEA2A483D7200A2BAD1 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5615BE92A483D7200A2BAD1 /* EditProfileViewController.swift */; };
 		E5615BEC2A48A7D400A2BAD1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5615BEB2A48A7D400A2BAD1 /* ProfileView.swift */; };
 		E5615BEE2A48BB0100A2BAD1 /* UserPersonal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5615BED2A48BB0100A2BAD1 /* UserPersonal.swift */; };
+		E56252AF2AFC1D3500EF0ED7 /* KeyboardObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56252AE2AFC1D3500EF0ED7 /* KeyboardObservable.swift */; };
 		E56252B32AFD853C00EF0ED7 /* DBAnime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56252B22AFD853C00EF0ED7 /* DBAnime.swift */; };
+		E56252BA2AFD8EB200EF0ED7 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56252B92AFD8EB200EF0ED7 /* FavoritesViewController.swift */; };
+		E56252BC2AFFA1AB00EF0ED7 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56252BB2AFFA1AB00EF0ED7 /* FavoritesPresenter.swift */; };
+		E56252BE2B00204700EF0ED7 /* FavoritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56252BD2B00204700EF0ED7 /* FavoritesCoordinator.swift */; };
+		E56252C02B00256900EF0ED7 /* AnimesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56252BF2B00256900EF0ED7 /* AnimesCoordinator.swift */; };
 		E565BD542A783F1D00542A6D /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565BD532A783F1D00542A6D /* CarouselCollectionViewCell.swift */; };
 		E565BD562A7841D300542A6D /* TopAnimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565BD552A7841D300542A6D /* TopAnimeCollectionViewCell.swift */; };
 		E56766512A9D4DD700CB6CB9 /* PosterBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56766502A9D4DD700CB6CB9 /* PosterBackgroundView.swift */; };
@@ -258,6 +263,7 @@
 		E51FC4F62AE9BAF700CCD8FB /* BlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankView.swift; sourceTree = "<group>"; };
 		E51FC4F82AE9C04400CCD8FB /* BlankType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankType.swift; sourceTree = "<group>"; };
 		E51FC4FA2AE9C0D900CCD8FB /* DispatchQueue+Debounce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Debounce.swift"; sourceTree = "<group>"; };
+		E51FC4FC2AEE882400CCD8FB /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		E538A62D2A673D0400541EC3 /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
 		E53D4CAA2A9B85DB00AF7F77 /* AnimeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailViewController.swift; sourceTree = "<group>"; };
 		E53D4CAC2A9B85F600AF7F77 /* AnimeDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailPresenter.swift; sourceTree = "<group>"; };
@@ -279,7 +285,12 @@
 		E5615BE92A483D7200A2BAD1 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		E5615BEB2A48A7D400A2BAD1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E5615BED2A48BB0100A2BAD1 /* UserPersonal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPersonal.swift; sourceTree = "<group>"; };
+		E56252AE2AFC1D3500EF0ED7 /* KeyboardObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObservable.swift; sourceTree = "<group>"; };
 		E56252B22AFD853C00EF0ED7 /* DBAnime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBAnime.swift; sourceTree = "<group>"; };
+		E56252B92AFD8EB200EF0ED7 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		E56252BB2AFFA1AB00EF0ED7 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
+		E56252BD2B00204700EF0ED7 /* FavoritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinator.swift; sourceTree = "<group>"; };
+		E56252BF2B00256900EF0ED7 /* AnimesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimesCoordinator.swift; sourceTree = "<group>"; };
 		E565BD532A783F1D00542A6D /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewCell.swift; sourceTree = "<group>"; };
 		E565BD552A7841D300542A6D /* TopAnimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAnimeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E56766502A9D4DD700CB6CB9 /* PosterBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterBackgroundView.swift; sourceTree = "<group>"; };
@@ -603,6 +614,7 @@
 		D2ECBB2529F5B0AA006D1FF1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E56252B42AFD8E2900EF0ED7 /* Favorites */,
 				E57EB5482ADC6B2B00151C79 /* Search */,
 				E57C0BA62AC392F20095C682 /* Animes */,
 				E53D4CA72A9B850D00AF7F77 /* AnimeDetail */,
@@ -824,6 +836,14 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		E56252AD2AFC1D1500EF0ED7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E56252AE2AFC1D3500EF0ED7 /* KeyboardObservable.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		E56252B02AFD84E200EF0ED7 /* FavoritesLayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -839,6 +859,31 @@
 				E56252B22AFD853C00EF0ED7 /* DBAnime.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E56252B42AFD8E2900EF0ED7 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				E56252B52AFD8E3600EF0ED7 /* View */,
+				E56252B62AFD8E3E00EF0ED7 /* Presenter */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		E56252B52AFD8E3600EF0ED7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E56252B92AFD8EB200EF0ED7 /* FavoritesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E56252B62AFD8E3E00EF0ED7 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E56252BB2AFFA1AB00EF0ED7 /* FavoritesPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		E57C0BA62AC392F20095C682 /* Animes */ = {
@@ -967,6 +1012,9 @@
 				E5DC35712A37855F002470B3 /* LanguageCoordinator.swift */,
 				E5FD894A2A561A37007581EF /* EditProfileCoordinator.swift */,
 				E549DBE02AA6CBFD00A80080 /* HomeCoordinator.swift */,
+				E56252BF2B00256900EF0ED7 /* AnimesCoordinator.swift */,
+				E56252BD2B00204700EF0ED7 /* FavoritesCoordinator.swift */,
+				E51FC4FC2AEE882400CCD8FB /* SearchCoordinator.swift */,
 				E538A62D2A673D0400541EC3 /* TabCoordinator.swift */,
 			);
 			path = Coordinator;
@@ -1290,6 +1338,7 @@
 				E57C0BB02AC9A96B0095C682 /* AnimeTableViewCell.swift in Sources */,
 				D23AA4E32A19095900B877CF /* MenuLogoutCollectionViewCell.swift in Sources */,
 				E5FD894B2A561A37007581EF /* EditProfileCoordinator.swift in Sources */,
+				E56252BC2AFFA1AB00EF0ED7 /* FavoritesPresenter.swift in Sources */,
 				D23AA46E29FE834700B877CF /* UIDevice+Helper.swift in Sources */,
 				D2626DDA29F603E5008E9521 /* UIView+Helper.swift in Sources */,
 				D23AA4CC2A114C7400B877CF /* PersonalMenuViewController.swift in Sources */,
@@ -1314,6 +1363,7 @@
 				E565BD542A783F1D00542A6D /* CarouselCollectionViewCell.swift in Sources */,
 				E55C3D072A7EDEDA00243963 /* HomeHeaderCollectionReusableView.swift in Sources */,
 				E5CABFF32A4A1F00007CE1A5 /* LabeledMaterialTextField.swift in Sources */,
+				E56252AF2AFC1D3500EF0ED7 /* KeyboardObservable.swift in Sources */,
 				E5615BEC2A48A7D400A2BAD1 /* ProfileView.swift in Sources */,
 				E5A97FD72A6C3B7800D55A04 /* PersonalCollectionViewCell.swift in Sources */,
 				D2626DD429F5F787008E9521 /* MaterialTextField.swift in Sources */,
@@ -1327,6 +1377,7 @@
 				D2ECBB4C29F5D45B006D1FF1 /* UIColor+AnimeAppColors.swift in Sources */,
 				E549DBDB2AA49A7000A80080 /* UIViewController+Alert.swift in Sources */,
 				E5615BEA2A483D7200A2BAD1 /* EditProfileViewController.swift in Sources */,
+				E51FC4FD2AEE882400CCD8FB /* SearchCoordinator.swift in Sources */,
 				E57D87952A6A198E00CAB5DF /* UIImage+AnimeAppImages.swift in Sources */,
 				D230221329ECA6580091DE37 /* AuthorizationRequest.swift in Sources */,
 				E51FC4F72AE9BAF700CCD8FB /* BlankView.swift in Sources */,
@@ -1338,6 +1389,7 @@
 				D230220729EC8DAE0091DE37 /* URLParameterEncoder.swift in Sources */,
 				E549DBD52AA281DD00A80080 /* ScoreView.swift in Sources */,
 				E5DC35672A3633D3002470B3 /* LanguageViewController.swift in Sources */,
+				E56252C02B00256900EF0ED7 /* AnimesCoordinator.swift in Sources */,
 				D2ECBB2F29F5BB2B006D1FF1 /* UIFont+Names.swift in Sources */,
 				E565BD562A7841D300542A6D /* TopAnimeCollectionViewCell.swift in Sources */,
 				E55D27292A7B1260002B5079 /* SnappingLayout.swift in Sources */,
@@ -1353,6 +1405,7 @@
 				E5BB2F432A920E7A00C9372E /* Array+Helper.swift in Sources */,
 				E56766512A9D4DD700CB6CB9 /* PosterBackgroundView.swift in Sources */,
 				E5BB2F252A8AC59E00C9372E /* Anime.swift in Sources */,
+				E56252BE2B00204700EF0ED7 /* FavoritesCoordinator.swift in Sources */,
 				E5DD3C2D2AF9737500A151BF /* FavoritesService.swift in Sources */,
 				D230220129EC892B0091DE37 /* HTTPMethod.swift in Sources */,
 				E55C3D092A7F93ED00243963 /* CategoryCollectionViewCell.swift in Sources */,

@@ -36,7 +36,7 @@ class EditProfileCoordinator: CoordinatorProtocol {
     
     // MARK: - private methods
     private func showEditPrifile() {
-        let view = moduleFactory.createEditProfileModule(editProfileDelegate: self)
+        let view = moduleFactory.createEditProfileModule(userService: UserService.shared, editProfileDelegate: self)
         
         if var view = view as? FlowCoordinator {
             view.completionHandler = { [weak self] flag in
@@ -54,6 +54,8 @@ class EditProfileCoordinator: CoordinatorProtocol {
         // updating for all view
         navigationController.viewControllers.forEach {
             ($0 as? UpdatableWithUserPersonal)?.update(userPersonal)
+            
+            print("~~~~ EditProfileCoordinator \($0)")
         }
         
         // updating for all child coordinators
