@@ -121,7 +121,7 @@ extension SearchViewController: SearchViewProtocol {
         let isSearchResultEmpty = presenter.animes?.isEmpty ?? true
         
         tableView.tableViewIsHidden = isSearchResultEmpty
-        blackView.isHidden = !(isSearchResultEmpty && shouldShowBlankView)
+        blankView.isHidden = !(isSearchResultEmpty && shouldShowBlankView)
         tableView.reloadData()
     }
     

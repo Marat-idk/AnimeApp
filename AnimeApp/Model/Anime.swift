@@ -105,7 +105,7 @@ enum Status: String {
 
 // MARK: - Anime
 struct Anime: Mappable {
-    var malID: Int?
+    var malID: Int = 0
     var url: String?
     var images: Images?
     var trailer: Trailer?
