@@ -26,7 +26,7 @@ final class SearchViewController: UIViewController {
         return table
     }()
     
-    private let blackView: BlankView = {
+    private let blankView: BlankView = {
         let view = BlankView(type: .noSearchResult)
         return view
     }()
@@ -43,25 +43,22 @@ final class SearchViewController: UIViewController {
         presenter.searchAnimes(with: "")
         
         hideKeyboardWhenTappedAround()
-        
-        view.addSubview(blackView)
-
-        blackView.snp.makeConstraints {
-            $0.center.equalToSuperview()
-            $0.width.equalTo(190)
-        }
-        
     }
     
     // MARK: Private methods
     private func setupViews() {
-        view.addSubview(tableView)
+        view.addSubviews(tableView, blankView)
     }
     
     private func setupConstraints() {
         tableView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
             $0.verticalEdges.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        blankView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.width.equalTo(190)
         }
     }
     
