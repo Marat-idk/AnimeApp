@@ -37,12 +37,21 @@ final class SearchViewController: UIViewController {
         
         setupViews()
         setupConstraints()
-        setupNavigationBar()
         
         // FIXME: - MOCK calling
         presenter.searchAnimes(with: "")
         
         hideKeyboardWhenTappedAround()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     // MARK: Private methods
@@ -60,17 +69,6 @@ final class SearchViewController: UIViewController {
             $0.center.equalToSuperview()
             $0.width.equalTo(190)
         }
-    }
-    
-    private func setupNavigationBar() {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .brandDarkBlue
-        appearance.shadowImage = UIImage()
-        appearance.shadowColor = .clear
-        
-        navigationItem.standardAppearance = appearance
-        navigationItem.scrollEdgeAppearance = appearance
     }
 }
 

@@ -56,8 +56,7 @@ final class HomeViewController: UIViewController {
         view.backgroundColor = .brandDarkBlue
         
         setupViews()
-//        setupConstraints()
-        setupNavigationBar()
+        setupConstraints()
         hideKeyboardWhenTappedAround()
         
         presenter.fetchAnimeForSelectedGenre()
@@ -66,43 +65,25 @@ final class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("viewWillAppear")
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        print("viewWillLayoutSubviews")
-        setupConstraints()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        print("viewDidLayoutSubviews \(view.safeAreaInsets.top)")
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
     // MARK: - Private methods
     private func setupViews() {
-//        navigationController?.navigationBar.isUserInteractionEnabled = false
         view.addSubview(collectionView)
     }
     
     private func setupConstraints() {
         collectionView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
-            $0.top.equalToSuperview().offset(view.safeAreaInsets.top / 2 )
+            $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
-    }
-    
-    private func setupNavigationBar() {
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .clear
-        appearance.shadowColor = .clear
-        appearance.shadowImage = UIImage()
-        
-        navigationItem.standardAppearance = appearance
-        navigationItem.scrollEdgeAppearance = appearance
     }
 }
 
