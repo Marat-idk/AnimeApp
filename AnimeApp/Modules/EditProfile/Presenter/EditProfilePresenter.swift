@@ -54,7 +54,7 @@ final class EditProfilePresenter: EditProfilePresenterProtocol {
     
     // MARK: - view to presenter
     func getUserPersonal() {
-        // doing some shit
+        // FIXME: doing some shit
         view?.updateUserPersonal(with: userService.userPersonal)
     }
     

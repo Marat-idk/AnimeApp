@@ -17,10 +17,7 @@ final class CarouselCollectionViewCell: UICollectionViewCell {
     // TODO: - mock, should be deleted
     private let colors: [UIColor] = [.red, .green, .blue]
     
-    private lazy var collectionView: UICollectionView = {
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .horizontal
-        
+    private lazy var collectionView: UICollectionView = {        
         let layout = SnappingLayout()
         layout.scrollDirection = .horizontal
         layout.snapPosition = .right

@@ -40,7 +40,9 @@ final class FavoritesCoordinator: CoordinatorProtocol {
 
 extension FavoritesCoordinator: FavoritesNavigationDelegate {
     func onSelectedAnime(_ anime: Anime) {
-        let view = moduleFactory.createAnimeDetailModule(with: anime, favoritesService: favoritesService)
+        let view = moduleFactory.createAnimeDetailModule(with: anime,
+                                                         animeService: animeService,
+                                                         favoritesService: favoritesService)
         navigationController.pushViewController(view, animated: true)
     }
 }

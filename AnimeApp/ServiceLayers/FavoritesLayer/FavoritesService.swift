@@ -27,12 +27,8 @@ struct FavoritesService: FavoritesServiceProtocol {
     }
     
     func append(_ anime: Anime) {
-        guard let realm = realm else {
+        guard let realm = realm, exists(anime) else {
             return
-        }
-        
-        if exists(anime) {
-            remove(anime)
         }
         
         let dbAnime = DBAnime(mallId: anime.malID,

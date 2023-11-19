@@ -14,7 +14,7 @@ protocol AnimeDetailViewProtocol: AnyObject {
 
 // MARK: - AnimeDetailPresenterProtocol
 protocol AnimeDetailPresenterProtocol: AnyObject {
-    init(view: AnimeDetailViewProtocol, anime: Anime, favoritesService: FavoritesServiceProtocol)
+    init(view: AnimeDetailViewProtocol, anime: Anime, animeService: AnimeServiceProtocol, favoritesService: FavoritesServiceProtocol)
     
     var anime: Anime { get }
     var characters: Characters? { get }
@@ -39,16 +39,18 @@ final class AnimeDetailPresenter: AnimeDetailPresenterProtocol {
         return favoritesService.exists(anime)
     }
     
-    private var favoritesService: FavoritesServiceProtocol
+    private let favoritesService: FavoritesServiceProtocol
+    private let animeService: AnimeServiceProtocol
     
-    init(view: AnimeDetailViewProtocol, anime: Anime, favoritesService: FavoritesServiceProtocol) {
+    init(view: AnimeDetailViewProtocol, anime: Anime, animeService: AnimeServiceProtocol, favoritesService: FavoritesServiceProtocol) {
         self.view = view
         self.anime = anime
+        self.animeService = animeService
         self.favoritesService = favoritesService
     }
     
     func fetchAnimeCharacters() {
-        AnimeService.shared.loadCharacters(from: anime.malID ?? 0) { [weak self] result in
+        animeService.loadCharacters(from: anime.malID) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let characters):

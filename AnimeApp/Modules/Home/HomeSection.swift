@@ -35,8 +35,7 @@ enum HomeSection: Int, HomeSectionType {
     var description: String {
         switch self {
         case .main:
-            // FIXME: - remove it
-            return "mock mock mock"
+            return ""
         case .categories:
             return "Categories"
         case .mostPopular:

@@ -68,7 +68,7 @@ class AnimeService: AnimeServiceProtocol {
     }
     
     func loadCharacters(from animeId: Int, completion: @escaping (Result<Characters, Error>) -> Void) {
-        networkManager.request(with: AnimeRequest.animeCharacters(animeId)) { data, response, error in
+        networkManager.request(with: AnimeRequest.animeCharacters(animeId)) { data, _, error in
             guard error == nil else {
                 completion(.failure(NetworkError.connectionFailed))
                 return
@@ -118,19 +118,14 @@ class AnimeService: AnimeServiceProtocol {
     
     func loadTopGenresAnime(completion: @escaping () -> Void) {
         let group = DispatchGroup()
-        let concurrentQueue = DispatchQueue(label: "conncurentQueue")
+        let concurrentQueue = DispatchQueue(label: "conncurentQueue", attributes: .concurrent)
         
         for (index, genre) in topGenres.enumerated() {
             group.enter()
             let delay: TimeInterval = 2 * Double(index / 3) + (index / 3 == 0 ? 0 : 2.5)
             
-            // FIXME: - log print should be removed
-            print("++++++++++++++delay = \(delay)")
-            
             concurrentQueue.asyncAfter(deadline: .now() + delay, qos: .userInitiated) {
-                print("++++++ entered at index =\(index)")
                 self.loadAnimeBy(genre: genre) {
-                    print("++++++ leaving at index =\(index)")
                     group.leave()
                 }
             }

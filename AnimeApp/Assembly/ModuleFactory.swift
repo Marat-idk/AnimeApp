@@ -19,6 +19,7 @@ protocol ModuleFactoryProtocol {
                           navigationDelegate: HomeNavigationDelegate?) -> UIViewController
     
     func createAnimeDetailModule(with anime: Anime,
+                                 animeService: AnimeServiceProtocol,
                                  favoritesService: FavoritesServiceProtocol) -> UIViewController
     
     func createAnimesModule(animeService: AnimeServiceProtocol,
@@ -94,10 +95,14 @@ struct ModuleFactory: ModuleFactoryProtocol {
     }
     
     func createAnimeDetailModule(with anime: Anime,
+                                 animeService: AnimeServiceProtocol,
                                  favoritesService: FavoritesServiceProtocol) -> UIViewController {
         
         let view = AnimeDetailViewController()
-        let presenter = AnimeDetailPresenter(view: view, anime: anime, favoritesService: favoritesService)
+        let presenter = AnimeDetailPresenter(view: view,
+                                             anime: anime,
+                                             animeService: animeService,
+                                             favoritesService: favoritesService)
         view.presenter = presenter
         return view
     }

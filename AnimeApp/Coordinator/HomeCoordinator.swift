@@ -39,7 +39,9 @@ class HomeCoordinator: CoordinatorProtocol {
     }
     
     func showAnimeDetail(for anime: Anime) {
-        let view = moduleFactory.createAnimeDetailModule(with: anime, favoritesService: favoritesService)
+        let view = moduleFactory.createAnimeDetailModule(with: anime,
+                                                         animeService: animeService,
+                                                         favoritesService: favoritesService)
         navigationController.pushViewController(view, animated: true)
     }
     
@@ -48,7 +50,7 @@ class HomeCoordinator: CoordinatorProtocol {
                                                               searchOptions: searchOptions,
                                                               favoritesService: favoritesService)
         
-        animesFlow.flowCompletionHandler = { [weak self] in
+        animesFlow.flowCompletionHandler = {
             print("animesFlow ended")
         }
         

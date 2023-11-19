@@ -92,7 +92,6 @@ extension SearchViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // FIXME: - mock
         guard let anime = presenter.animes?[indexPath.row] else { return }
         presenter.didSelected(anime)
     }
