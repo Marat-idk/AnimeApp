@@ -125,8 +125,6 @@ extension FavoritesViewController: FavoritesViewProtocol {
         
         blankView.isHidden = !isFavoritesEmpty
         
-        if !isFavoritesEmpty {
-            tableView.reloadData()
-        }
+        tableView.reloadData()
     }
 }

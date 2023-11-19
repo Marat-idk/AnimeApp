@@ -83,6 +83,8 @@ final class AnimesTableView: UIView {
 
         table.infiniteScrollIndicatorView = indicator
         
+        table.keyboardDismissMode = .onDrag
+        
         return table
     }()
     

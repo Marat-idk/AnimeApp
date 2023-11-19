@@ -110,9 +110,11 @@ extension AnimeRequest: RequestProtocol {
     var parameters: Parameters? {
         switch self {
         case .animeGenres(let filter):
-            return filter != nil ? ["filter": filter!.rawValue] : nil
+            guard let filter = filter else { return nil }
+            return ["filter": filter.rawValue]
         case .mangaGenres(let filter):
-            return filter != nil ? ["filter": filter!.rawValue] : nil
+            guard let filter = filter else { return nil }
+            return ["filter": filter.rawValue]
         case .animeSearch(let model):
             guard let model = model else { return nil }
             

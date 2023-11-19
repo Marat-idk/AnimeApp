@@ -21,7 +21,7 @@ enum TabBarPage: Int {
         case .search:
             return "Search"
         case .download:
-            return "Download"
+            return "Favorites"
         case .profile:
             return "Profile"
         }
@@ -34,7 +34,7 @@ enum TabBarPage: Int {
         case .search:
             return .search
         case .download:
-            return .download
+            return .heart
         case .profile:
             return .personal
         }
