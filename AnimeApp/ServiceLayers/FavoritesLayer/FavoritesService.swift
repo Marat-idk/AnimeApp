@@ -27,7 +27,7 @@ struct FavoritesService: FavoritesServiceProtocol {
     }
     
     func append(_ anime: Anime) {
-        guard let realm = realm, exists(anime) else {
+        guard let realm = realm, !exists(anime) else {
             return
         }
         
