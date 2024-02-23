@@ -145,8 +145,7 @@ enum MostPopularCells: Int, HomeCellType {
     var width: CGFloat {
         return screenWidth
     }
-    
-    // FIXME: - MOCK remove it
+
     var height: CGFloat {
         return 230.0
     }

@@ -297,7 +297,7 @@ fileprivate extension UIView {
                                 clockwise: false)
         
         let smallCircleShape = CAShapeLayer()
-        smallCircleShape.fillColor = UIColor(hexString: "#F29D33").cgColor
+        smallCircleShape.fillColor = UIColor.brandOrange.cgColor
         smallCircleShape.path = smallCirclePath.cgPath
         
         layer.masksToBounds = true

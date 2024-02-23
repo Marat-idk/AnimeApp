@@ -15,6 +15,9 @@ protocol PersonalMenuViewProtocol: AnyObject {
 // MARK: - PersonalMenuPresenterProtocol
 protocol PersonalMenuPresenterProtocol: AnyObject {
     init(view: PersonalMenuViewProtocol, userService: UserServiceProtocol, navigationDelegate: PersonalMenuNavigationDelegate?)
+    
+    var userPersonal: UserPersonal { get }
+    
     func menuItemDidSelect(at indexPath: IndexPath)
 }
 
@@ -29,6 +32,10 @@ final class PersonalMenuPresenter: PersonalMenuPresenterProtocol {
     weak var view: PersonalMenuViewProtocol?
     private var userService: UserServiceProtocol
     weak var navigationDelegate: PersonalMenuNavigationDelegate?
+    
+    var userPersonal: UserPersonal {
+        userService.userPersonal
+    }
     
     init(view: PersonalMenuViewProtocol, userService: UserServiceProtocol, navigationDelegate: PersonalMenuNavigationDelegate? = nil) {
         self.view = view

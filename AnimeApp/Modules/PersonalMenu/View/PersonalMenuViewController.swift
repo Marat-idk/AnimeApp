@@ -150,8 +150,7 @@ extension PersonalMenuViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         cell.delegate = self
-        // FIXME: временная моковое говно, обязательно исправь
-        cell.userPersonalData = UserService.shared.userPersonal
+        cell.userPersonalData = presenter.userPersonal
         return cell
     }
     
