@@ -22,6 +22,8 @@ final class CustomPageControl: UIPageControl {
     
     var pageIndicatorWidth: CGFloat = 8.0
     var currentPageIndicatorWidth: CGFloat = 24.0
+    var currentpageIndicatorCornerRadius: CGFloat = 0
+    var pageIndicatorCornerRadius: CGFloat = 0
     
     private lazy var stackView: UIStackView = {
         let stack = UIStackView()
@@ -53,8 +55,7 @@ final class CustomPageControl: UIPageControl {
         
         for page in 0..<numberOfPages {
             let indicator = indicator(for: page)
-            // FIXME: - hardcoded cornerRadius
-            indicator.layer.cornerRadius = 4
+            indicator.layer.cornerRadius = cornerRadius(for: page)
             indicator.layer.masksToBounds = true
             let width = width(for: page)
             indicator.snp.makeConstraints { $0.width.equalTo(width).priority(.high) }
@@ -75,6 +76,10 @@ final class CustomPageControl: UIPageControl {
         let view = UIView()
         view.backgroundColor = isCurrent(page) ? currentPageIndicatorTintColor : pageIndicatorTintColor
         return view
+    }
+    
+    private func cornerRadius(for page: Int) -> CGFloat {
+        return isCurrent(page) ? currentpageIndicatorCornerRadius : pageIndicatorCornerRadius
     }
     
     private func width(for page: Int) -> CGFloat {

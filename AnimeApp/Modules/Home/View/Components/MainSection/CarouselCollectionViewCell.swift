@@ -46,6 +46,8 @@ final class CarouselCollectionViewCell: UICollectionViewCell {
         let pageControl = CustomPageControl()
         pageControl.pageIndicatorTintColor = .brandLightBlue.withAlphaComponent(0.5)
         pageControl.currentPageIndicatorTintColor = .brandLightBlue
+        pageControl.pageIndicatorCornerRadius = 4
+        pageControl.currentpageIndicatorCornerRadius = 4
         pageControl.numberOfPages = colors.count
         pageControl.currentPage = 0
         return pageControl
