@@ -35,7 +35,7 @@ protocol ModuleFactoryProtocol {
                          navigationDelegate: FavoritesNavigationDelegate) -> UIViewController
     
     // MARK: - personal menu
-    func createPesonalMenuModule(navigationDelegate: PersonalMenuNavigationDelegate?) -> UIViewController
+    func createPesonalMenuModule(userService: UserServiceProtocol, navigationDelegate: PersonalMenuNavigationDelegate?) -> UIViewController
     
     func createEditProfileModule(userService: UserServiceProtocol,
                                  editProfileDelegate: EditProfileDelegate?) -> UIViewController
@@ -57,8 +57,8 @@ extension ModuleFactoryProtocol {
         return createSearch(animeService: animeService, navigationDelegate: nil)
     }
     
-    func createPesonalMenuModule() -> UIViewController {
-        return createPesonalMenuModule(navigationDelegate: nil)
+    func createPesonalMenuModule(userService: UserServiceProtocol) -> UIViewController {
+        return createPesonalMenuModule(userService: userService, navigationDelegate: nil)
     }
     
     func createEditProfileModule(userService: UserServiceProtocol) -> UIViewController {
@@ -140,10 +140,10 @@ struct ModuleFactory: ModuleFactoryProtocol {
     }
     
     // MARK: personal menu
-    func createPesonalMenuModule(navigationDelegate: PersonalMenuNavigationDelegate?) -> UIViewController {
+    func createPesonalMenuModule(userService: UserServiceProtocol, navigationDelegate: PersonalMenuNavigationDelegate?) -> UIViewController {
         
         let view = PersonalMenuViewController()
-        let presenter = PersonalMenuPresenter(view: view, navigationDelegate: navigationDelegate)
+        let presenter = PersonalMenuPresenter(view: view, userService: userService, navigationDelegate: navigationDelegate)
         view.presenter = presenter
         return view
     }

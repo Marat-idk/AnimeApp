@@ -16,7 +16,7 @@ protocol CoordinatorFactoryProtocol {
     
     static func createFavoritesCoordinator(with navigationController: UINavigationController, animeService: AnimeServiceProtocol, favoritesService: FavoritesServiceProtocol) -> FavoritesCoordinator
     
-    static func createPersonalMenuCoordinator(with navigationController: UINavigationController) -> PersonalMenuCoordinator
+    static func createPersonalMenuCoordinator(with navigationController: UINavigationController, appDependency: HasDependencies) -> PersonalMenuCoordinator
     
     static func createLanguageCoordinator(with navigationController: UINavigationController) -> LanguageCoordinator
     
@@ -51,8 +51,8 @@ struct CoordinatorFactory: CoordinatorFactoryProtocol {
                                     favoritesService: favoritesService)
     }
     
-    static func createPersonalMenuCoordinator(with navigationController: UINavigationController) -> PersonalMenuCoordinator {
-        return PersonalMenuCoordinator(navigationController: navigationController)
+    static func createPersonalMenuCoordinator(with navigationController: UINavigationController, appDependency: HasDependencies) -> PersonalMenuCoordinator {
+        return PersonalMenuCoordinator(navigationController: navigationController, appDependency: appDependency)
     }
     
     static func createLanguageCoordinator(with navigationController: UINavigationController) -> LanguageCoordinator {

@@ -141,6 +141,7 @@
 		E5BB2F252A8AC59E00C9372E /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB2F242A8AC59E00C9372E /* Anime.swift */; };
 		E5BB2F272A8ACBBF00C9372E /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB2F262A8ACBBF00C9372E /* Pagination.swift */; };
 		E5BB2F432A920E7A00C9372E /* Array+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BB2F422A920E7A00C9372E /* Array+Helper.swift */; };
+		E5C7D7C12B8943CC00E2EB1B /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7D7C02B8943CC00E2EB1B /* AppDependency.swift */; };
 		E5CABFF32A4A1F00007CE1A5 /* LabeledMaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CABFF22A4A1F00007CE1A5 /* LabeledMaterialTextField.swift */; };
 		E5DC35622A35FA64002470B3 /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC35612A35FA64002470B3 /* CustomSwitch.swift */; };
 		E5DC35672A3633D3002470B3 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC35662A3633D3002470B3 /* LanguageViewController.swift */; };
@@ -313,6 +314,7 @@
 		E5BB2F242A8AC59E00C9372E /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
 		E5BB2F262A8ACBBF00C9372E /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		E5BB2F422A920E7A00C9372E /* Array+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Helper.swift"; sourceTree = "<group>"; };
+		E5C7D7C02B8943CC00E2EB1B /* AppDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
 		E5CABFF22A4A1F00007CE1A5 /* LabeledMaterialTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledMaterialTextField.swift; sourceTree = "<group>"; };
 		E5DC35612A35FA64002470B3 /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
 		E5DC35662A3633D3002470B3 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
@@ -840,6 +842,7 @@
 			isa = PBXGroup;
 			children = (
 				E56252AE2AFC1D3500EF0ED7 /* KeyboardObservable.swift */,
+				E5C7D7C02B8943CC00E2EB1B /* AppDependency.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1312,6 +1315,7 @@
 				E5615BEE2A48BB0100A2BAD1 /* UserPersonal.swift in Sources */,
 				D23AA4772A00A3F800B877CF /* RegistrationValidators.swift in Sources */,
 				D23AA4852A0AB97600B877CF /* AnimeService.swift in Sources */,
+				E5C7D7C12B8943CC00E2EB1B /* AppDependency.swift in Sources */,
 				E57EB5472ADC66E600151C79 /* AnimesTableView.swift in Sources */,
 				E549DBDD2AA513E500A80080 /* CharacterCollectionViewCell.swift in Sources */,
 				D2ECBB5129F5D90A006D1FF1 /* GradientView.swift in Sources */,

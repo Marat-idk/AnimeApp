@@ -10,7 +10,8 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var appCoordinator: CoordinatorProtocol?
+    private var appCoordinator: CoordinatorProtocol?
+    private lazy var appDependency: HasDependencies = AppDependency.makeDefault()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -21,10 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        appCoordinator = TabCoordinator(navigationController: UINavigationController(),
-                                        animeService: AnimeService.shared,
-                                        userService: UserService.shared,
-                                        favoritesService: FavoritesService())
+        appCoordinator = TabCoordinator(navigationController: UINavigationController(), appDependency: appDependency)
 
         window?.rootViewController = appCoordinator?.navigationController
         

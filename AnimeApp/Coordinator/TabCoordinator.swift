@@ -43,26 +43,17 @@ enum TabBarPage: Int {
 
 // MARK: - TabCoordinator
 class TabCoordinator: CoordinatorProtocol {
-    private let animeService: AnimeServiceProtocol
-    private let userService: UserServiceProtocol
-    private let favoritesService: FavoritesServiceProtocol
-    
+    private let appDependency: HasDependencies
     private let tabBarController: UITabBarController
     // MARK: - public properties
     var navigationController: UINavigationController
     var flowCompletionHandler: CoordinatorHandler?
     var childCoordinators: [CoordinatorProtocol] = []
     
-    init(navigationController: UINavigationController,
-         animeService: AnimeServiceProtocol,
-         userService: UserServiceProtocol,
-         favoritesService: FavoritesServiceProtocol) {
+    init(navigationController: UINavigationController, appDependency: HasDependencies) {
         self.navigationController = navigationController
         self.tabBarController = MainTabBarController()
-        
-        self.animeService = animeService
-        self.userService = userService
-        self.favoritesService = favoritesService
+        self.appDependency = appDependency
     }
     
     func start() {
@@ -82,23 +73,23 @@ class TabCoordinator: CoordinatorProtocol {
         switch page {
         case .home:
             let homeCoordinator = CoordinatorFactory.createHomeCoordinator(with: navigationController,
-                                                                           favoritesService: favoritesService)
+                                                                           favoritesService: appDependency.favoritesService)
             childCoordinators.append(homeCoordinator)
             homeCoordinator.start()
         case .search:
             let searchCoordinator = CoordinatorFactory.createSearchCoordinator(with: navigationController,
-                                                                               animeService: animeService,
-                                                                               favoritesService: favoritesService)
+                                                                               animeService: appDependency.animeService,
+                                                                               favoritesService: appDependency.favoritesService)
             childCoordinators.append(searchCoordinator)
             searchCoordinator.start()
         case .download:
             let favoritesCoordinator = CoordinatorFactory.createFavoritesCoordinator(with: navigationController,
-                                                                     animeService: animeService,
-                                                                     favoritesService: favoritesService)
+                                                                                     animeService: appDependency.animeService,
+                                                                                     favoritesService: appDependency.favoritesService)
             childCoordinators.append(favoritesCoordinator)
             favoritesCoordinator.start()
         case .profile:
-            let profileCoordinator = CoordinatorFactory.createPersonalMenuCoordinator(with: navigationController)
+            let profileCoordinator = CoordinatorFactory.createPersonalMenuCoordinator(with: navigationController, appDependency: appDependency)
             childCoordinators.append(profileCoordinator)
             profileCoordinator.start()
         }

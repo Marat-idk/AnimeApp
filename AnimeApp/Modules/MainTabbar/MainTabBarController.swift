@@ -25,18 +25,18 @@ final class MainTabBarController: UITabBarController {
     }
     
     private func generateTabBar() {
-        viewControllers = [
-            generateVC(
-                viewController: ModuleFactory().createAuthorizationModule(),
-                title: "Profile",
-                image: UIImage(named: "ic-profile")
-            ),
-            generateVC(
-                viewController: ModuleFactory().createPesonalMenuModule(),
-                title: "Menu",
-                image: UIImage(named: "ic-profile")?.template
-            )
-        ]
+//        viewControllers = [
+//            generateVC(
+//                viewController: ModuleFactory().createAuthorizationModule(),
+//                title: "Profile",
+//                image: UIImage(named: "ic-profile")
+//            ),
+//            generateVC(
+//                viewController: ModuleFactory().createPesonalMenuModule(),
+//                title: "Menu",
+//                image: UIImage(named: "ic-profile")?.template
+//            )
+//        ]
     }
     
     private func generateVC(viewController: UIViewController, title: String?, image: UIImage?) -> UIViewController {

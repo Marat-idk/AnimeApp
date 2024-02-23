@@ -11,7 +11,8 @@ import SnapKit
 
 // MARK: - PersonalMenuCoordinator
 class PersonalMenuCoordinator: CoordinatorProtocol {
-    // MARK: - public properties
+    // MARK: - private properties
+    private let appDependency: HasDependencies
     private let moduleFactory: ModuleFactoryProtocol
     private var userPersonal: UserPersonal { didSet { updateUserPersonal() } }
     private var language: String = "English"
@@ -22,11 +23,11 @@ class PersonalMenuCoordinator: CoordinatorProtocol {
     var flowCompletionHandler: CoordinatorHandler?
     
     // MARK: - init
-    init(navigationController: UINavigationController, moduleFactory: ModuleFactoryProtocol = ModuleFactory()) {
+    init(navigationController: UINavigationController, appDependency: HasDependencies, moduleFactory: ModuleFactoryProtocol = ModuleFactory()) {
         self.navigationController = navigationController
+        self.appDependency = appDependency
         self.moduleFactory = moduleFactory
-        // TODO: - inject it from outside
-        self.userPersonal = UserService.shared.userPersonal
+        self.userPersonal = appDependency.userService.userPersonal
     }
     
     // MARK: - public methods
@@ -36,7 +37,7 @@ class PersonalMenuCoordinator: CoordinatorProtocol {
     
     // MARK: - private methods
     private func showPersonalMenu() {
-        let personalMenu = moduleFactory.createPesonalMenuModule(navigationDelegate: self)
+        let personalMenu = moduleFactory.createPesonalMenuModule(userService: appDependency.userService, navigationDelegate: self)
         navigationController.pushViewController(personalMenu, animated: true)
     }
     
